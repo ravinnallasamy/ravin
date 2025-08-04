@@ -1,0 +1,72 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# NPM logs and caches
+.npm/
+.cache/
+
+# Build output (optional, depending on your project)
+out/
+build/
+
+# Coverage reports
+coverage/
+
+# Static export folders (Next.js)
+.next/
+.vercel/
+
+# JetBrains IDE (WebStorm, etc.)
+*.iml
+*.iws
+
+# Parcel
+.cache/
+
+# Test output
+test-output/
+jest-html-reporters-*
+
+# Storybook
+storybook-static/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Optional lockfiles (if you're only using one manager)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

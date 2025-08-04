@@ -183,7 +183,7 @@ const handleDownloadResume = async () => {
                 }}
               >
                 {[
-                  { value: "1+", label: "Years of experience" },
+                  { value: "1+", label: "Years of Virtual experience" },
                   { value: "3+", label: "Projects" },
                   { value: "8.3", label: "CGPA" }
                 ].map((stat, index) => (

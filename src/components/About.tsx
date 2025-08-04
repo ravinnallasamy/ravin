@@ -36,31 +36,33 @@ const About: React.FC = () => {
   };
 
 
-const handleDownloadResume = () => {
+const handleDownloadResume = async () => {
   setIsDownloading(true);
-  
-  const link = document.createElement('a');
-  link.href = '/resume/resume-ravinnallasamy.pdf';
-  link.download = 'RavinNallasamy-Resume.pdf';
-  
-  link.onclick = () => {
-    setTimeout(() => {
-      setIsDownloading(false);
-      toast.success('Resume downloaded successfully!', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    }, 1000);
-  };
-  
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+
+  try {
+    const response = await fetch('/resume-ravinnallasamy.pdf');
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'RavinNallasamy-Resume.pdf'); 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+
+    toast.success('Resume downloaded successfully!', {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
+  } catch (err) {
+    toast.error('Failed to download resume.');
+  } finally {
+    setIsDownloading(false);
+  }
 };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

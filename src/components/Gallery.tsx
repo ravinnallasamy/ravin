@@ -19,7 +19,7 @@ const Gallery: React.FC = () => {
       src: "/images/Uzhavan.png",
       title: "Uzhavan – Agri Rental Platform",
       description: "A MERN-based web platform enabling farmers to rent agricultural equipment easily.",
-      githubUrl: "https://github.com/ravinnallasamy/uzhavanrentals"
+      githubUrl: "https://github.com/ravinnallasamy/agricultural-equipment-rental"
     }
   ];
 

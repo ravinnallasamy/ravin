@@ -40,7 +40,7 @@ const handleDownloadResume = async () => {
   setIsDownloading(true);
 
   try {
-    const response = await fetch('/resume-ravinnallasamy.pdf');
+    const response = await fetch('/Ravin-Resume.pdf');
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
 

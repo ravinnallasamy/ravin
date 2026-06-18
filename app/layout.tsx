@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import siteData from '../data/site.json';
 
 export const metadata: Metadata = {
-  title: "Ravin Nallasamy's Portfolio",
+  title: siteData.title,
   icons: {
-    icon: '/images/image.png?v=2',
-    apple: '/images/image.png?v=2',
+    icon: siteData.favicon,
+    apple: siteData.favicon,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1e40af',
+  themeColor: siteData.themeColor,
 };
 
 export default function RootLayout({

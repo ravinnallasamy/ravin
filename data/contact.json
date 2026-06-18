@@ -1,0 +1,18 @@
+{
+  "heading": "Let's Connect",
+  "subheading": "Have a project in mind or want to collaborate? I'd love to hear from you.",
+  "getInTouchHeading": "Get in Touch",
+  "intro": "I'm always open to discussing new opportunities, interesting projects, or potential collaborations. Feel free to reach out through any of the channels below.",
+  "formHeading": "Send a Message",
+  "contactInfo": [
+    { "icon": "📧", "label": "Email", "value": "ravinit001@gmail.com", "type": "email" },
+    { "icon": "📱", "label": "Phone", "value": "+91 7010757687", "type": "phone" },
+    { "icon": "💼", "label": "LinkedIn", "value": "ravinnallasamy", "type": "linkedin" },
+    { "icon": "🐙", "label": "GitHub", "value": "ravinnallasamy", "type": "github" }
+  ],
+  "links": {
+    "github": "https://github.com/ravinnallasamy",
+    "linkedin": "https://linkedin.com/in/ravinnallasamy",
+    "phone": "+917010757687"
+  }
+}

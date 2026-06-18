@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import navbarData from '../../data/navbar.json';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,13 +29,7 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const navItems = [
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Experience', id: 'experience' },
-    { name: 'Gallery', id: 'gallery' },
-    { name: 'Contact', id: 'contact' }
-  ];
+  const { logo, navItems } = navbarData;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -49,7 +44,7 @@ const Navbar: React.FC = () => {
             className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform duration-200"
             onClick={() => scrollToSection('hero')}
           >
-            RN
+            {logo}
           </div>
 
           {/* Desktop Navigation Links */}

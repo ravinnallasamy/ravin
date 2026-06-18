@@ -2,46 +2,10 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
+import experienceData from '../../data/experience.json';
 
 const Experience: React.FC = () => {
-  const experiences = [
-    {
-      title: "Full Stack Developer",
-      company: "Tech Innovations Inc.",
-      period: "2023 - Present",
-      description: "Leading development of scalable web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting robust solutions.",
-      technologies: ["React", "Node.js", "TypeScript", "AWS"],
-      icon: "💼",
-      color: "from-blue-500 to-purple-600"
-    },
-    {
-      title: "IoT Protocols Intern",
-      company: "Innovate Engineering Products",
-      period: "2024",
-      description: "Gained hands-on experience with real-time IoT protocols, developed monitoring systems, and worked on edge computing solutions.",
-      technologies: ["IoT", "Python", "Edge Computing", "Protocols"],
-      icon: "🔧",
-      color: "from-green-500 to-teal-600"
-    },
-    {
-      title: "IoT Intern",
-      company: "Krish-Tec, Coimbatore",
-      period: "2023",
-      description: "Explored IoT fundamentals and real-world applications. Built prototype systems and learned about sensor integration and data analytics.",
-      technologies: ["IoT", "Sensors", "Arduino", "Data Analytics"],
-      icon: "⚡",
-      color: "from-yellow-500 to-orange-600"
-    },
-    {
-      title: "Bachelor of Information Technology",
-      company: "Dr. N.G.P Institute of Technology",
-      period: "2022 - Present",
-      description: "Pursuing degree with focus on emerging technologies and engineering principles. CGPA: 8.3 with consistent academic excellence.",
-      technologies: ["Computer Science", "Software Engineering", "Data Structures"],
-      icon: "🎓",
-      color: "from-red-500 to-pink-600"
-    }
-  ];
+  const { heading, subheading, items: experiences } = experienceData;
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
@@ -136,16 +100,16 @@ const Experience: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              Experience & Education
+              {heading}
             </span>
           </h2>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-600"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            My journey through technology, learning, and professional growth.
+            {subheading}
           </motion.p>
         </motion.div>
 

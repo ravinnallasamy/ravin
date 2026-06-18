@@ -1,0 +1,23 @@
+{
+  "heading": "About My Work",
+  "paragraphs": [
+    "I architect digital experiences that blend cutting-edge technology with intuitive design. With a foundation in computer science and a passion for innovation, I transform complex problems into elegant solutions.",
+    "Clean code architecture and modern technologies for scalable solutions."
+  ],
+  "stats": [
+    { "value": "1+", "label": "Years of Virtual experience" },
+    { "value": "3+", "label": "Projects" },
+    { "value": "8.3", "label": "CGPA" }
+  ],
+  "images": [
+    "/images/img1.jpg",
+    "/images/img2.jpg",
+    "/images/img3.jpg",
+    "/images/img1.jpg",
+    "/images/img2.jpg"
+  ],
+  "resume": {
+    "sourceUrl": "/Ravin-Resume.pdf",
+    "downloadFilename": "RavinNallasamy-Resume.pdf"
+  }
+}

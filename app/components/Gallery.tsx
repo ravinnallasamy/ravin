@@ -2,29 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import galleryData from '../../data/gallery.json';
 
 const Gallery: React.FC = () => {
-  const galleryProjects = [
-    {
-      src: "/images/IND.jpg",
-      title: "Heart Patient Monitor App",
-      description: "A Flutter-based mobile application to monitor and manage heart patients remotely.",
-      githubUrl: "https://github.com/ravinnallasamy/Heart_patient_management_app"
-    },
-    {
-      src: "/images/tumo.jpg", 
-      title: "Brain Recovery Tracker",
-      description: "Two Flutter & Dart apps designed to monitor post-treatment recovery of brain surgery patients.",
-      githubUrl: "https://github.com/ravinnallasamy/brain_patient_management_app"
-    },
-    {
-      src: "/images/Uzhavan.png",
-      title: "Uzhavan – Agri Rental Platform",
-      description: "A MERN-based web platform enabling farmers to rent agricultural equipment easily.",
-      githubUrl: "https://github.com/ravinnallasamy/agricultural-equipment-rental"
-    }
-  ];
-
+  const { headingPrefix, headingHighlight, subheading, scrollHintText, projects: galleryProjects } = galleryData;
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -39,10 +20,10 @@ const Gallery: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
-            Project <span className="font-semibold text-blue-600">Showcase</span>
+            {headingPrefix} <span className="font-semibold text-blue-600">{headingHighlight}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Explore my featured projects with direct GitHub access.
+            {subheading}
           </p>
         </motion.div>
 
@@ -154,7 +135,7 @@ const Gallery: React.FC = () => {
             transition={{ delay: 0.8 }}
           >
             <div className="flex items-center space-x-2 text-gray-500 text-sm bg-gray-100 px-4 py-2 rounded-full">
-              <span>Drag or scroll to explore</span>
+              <span>{scrollHintText}</span>
               <motion.svg 
                 className="w-4 h-4" 
                 fill="none" 

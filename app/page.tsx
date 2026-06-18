@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import siteData from '../data/site.json';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -42,7 +43,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-gray-400">© 2025 Ravin N. All rights reserved.</p>
+          <p className="text-gray-400">{siteData.footerText}</p>
         </div>
       </footer>
     </div>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FiDownload } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import aboutData from '../../data/about.json';
 
 const About: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -12,13 +13,7 @@ const About: React.FC = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const autoScrollRef = useRef<ReturnType<typeof setInterval>>();
 
-  const images = [
-    '/images/img1.jpg',
-    '/images/img2.jpg',
-    '/images/img3.jpg',
-    '/images/img1.jpg',
-    '/images/img2.jpg'
-  ];
+  const { heading, paragraphs, stats, images, resume } = aboutData;
 
   useEffect(() => {
     if (isAutoScrolling) {
@@ -42,13 +37,13 @@ const handleDownloadResume = async () => {
   setIsDownloading(true);
 
   try {
-    const response = await fetch('/Ravin-Resume.pdf');
+    const response = await fetch(resume.sourceUrl);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
 
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'RavinNallasamy-Resume.pdf'); 
+    link.setAttribute('download', resume.downloadFilename);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -149,25 +144,20 @@ const handleDownloadResume = async () => {
                   transition={{ delay: 0.2 }}
                 >
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                    About My Work
+                    {heading}
                   </span>
                 </motion.h2>
-                <motion.p 
-                  className="text-xl text-gray-600 mb-6 leading-relaxed"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  I architect digital experiences that blend cutting-edge technology with intuitive design. With a foundation in computer science and a passion for innovation, I transform complex problems into elegant solutions.
-                </motion.p>
-                <motion.p 
-                  className="text-xl text-gray-600 mb-8 leading-relaxed"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  Clean code architecture and modern technologies for scalable solutions.
-                </motion.p>
+                {paragraphs.map((paragraph, index) => (
+                  <motion.p
+                    key={index}
+                    className={`text-xl text-gray-600 leading-relaxed ${index === paragraphs.length - 1 ? 'mb-8' : 'mb-6'}`}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 + index * 0.2 }}
+                  >
+                    {paragraph}
+                  </motion.p>
+                ))}
               </div>
 
               <motion.div 
@@ -184,11 +174,7 @@ const handleDownloadResume = async () => {
                   }
                 }}
               >
-                {[
-                  { value: "1+", label: "Years of Virtual experience" },
-                  { value: "3+", label: "Projects" },
-                  { value: "8.3", label: "CGPA" }
-                ].map((stat, index) => (
+                {stats.map((stat, index) => (
                   <motion.div 
                     key={index} 
                     className="text-center py-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"

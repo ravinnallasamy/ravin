@@ -2,8 +2,11 @@
 
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import contactData from '../../data/contact.json';
 
 const Contact: React.FC = () => {
+  const { heading, subheading, getInTouchHeading, intro, formHeading, contactInfo, links } = contactData;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,55 +53,28 @@ const Contact: React.FC = () => {
   const handleContactClick = (type: string) => {
     switch(type) {
       case 'github':
-        window.open('https://github.com/ravinnallasamy', '_blank');
+        window.open(links.github, '_blank');
         break;
       case 'linkedin':
-        window.open('https://linkedin.com/in/ravinnallasamy', '_blank');
+        window.open(links.linkedin, '_blank');
         break;
       case 'email':
         document.getElementById('email')?.focus();
         break;
       case 'phone':
         if (navigator.clipboard) {
-          navigator.clipboard.writeText('+917010757687')
+          navigator.clipboard.writeText(links.phone)
             .then(() => {
               setCopiedPhone(true);
               setTimeout(() => setCopiedPhone(false), 2000);
             })
-            .catch(() => window.open('tel:+917010757687'));
+            .catch(() => window.open(`tel:${links.phone}`));
         } else {
-          window.open('tel:+917010757687');
+          window.open(`tel:${links.phone}`);
         }
         break;
     }
   };
-
-  const contactInfo = [
-    {
-      icon: "📧",
-      label: "Email",
-      value: "ravinit001@gmail.com",
-      type: "email"
-    },
-    {
-      icon: "📱",
-      label: "Phone",
-      value: "+91 7010757687",
-      type: "phone"
-    },
-    {
-      icon: "💼",
-      label: "LinkedIn",
-      value: "ravinnallasamy",
-      type: "linkedin"
-    },
-    {
-      icon: "🐙",
-      label: "GitHub",
-      value: "ravinnallasamy",
-      type: "github"
-    }
-  ];
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -106,10 +82,10 @@ const Contact: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
-            Let&apos;s Connect
+            {heading}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you.
+            {subheading}
           </p>
         </div>
 
@@ -118,12 +94,10 @@ const Contact: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Get in Touch
+                {getInTouchHeading}
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                I&apos;m always open to discussing new opportunities, interesting projects,
-                or potential collaborations. Feel free to reach out through any of the 
-                channels below.
+                {intro}
               </p>
             </div>
 
@@ -155,7 +129,7 @@ const Contact: React.FC = () => {
           {/* Contact Form */}
           <div className="bg-gray-50 rounded-2xl p-8">
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-              Send a Message
+              {formHeading}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">

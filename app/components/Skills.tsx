@@ -23,52 +23,31 @@ import {
 } from "react-icons/si";
 import { IoCloudOutline } from "react-icons/io5";
 import { RiComputerLine } from "react-icons/ri";
+import type { IconType } from "react-icons";
+import skillsData from "../../data/skills.json";
+
+const ICONS: Record<string, IconType> = {
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaMobile,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaGitAlt,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiFlutter,
+  SiIos,
+  SiAndroid,
+  IoCloudOutline,
+  RiComputerLine,
+};
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      skills: [
-        { name: "React", icon: <FaReact className="text-blue-500" /> },
-        { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
-        { name: "CSS3", icon: <FaCss3Alt className="text-blue-400" /> },
-        { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
-        { name: "TailwindCSS", icon: <SiTailwindcss className="text-cyan-500" /> },
-      ],
-      icon: <RiComputerLine className="text-white" size={24} />,
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Backend Development",
-      skills: [
-        { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-        { name: "Express.js", icon: <SiExpress className="text-gray-800" /> },
-        { name: "REST APIs", icon: <FaDatabase className="text-purple-500" /> },
-      ],
-      icon: <FaNodeJs className="text-white" size={24} />,
-      gradient: "from-green-500 to-emerald-500",
-    },
-    {
-      title: "Database & Cloud",
-      skills: [
-        { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
-        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-700" /> },
-        { name: "Git", icon: <FaGitAlt className="text-orange-600" /> },
-      ],
-      icon: <IoCloudOutline className="text-white" size={24} />,
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "Mobile Development",
-      skills: [
-        { name: "Flutter", icon: <SiFlutter className="text-blue-400" /> },
-        { name: "iOS", icon: <SiIos className="text-gray-700" /> },
-        { name: "Android", icon: <SiAndroid className="text-green-500" /> },
-      ],
-      icon: <FaMobile className="text-white" size={20} />,
-      gradient: "from-orange-500 to-red-500",
-    },
-  ];
+  const { heading, subheading, categories: skillCategories } = skillsData;
 
   const container = {
     hidden: { opacity: 0 },
@@ -99,7 +78,7 @@ const Skills = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              Technical Skills
+              {heading}
             </span>
           </h2>
           <motion.p
@@ -108,7 +87,7 @@ const Skills = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Expertise across the full technology stack with a focus on modern, scalable solutions.
+            {subheading}
           </motion.p>
         </motion.div>
 
@@ -119,7 +98,9 @@ const Skills = () => {
           initial="hidden"
           animate="visible"
         >
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category, index) => {
+            const CategoryIcon = ICONS[category.icon];
+            return (
             <motion.div
               key={index}
               variants={item}
@@ -137,7 +118,7 @@ const Skills = () => {
                   className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.gradient} flex items-center justify-center`}
                   whileHover={{ rotate: 10, scale: 1.1 }}
                 >
-                  {category.icon}
+                  <CategoryIcon className="text-white" size={category.iconSize} />
                 </motion.div>
                 <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-800">
                   {category.title}
@@ -146,17 +127,20 @@ const Skills = () => {
 
               {/* Skill Tags */}
               <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill, skillIndex) => {
+                  const SkillIcon = ICONS[skill.icon];
+                  return (
                   <motion.div
                     key={skillIndex}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center gap-2 px-3 py-2 bg-gray-50 text-gray-700 text-sm rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-default border border-gray-200"
                   >
-                    <div className="text-lg">{skill.icon}</div>
+                    <div className="text-lg"><SkillIcon className={skill.color} /></div>
                     <span>{skill.name}</span>
                   </motion.div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Animated Bottom Border */}
@@ -168,7 +152,8 @@ const Skills = () => {
                 viewport={{ once: true }}
               />
             </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

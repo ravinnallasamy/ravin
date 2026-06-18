@@ -14,6 +14,10 @@ export default function BlogPage() {
 
   return (
     <div className="flex flex-col">
+      <section className="mx-auto max-w-5xl px-16 pt-64 md:px-24 md:pt-96">
+        <h1 className="text-h1 md:text-h1-lg text-ink">Blog</h1>
+      </section>
+
       <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
         <div className="flex flex-col gap-32">
           <SectionHeading eyebrow="Writing" title="Posts" />

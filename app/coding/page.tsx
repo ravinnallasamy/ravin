@@ -15,7 +15,7 @@ export default async function CodingPage() {
   return (
     <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
       <div className="flex flex-col gap-48">
-        <SectionHeading eyebrow="Coding" title="GitHub & LeetCode activity" />
+        <SectionHeading as="h1" eyebrow="Coding" title="GitHub & LeetCode activity" />
 
         <div className="flex flex-col gap-16">
           <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">GitHub</h3>

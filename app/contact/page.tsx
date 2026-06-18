@@ -17,7 +17,7 @@ export default function ContactPage() {
     <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
       <div className="grid gap-48 md:grid-cols-2">
         <div className="flex flex-col gap-32">
-          <SectionHeading eyebrow="Contact" title="Get in touch" />
+          <SectionHeading as="h1" eyebrow="Contact" title="Get in touch" />
           <ContactForm />
         </div>
 

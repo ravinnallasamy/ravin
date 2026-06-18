@@ -30,6 +30,7 @@ export default function WorkPage() {
     <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
       <div className="flex flex-col gap-32">
         <SectionHeading
+          as="h1"
           eyebrow="Work"
           title="Everything I've shipped"
           description="Sorted by what I'd point you to first."

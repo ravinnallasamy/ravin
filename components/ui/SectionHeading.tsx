@@ -2,11 +2,16 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
+  as = 'h2',
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
+  as?: 'h1' | 'h2';
 }) {
+  const Heading = as;
+  const sizeClass = as === 'h1' ? 'text-h1 md:text-h1-lg' : 'text-h2 md:text-h2-lg';
+
   return (
     <div className="flex flex-col gap-8">
       {eyebrow && (
@@ -14,7 +19,7 @@ export function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-h2 md:text-h2-lg text-ink">{title}</h2>
+      <Heading className={`${sizeClass} text-ink`}>{title}</Heading>
       {description && <p className="max-w-2xl text-body text-ink-muted">{description}</p>}
     </div>
   );

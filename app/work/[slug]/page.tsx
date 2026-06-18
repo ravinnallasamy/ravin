@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getProjectBySlug, getProjects } from '@/lib/content';
 import { MediaSlot } from '@/components/ui/MediaSlot';
 import { StatusPill } from '@/components/ui/StatusPill';
+import { projectJsonLd } from '@/lib/seo';
 
 export function generateStaticParams() {
   return getProjects().map((project) => ({ slug: project.slug }));
@@ -31,6 +32,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <article className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project)) }}
+      />
       <div className="flex flex-col gap-32">
         <div className="flex flex-col gap-16">
           <Link href="/work" className="text-mono-label font-mono text-ink-faint hover:text-ink-muted">

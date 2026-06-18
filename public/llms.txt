@@ -1,0 +1,25 @@
+# Ravin Nallasamy
+
+Full-stack & AI engineer based in Coimbatore, Tamil Nadu, India. Builds
+full-stack products and the AI systems inside them — MERN, Flutter, and
+RAG pipelines that actually ship. Open to freelance work, working globally.
+
+## Key pages
+
+- Home: https://ravinnallasamy.com/
+- About: https://ravinnallasamy.com/about
+- Work (all projects): https://ravinnallasamy.com/work
+- Certifications: https://ravinnallasamy.com/certifications
+- Coding activity (GitHub + LeetCode): https://ravinnallasamy.com/coding
+- Blog: https://ravinnallasamy.com/blog
+- Contact: https://ravinnallasamy.com/contact
+
+## Notable projects
+
+- AI HR System — candidate/HR portals with AI-generated follow-up questions and fit scoring.
+- Ravin-Assistant — a RAG bot that answers interview questions about Ravin, grounded in his own resume and GitHub.
+- Uzhavan Rentals — a two-sided marketplace letting farmers rent equipment from nearby owners.
+- Cerina Protocol Foundry — a multi-agent LangGraph system that drafts and reviews clinical protocols with human approval.
+- Heart Patient Management App / TumoCare — Flutter apps tracking vitals and medication for heart and brain-tumor patients.
+
+GitHub: https://github.com/ravinnallasamy

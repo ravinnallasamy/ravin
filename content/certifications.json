@@ -1,0 +1,18 @@
+[
+  {
+    "id": "nptel-java",
+    "title": "NPTEL — Programming in Java",
+    "issuer": "NPTEL (IIT)",
+    "year": "REPLACE_ME",
+    "credentialUrl": "REPLACE_ME",
+    "image": "/images/certifications/nptel-java.jpg"
+  },
+  {
+    "id": "nptel-c",
+    "title": "NPTEL — Programming in C",
+    "issuer": "NPTEL (IIT)",
+    "year": "REPLACE_ME",
+    "credentialUrl": "REPLACE_ME",
+    "image": "/images/certifications/nptel-c.jpg"
+  }
+]

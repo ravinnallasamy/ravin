@@ -1,0 +1,6 @@
+{
+  "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter", "Dart"],
+  "backend": ["Node.js", "Express", "FastAPI", "MongoDB", "PostgreSQL", "Supabase", "JWT", "Google OAuth"],
+  "ai": ["Groq (Llama 3.1)", "OpenAI GPT-4o-mini", "LangGraph", "Xenova Transformers", "pgvector", "RAG pipelines"],
+  "automation": ["n8n", "Playwright", "WhatsApp Business API", "Telegram Bot API"]
+}

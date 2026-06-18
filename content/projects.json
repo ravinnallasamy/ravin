@@ -1,0 +1,141 @@
+[
+  {
+    "slug": "ai-hr-system",
+    "priority": 1,
+    "title": "AI HR System",
+    "tagline": "Lets HR ask follow-up questions an AI generates on the spot, then scores the answer",
+    "summary": "Two linked portals — one where candidates upload a resume and profile links, one where HR reviews it, asks questions by text or voice, and gets an AI-generated answer plus a fit score. Built on Supabase auth and a JWT-protected review workflow.",
+    "highlights": ["Separate candidate and HR portals", "Voice input via the Web Speech API", "Approve or reject in one click", "JWT-secured review pipeline"],
+    "stack": ["React", "TypeScript", "Supabase", "JWT", "RAG"],
+    "status": "shipped",
+    "year": "2025",
+    "repos": [
+      { "label": "Candidate portal", "url": "https://github.com/ravinnallasamy/ai-user" },
+      { "label": "HR portal", "url": "https://github.com/ravinnallasamy/ai-hr-frontend" },
+      { "label": "Backend", "url": "https://github.com/ravinnallasamy/ai-backend" }
+    ],
+    "demo": null,
+    "cover": "/images/projects/ai-hr-system/cover.jpg"
+  },
+  {
+    "slug": "ravin-assistant",
+    "priority": 2,
+    "title": "Ravin-Assistant",
+    "tagline": "Answers interview questions about me, sourced from my own resume and GitHub",
+    "summary": "Upload a resume and a GitHub/LinkedIn link once; the backend scrapes and embeds them, then answers recruiter questions in first person with a text or synthesized voice reply, grounded only in what's actually in the source material.",
+    "highlights": ["Playwright-based GitHub & portfolio scraping", "Local embeddings with Xenova transformers, stored in pgvector", "Groq-hosted Llama 3.1 for responses", "Google Cloud TTS voice replies"],
+    "stack": ["Node.js", "Express 5", "Supabase", "pgvector", "Groq", "React", "Vite"],
+    "status": "shipped",
+    "year": "2025",
+    "repos": [
+      { "label": "Frontend", "url": "https://github.com/ravinnallasamy/ravin_assistant_frontend" },
+      { "label": "Backend", "url": "https://github.com/ravinnallasamy/ravin_assistant_backend" }
+    ],
+    "demo": null,
+    "cover": "/images/projects/ravin-assistant/cover.jpg"
+  },
+  {
+    "slug": "uzhavan-rentals",
+    "priority": 3,
+    "title": "Uzhavan Rentals",
+    "tagline": "Lets farmers rent equipment from owners nearby, with no middleman",
+    "summary": "A two-sided marketplace connecting equipment owners and farmers. Owners list machinery, farmers request rentals, and Google OAuth plus role-based JWT auth keeps each side's actions scoped to what they're allowed to do.",
+    "highlights": ["Separate owner and renter roles", "Google OAuth + JWT authorization", "Full rental request lifecycle", "Rate limiting and Helmet security headers"],
+    "stack": ["React", "Node.js", "Express", "MongoDB", "Google OAuth"],
+    "status": "shipped",
+    "year": "2025",
+    "repos": [
+      { "label": "Frontend", "url": "https://github.com/ravinnallasamy/agricultural-equipment-rental" },
+      { "label": "Backend", "url": "https://github.com/ravinnallasamy/backend_new" }
+    ],
+    "demo": null,
+    "cover": "/images/projects/uzhavan-rentals/cover.jpg"
+  },
+  {
+    "slug": "cerina-protocol-foundry",
+    "priority": 4,
+    "title": "Cerina Protocol Foundry",
+    "tagline": "A team of AI agents drafts and reviews clinical protocols, with a human holding final approval",
+    "summary": "Five specialized agents — drafting, safety, clinical, empathy, and a supervisor — collaborate through LangGraph to turn a plain-language clinical intent into a reviewed CBT protocol, with a real-time React dashboard and an MCP server for outside tools to call into the pipeline.",
+    "highlights": ["Multi-agent orchestration with LangGraph", "Human-in-the-loop approval step", "FastAPI backend, Supabase state storage", "Exposes an MCP-compatible tool"],
+    "stack": ["Python", "FastAPI", "LangGraph", "React", "Supabase", "MCP"],
+    "status": "in-progress",
+    "year": "2025",
+    "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/cerina-project" }],
+    "demo": null,
+    "cover": "/images/projects/cerina-protocol-foundry/cover.jpg"
+  },
+  {
+    "slug": "heart-patient-management",
+    "priority": 5,
+    "title": "Heart Patient Management App",
+    "tagline": "Tracks daily vitals and medication for someone managing heart disease",
+    "summary": "A Flutter app patients use to log symptoms, vitals, and medication schedules, with an emergency alert path and a channel for direct doctor communication.",
+    "highlights": ["Daily symptom & vitals log", "Medication reminders", "One-tap emergency alert", "Doctor communication"],
+    "stack": ["Flutter", "Dart"],
+    "status": "shipped",
+    "year": "2025",
+    "collection": "health-tech-suite",
+    "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/Heart_patient_management_app" }],
+    "demo": null,
+    "cover": "/images/projects/heart-patient-management/cover.jpg"
+  },
+  {
+    "slug": "tumocare",
+    "priority": 6,
+    "title": "TumoCare",
+    "tagline": "The same day-to-day tracking, built for brain tumor patients",
+    "summary": "A companion Flutter app for brain tumor patients and their caregivers, tracking health metrics and symptoms alongside medication reminders and emergency alerts.",
+    "highlights": ["Symptom & health metric tracking", "Medication reminders", "Caregiver emergency alerts", "Doctor communication"],
+    "stack": ["Flutter", "Dart"],
+    "status": "shipped",
+    "year": "2025",
+    "collection": "health-tech-suite",
+    "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/brain_patient_management_app" }],
+    "demo": null,
+    "cover": "/images/projects/tumocare/cover.jpg"
+  },
+  {
+    "slug": "whatsapp-automation",
+    "priority": 7,
+    "title": "WhatsApp Automation",
+    "tagline": "Answers customer messages on WhatsApp before a human has to",
+    "summary": "A WhatsApp bot backed by a proper data layer, so replies are fast and every conversation is logged and queryable rather than disappearing into a chat thread.",
+    "highlights": ["Automated first-response replies", "Structured conversation logging", "Built for handoff to a human when needed"],
+    "stack": ["Node.js", "WhatsApp Business API"],
+    "status": "shipped",
+    "year": "2026",
+    "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/whatsapp_automate" }],
+    "demo": null,
+    "cover": "/images/projects/whatsapp-automation/cover.jpg"
+  },
+  {
+    "slug": "ravins-kaipulla",
+    "priority": 8,
+    "title": "Ravin's Kaipulla",
+    "tagline": "A Telegram bot that roasts your stress away in Vadivelu-style Tanglish",
+    "summary": "A comedy bot that replies to whatever you send with sarcastic, Tanglish one-liners in the voice of Vadivelu's film comedy — built purely to make people laugh on a bad day.",
+    "highlights": ["Tanglish comedic reply generation", "Sarcastic, persona-driven tone", "Telegram Bot API integration"],
+    "stack": ["Node.js", "Telegram Bot API"],
+    "status": "shipped",
+    "year": "2026",
+    "repos": [],
+    "_notes": "TODO: no public repo found — add one if this bot's code is pushed somewhere",
+    "demo": "REPLACE_ME",
+    "cover": "/images/projects/ravins-kaipulla/cover.jpg"
+  },
+  {
+    "slug": "codegenerator",
+    "priority": 9,
+    "title": "CodeGenerator",
+    "tagline": "Turns a plain-English description into IEC 61131-3 industrial automation code",
+    "summary": "A web tool for automation engineers: describe a control sequence in plain English, pick ST, FBD, SFC, or IL, and GPT-4o-mini generates compliant industrial code ready to drop into a PLC project.",
+    "highlights": ["Supports 4 IEC 61131-3 code formats", "Natural-language-to-code via GPT-4o-mini", "One-click copy to clipboard"],
+    "stack": ["React", "OpenAI GPT-4o-mini"],
+    "status": "shipped",
+    "year": "2025",
+    "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/codegenerator" }],
+    "demo": null,
+    "cover": "/images/projects/codegenerator/cover.jpg"
+  }
+]

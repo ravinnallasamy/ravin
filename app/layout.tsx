@@ -1,27 +1,53 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
-import siteData from '../data/site.json';
+import { NavBar } from '@/components/ui/NavBar';
+import { Footer } from '@/components/ui/Footer';
+import siteJson from '@/content/site.json';
+
+const display = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const body = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: siteData.title,
-  icons: {
-    icon: siteData.favicon,
-    apple: siteData.favicon,
+  metadataBase: new URL('https://ravinnallasamy.com'),
+  title: {
+    default: `${siteJson.name} — ${siteJson.role}`,
+    template: `%s — ${siteJson.name}`,
+  },
+  description: siteJson.mission,
+  openGraph: {
+    title: `${siteJson.name} — ${siteJson.role}`,
+    description: siteJson.mission,
+    images: ['/images/og/default.jpg'],
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: siteData.themeColor,
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <body className="flex min-h-screen flex-col">
+        <NavBar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

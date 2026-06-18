@@ -25,15 +25,15 @@ const Contact: React.FC = () => {
 
     try {
       await emailjs.send(
-        'service_8yrr12b',
-        'template_lnk6xut',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
           message: formData.message
         },
-        'I1zsO-kJqA-S2o6Vj'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       alert('Message sent successfully!');
     } catch (error) {

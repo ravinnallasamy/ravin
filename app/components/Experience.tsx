@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+'use client';
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 
 const Experience: React.FC = () => {
@@ -43,6 +45,25 @@ const Experience: React.FC = () => {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const particlesByExperience = useMemo(
+    () =>
+      Array.from({ length: experiences.length }, () =>
+        Array.from({ length: 8 }, () => ({
+          width: Math.random() * 10 + 5,
+          height: Math.random() * 10 + 5,
+          top: Math.random() * 100,
+          left: Math.random() * 100,
+          xOffset: (Math.random() - 0.5) * 40,
+          yOffset: (Math.random() - 0.5) * 40,
+          duration: Math.random() * 10 + 10,
+        }))
+      ),
+    [experiences.length]
+  );
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -214,23 +235,23 @@ const Experience: React.FC = () => {
 
                 {/* Floating Particles Background */}
                 <div className="absolute -z-10 -inset-4 overflow-hidden opacity-20 group-hover:opacity-30 transition-opacity duration-300">
-                  {[...Array(8)].map((_, i) => (
+                  {mounted && particlesByExperience[index].map((particle, i) => (
                     <motion.div
                       key={i}
                       className={`absolute rounded-full ${i % 2 === 0 ? 'bg-blue-400' : 'bg-purple-400'}`}
                       style={{
-                        width: Math.random() * 10 + 5 + 'px',
-                        height: Math.random() * 10 + 5 + 'px',
-                        top: Math.random() * 100 + '%',
-                        left: Math.random() * 100 + '%',
+                        width: particle.width + 'px',
+                        height: particle.height + 'px',
+                        top: particle.top + '%',
+                        left: particle.left + '%',
                       }}
                       animate={{
-                        y: [0, (Math.random() - 0.5) * 40],
-                        x: [0, (Math.random() - 0.5) * 40],
+                        y: [0, particle.yOffset],
+                        x: [0, particle.xOffset],
                         opacity: [0.2, 0.6, 0.2],
                       }}
                       transition={{
-                        duration: Math.random() * 10 + 10,
+                        duration: particle.duration,
                         repeat: Infinity,
                         repeatType: "reverse",
                       }}

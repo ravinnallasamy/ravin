@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
@@ -25,15 +27,15 @@ const Contact: React.FC = () => {
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
           message: formData.message
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
       alert('Message sent successfully!');
     } catch (error) {
@@ -104,10 +106,10 @@ const Contact: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you.
+            Have a project in mind or want to collaborate? I&apos;d love to hear from you.
           </p>
         </div>
 
@@ -119,7 +121,7 @@ const Contact: React.FC = () => {
                 Get in Touch
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                I'm always open to discussing new opportunities, interesting projects, 
+                I&apos;m always open to discussing new opportunities, interesting projects,
                 or potential collaborations. Feel free to reach out through any of the 
                 channels below.
               </p>

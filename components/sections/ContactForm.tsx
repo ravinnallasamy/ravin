@@ -31,7 +31,7 @@ export function ContactForm() {
           required
           value={form.name}
           onChange={handleChange}
-          className="border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
         />
       </div>
 
@@ -46,7 +46,7 @@ export function ContactForm() {
           required
           value={form.email}
           onChange={handleChange}
-          className="border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
         />
       </div>
 
@@ -61,7 +61,7 @@ export function ContactForm() {
           required
           value={form.message}
           onChange={handleChange}
-          className="resize-none border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="resize-none rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
         />
       </div>
 

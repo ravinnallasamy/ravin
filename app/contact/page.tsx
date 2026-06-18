@@ -45,11 +45,11 @@ export default function ContactPage() {
             {hasBooking ? (
               <iframe
                 src={socialJson.calBookingUrl}
-                className="h-[600px] w-full border border-border"
+                className="h-[600px] w-full rounded-xl border border-border"
                 title="Book a meeting"
               />
             ) : (
-              <div className="flex aspect-[4/3] flex-col items-center justify-center gap-12 border border-border bg-surface-raised px-16 text-center">
+              <div className="flex aspect-[4/3] flex-col items-center justify-center gap-12 rounded-xl border border-border bg-surface-raised px-16 text-center">
                 <CalendarClock size={20} className="text-ink-faint" aria-hidden />
                 <p className="text-mono-label font-mono text-ink-faint">Booking link coming soon</p>
               </div>

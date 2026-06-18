@@ -32,7 +32,7 @@ export default function BlogPage() {
             {digest.length > 0 ? (
               <ul className="flex flex-col gap-12">
                 {digest.map((item) => (
-                  <li key={item.url} className="border border-border bg-paper p-16">
+                  <li key={item.url} className="rounded-xl border border-border bg-paper p-16">
                     <Link href={item.url} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
                       {item.title}
                     </Link>
@@ -43,7 +43,7 @@ export default function BlogPage() {
                 ))}
               </ul>
             ) : (
-              <p className="border border-border bg-paper p-24 font-mono text-mono-label text-ink-faint">
+              <p className="rounded-xl border border-border bg-paper p-24 font-mono text-mono-label text-ink-faint">
                 Tech digest coming soon.
               </p>
             )}

@@ -34,7 +34,7 @@ export function MediaSlot({ src, alt, aspect = '16/9', fit = 'cover', className 
   if (failed) {
     return (
       <div
-        className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-12 border border-border bg-surface-raised px-16 text-center`}
+        className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-12 rounded-xl border border-border bg-surface-raised px-16 text-center`}
       >
         <ImageOff size={20} className="text-ink-faint" aria-hidden />
         <p className="text-mono-label text-ink-faint">{alt}</p>
@@ -50,7 +50,7 @@ export function MediaSlot({ src, alt, aspect = '16/9', fit = 'cover', className 
       src={src}
       alt={alt}
       loading="lazy"
-      className={`${aspectClass} ${className} ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+      className={`${aspectClass} ${className} rounded-xl ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
       onError={() => setFailed(true)}
     />
   );

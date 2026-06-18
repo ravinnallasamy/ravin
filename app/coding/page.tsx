@@ -24,14 +24,14 @@ export default async function CodingPage() {
           <div className="flex flex-col gap-16">
             <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">GitHub</h3>
             {github ? (
-              <div className="grid grid-cols-2 gap-32 border border-border bg-surface p-24 md:grid-cols-4">
+              <div className="grid grid-cols-2 gap-32 rounded-xl border border-border bg-surface p-24 md:grid-cols-4">
                 <StatReadout label="repositories" value={String(github.repoCount)} />
                 <StatReadout label="commits (year)" value={String(github.recentCommits)} />
                 <StatReadout label="pull requests" value={String(github.recentPullRequests)} />
                 <StatReadout label="top language" value={github.topLanguages[0] ?? '—'} />
               </div>
             ) : (
-              <p className="border border-border bg-surface-raised p-24 font-mono text-mono-label text-ink-faint">
+              <p className="rounded-xl border border-border bg-surface-raised p-24 font-mono text-mono-label text-ink-faint">
                 GitHub stats unavailable right now.
               </p>
             )}
@@ -42,14 +42,14 @@ export default async function CodingPage() {
           <div className="flex flex-col gap-16">
             <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">LeetCode</h3>
             {leetcode ? (
-              <div className="grid grid-cols-2 gap-32 border border-border bg-surface p-24 md:grid-cols-4">
+              <div className="grid grid-cols-2 gap-32 rounded-xl border border-border bg-surface p-24 md:grid-cols-4">
                 <StatReadout label="solved" value={String(leetcode.totalSolved)} />
                 <StatReadout label="easy" value={String(leetcode.easySolved)} />
                 <StatReadout label="medium" value={String(leetcode.mediumSolved)} />
                 <StatReadout label="hard" value={String(leetcode.hardSolved)} />
               </div>
             ) : (
-              <p className="border border-border bg-surface-raised p-24 font-mono text-mono-label text-ink-faint">
+              <p className="rounded-xl border border-border bg-surface-raised p-24 font-mono text-mono-label text-ink-faint">
                 LeetCode stats unavailable right now.
               </p>
             )}

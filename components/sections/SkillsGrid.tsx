@@ -27,7 +27,7 @@ export function SkillsGrid({ compact = false, tinted = false }: { compact?: bool
               {categories.map(([key, tools]) => (
                 <div
                   key={key}
-                  className={`flex flex-col gap-12 rounded p-24 ${tinted ? 'border border-border bg-paper' : 'bg-surface-raised'}`}
+                  className={`flex flex-col gap-12 rounded-xl p-24 shadow-sm ${tinted ? 'border border-border bg-paper' : 'bg-surface-raised'}`}
                 >
                   <span className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">
                     {CATEGORY_LABELS[key] ?? key}

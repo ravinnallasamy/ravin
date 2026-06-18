@@ -49,7 +49,7 @@ export function Hero() {
             />
           </svg>
 
-          <div className="relative border border-border bg-surface p-24 shadow-sm md:p-32">
+          <div className="relative rounded-xl border border-border bg-surface p-24 shadow-sm md:p-32">
             <div className="grid grid-cols-2 gap-32">
               <StatReadout label="months building" value={String(siteJson.experienceMonths)} />
               <StatReadout label="projects shipped" value={String(shippedCount)} />

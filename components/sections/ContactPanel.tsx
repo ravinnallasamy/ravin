@@ -4,9 +4,9 @@ import { Reveal } from '@/components/ui/Reveal';
 
 export function ContactPanel() {
   return (
-    <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+    <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
       <Reveal>
-        <div className="flex flex-col items-start gap-16 border border-border bg-surface p-32 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-start gap-16 border border-border bg-accent-subtle p-32 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-h2 text-ink">{siteJson.statusLine}</h2>
             <p className="mt-8 text-body text-ink-muted">Tell me what you&apos;re building and what&apos;s not working yet.</p>

@@ -31,7 +31,7 @@ export function NavBar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-body transition-colors ${active ? 'text-ink' : 'text-ink-muted hover:text-ink'}`}
+                className={`text-body transition-colors ${active ? 'text-accent' : 'text-ink-muted hover:text-ink'}`}
               >
                 {item.label}
               </Link>

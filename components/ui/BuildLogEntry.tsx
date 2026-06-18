@@ -16,12 +16,20 @@ type BuildLogEntryProps = {
   children?: React.ReactNode;
 };
 
+const BORDER_ACCENT: Record<ProjectStatus, string> = {
+  shipped: 'border-l-accent',
+  'in-progress': 'border-l-signal',
+  archived: 'border-l-border-strong',
+};
+
 export function BuildLogEntry({ slug, href, summary, status, date, children }: BuildLogEntryProps) {
   const [open, setOpen] = useState(false);
   const hash = hashSlug(slug);
 
   return (
-    <div className="border border-border bg-paper p-24 transition-shadow duration-200 hover:-translate-y-[2px] hover:shadow-md motion-reduce:hover:-translate-y-0 shadow-sm md:p-32">
+    <div
+      className={`border border-border ${status ? `border-l-2 ${BORDER_ACCENT[status]}` : ''} bg-paper p-24 transition-shadow duration-200 hover:-translate-y-[2px] hover:shadow-md motion-reduce:hover:-translate-y-0 shadow-sm md:p-32`}
+    >
       <div className="flex flex-wrap items-center gap-12">
         <span className="rounded-full bg-accent-subtle px-12 py-4 font-mono text-mono-label text-accent">
           {hash}

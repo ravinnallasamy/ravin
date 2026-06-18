@@ -18,7 +18,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
       />
-      <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+      <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
         <div className="grid gap-32 md:grid-cols-[1fr_240px] md:items-start">
           <div className="flex flex-col gap-24">
             <SectionHeading as="h1" eyebrow="About" title={siteJson.name} />
@@ -39,7 +39,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SkillsGrid />
+      <SkillsGrid tinted />
     </div>
   );
 }

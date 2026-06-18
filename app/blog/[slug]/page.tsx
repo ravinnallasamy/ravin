@@ -24,7 +24,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   if (!post) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl px-16 py-64 md:px-24 md:py-96">
+    <article className="mx-auto max-w-3xl px-16 py-48 md:px-24 md:py-80">
       <div className="flex flex-col gap-24">
         <Link href="/blog" className="text-mono-label font-mono text-ink-faint hover:text-ink-muted">
           ← all posts

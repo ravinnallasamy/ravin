@@ -14,38 +14,40 @@ export default function BlogPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="mx-auto max-w-5xl px-16 pt-64 md:px-24 md:pt-96">
+      <section className="mx-auto max-w-5xl px-16 pt-48 md:px-24 md:pt-80">
         <h1 className="text-h1 md:text-h1-lg text-ink">Blog</h1>
       </section>
 
-      <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+      <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
         <div className="flex flex-col gap-32">
           <SectionHeading eyebrow="Writing" title="Posts" />
           <BlogPreview />
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
-        <div className="flex flex-col gap-32">
-          <SectionHeading eyebrow="Reading" title="Tech digest" />
-          {digest.length > 0 ? (
-            <ul className="flex flex-col gap-12">
-              {digest.map((item) => (
-                <li key={item.url} className="border border-border bg-paper p-16">
-                  <Link href={item.url} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
-                    {item.title}
-                  </Link>
-                  <p className="mt-4 font-mono text-mono-label text-ink-faint">
-                    {item.source} · {item.date}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="border border-border bg-surface-raised p-24 font-mono text-mono-label text-ink-faint">
-              Tech digest coming soon.
-            </p>
-          )}
+      <section className="bg-surface">
+        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
+          <div className="flex flex-col gap-32">
+            <SectionHeading eyebrow="Reading" title="Tech digest" />
+            {digest.length > 0 ? (
+              <ul className="flex flex-col gap-12">
+                {digest.map((item) => (
+                  <li key={item.url} className="border border-border bg-paper p-16">
+                    <Link href={item.url} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+                      {item.title}
+                    </Link>
+                    <p className="mt-4 font-mono text-mono-label text-ink-faint">
+                      {item.source} · {item.date}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="border border-border bg-paper p-24 font-mono text-mono-label text-ink-faint">
+                Tech digest coming soon.
+              </p>
+            )}
+          </div>
         </div>
       </section>
     </div>

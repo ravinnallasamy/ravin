@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
 
   return (
-    <article className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+    <article className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project)) }}
@@ -49,7 +49,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <p className="max-w-2xl text-h3 text-ink-muted">{project.tagline}</p>
         </div>
 
-        <MediaSlot src={project.cover} alt={`Screenshot of ${project.title}`} aspect="16/9" />
+        <div className="bg-surface-raised">
+          <MediaSlot src={project.cover} alt={`Screenshot of ${project.title}`} aspect="16/9" fit="contain" className="p-32" />
+        </div>
 
         <p className="max-w-2xl text-body text-ink-muted">{project.summary}</p>
 

@@ -14,7 +14,7 @@ export default function ContactPage() {
   const hasBooking = socialJson.calBookingUrl && socialJson.calBookingUrl !== 'REPLACE_ME';
 
   return (
-    <section className="mx-auto max-w-5xl px-16 py-64 md:px-24 md:py-96">
+    <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
       <div className="grid gap-48 md:grid-cols-2">
         <div className="flex flex-col gap-32">
           <SectionHeading as="h1" eyebrow="Contact" title="Get in touch" />

@@ -49,7 +49,7 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/backend_new" }
     ],
     "demo": null,
-    "cover": "/images/projects/uzhavan-rentals/cover.jpg"
+    "cover": "/images/Uzhavan.png"
   },
   {
     "slug": "cerina-protocol-foundry",
@@ -78,7 +78,7 @@
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/Heart_patient_management_app" }],
     "demo": null,
-    "cover": "/images/projects/heart-patient-management/cover.jpg"
+    "cover": "/images/IND.jpg"
   },
   {
     "slug": "tumocare",
@@ -93,7 +93,7 @@
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/brain_patient_management_app" }],
     "demo": null,
-    "cover": "/images/projects/tumocare/cover.jpg"
+    "cover": "/images/tumo.jpg"
   },
   {
     "slug": "whatsapp-automation",

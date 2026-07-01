@@ -5,6 +5,7 @@
 @layer base {
   body {
     @apply bg-paper text-ink font-body antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
@@ -38,5 +39,114 @@
   }
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glitch-text {
+    animation: glitch-shake 0.35s steps(2, end) both;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-glitch-text);
+    position: absolute;
+    inset: 0;
+    color: inherit;
+    opacity: 0.6;
+  }
+
+  .glitch-text::before {
+    animation: glitch-split-1 0.35s steps(2, end) both;
+    clip-path: inset(0 0 55% 0);
+  }
+
+  .glitch-text::after {
+    animation: glitch-split-2 0.35s steps(2, end) both;
+    clip-path: inset(55% 0 0 0);
+  }
+
+  .glitch-scanlines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(30, 42, 58, 0.08) 0px,
+      rgba(30, 42, 58, 0.08) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    animation: glitch-flicker 0.35s steps(3, end) both;
+  }
+}
+
+@keyframes glitch-shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3px, 1px);
+  }
+  40% {
+    transform: translate(3px, -1px);
+  }
+  60% {
+    transform: translate(-2px, 0);
+  }
+  80% {
+    transform: translate(2px, 1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes glitch-split-1 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-6px, 1px);
+  }
+  100% {
+    transform: translate(8px, -2px);
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-split-2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(6px, -1px);
+  }
+  100% {
+    transform: translate(-8px, 2px);
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-flicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  60% {
+    opacity: 1;
+  }
+  40%,
+  80% {
+    opacity: 0.3;
   }
 }

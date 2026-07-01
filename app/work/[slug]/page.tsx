@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
 
   return (
-    <article className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
+    <article className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project)) }}
@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <p className="max-w-2xl text-h3 text-ink-muted">{project.tagline}</p>
         </div>
 
-        <div className="bg-surface-raised">
+        <div className="rounded-xl border border-white/40 bg-surface-raised/60 shadow-glass backdrop-blur-glass">
           <MediaSlot src={project.cover} alt={`Screenshot of ${project.title}`} aspect="16/9" fit="contain" className="p-32" />
         </div>
 
@@ -73,7 +73,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-border bg-surface-raised px-12 py-4 font-mono text-mono-label text-ink-muted"
+                  className="rounded-full border-none bg-surface px-12 py-4 font-mono text-mono-label text-ink-muted shadow-neu-sm"
                 >
                   {tech}
                 </span>
@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 href={repo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-border px-16 py-8 text-body text-ink hover:border-border-strong"
+                className="rounded-full border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-sm transition-shadow hover:shadow-neu-inset"
               >
                 {repo.label} →
               </Link>
@@ -100,7 +100,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-accent px-16 py-8 text-body text-paper hover:bg-accent-hover"
+                className="rounded-full bg-accent px-16 py-8 text-body text-paper shadow-glass hover:bg-accent-hover"
               >
                 View demo →
               </Link>

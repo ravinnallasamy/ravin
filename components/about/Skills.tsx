@@ -9,13 +9,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   automation: 'Automation',
 };
 
-export function SkillsGrid({ compact = false, tinted = false }: { compact?: boolean; tinted?: boolean }) {
+export function Skills({ compact = false, tinted = false }: { compact?: boolean; tinted?: boolean }) {
   const skills = getSkills();
   const categories = Object.entries(skills) as [keyof typeof skills, string[]][];
 
   return (
     <section className={tinted ? 'bg-surface' : undefined}>
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
+      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
         <div className="flex flex-col gap-32">
           {!compact && (
             <Reveal>
@@ -27,7 +27,7 @@ export function SkillsGrid({ compact = false, tinted = false }: { compact?: bool
               {categories.map(([key, tools]) => (
                 <div
                   key={key}
-                  className={`flex flex-col gap-12 rounded-xl p-24 shadow-sm ${tinted ? 'border border-border bg-paper' : 'bg-surface-raised'}`}
+                  className="flex flex-col gap-12 rounded-2xl bg-surface p-24 shadow-neu"
                 >
                   <span className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">
                     {CATEGORY_LABELS[key] ?? key}
@@ -36,7 +36,7 @@ export function SkillsGrid({ compact = false, tinted = false }: { compact?: bool
                     {tools.map((tool) => (
                       <span
                         key={tool}
-                        className="rounded-full border border-border bg-paper px-12 py-4 text-mono-label font-mono text-ink-muted"
+                        className="rounded-full bg-surface px-12 py-4 text-mono-label font-mono text-ink-muted shadow-neu-sm"
                       >
                         {tool}
                       </span>

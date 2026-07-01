@@ -1,7 +1,8 @@
-import { Hero } from '@/components/sections/Hero';
-import { WorkPreview } from '@/components/sections/WorkPreview';
-import { SkillsGrid } from '@/components/sections/SkillsGrid';
-import { ContactPanel } from '@/components/sections/ContactPanel';
+import { Hero } from '@/components/home/Hero';
+import { WorkPreview } from '@/components/home/WorkPreview';
+import { AboutSection } from '@/components/about/Hero';
+import { Skills } from '@/components/about/Skills';
+import { ContactPanel } from '@/components/home/ContactPanel';
 import { personJsonLd } from '@/lib/seo';
 
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
       />
       <Hero />
       <WorkPreview />
-      <SkillsGrid compact />
+      <AboutSection />
+      <Skills compact tinted />
       <ContactPanel />
     </>
   );

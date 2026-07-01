@@ -39,6 +39,15 @@ module.exports = {
       boxShadow: {
         sm: '0 1px 2px rgba(0,0,0,0.04)',
         md: '0 4px 12px rgba(0,0,0,0.08)',
+        glass: '0 8px 32px rgba(30,42,58,0.10)',
+        skeu: '0 1px 0 rgba(255,255,255,0.6) inset, 0 -6px 10px rgba(30,42,58,0.08) inset, 0 14px 24px rgba(30,42,58,0.16), 0 2px 4px rgba(30,42,58,0.12)',
+        'skeu-sm': '0 1px 0 rgba(255,255,255,0.5) inset, 0 10px 18px rgba(30,42,58,0.14)',
+        neu: '8px 8px 18px rgba(180,158,128,0.35), -8px -8px 18px rgba(255,255,255,0.85)',
+        'neu-inset': 'inset 5px 5px 10px rgba(180,158,128,0.3), inset -5px -5px 10px rgba(255,255,255,0.7)',
+        'neu-sm': '4px 4px 10px rgba(180,158,128,0.3), -4px -4px 10px rgba(255,255,255,0.8)',
+      },
+      backdropBlur: {
+        glass: '16px',
       },
       spacing: {
         '4': '4px',

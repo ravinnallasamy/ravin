@@ -9,7 +9,7 @@ export function WorkPreview() {
 
   return (
     <section className="bg-surface">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
+      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
         <div className="flex flex-col gap-32">
           <Reveal>
             <SectionHeading
@@ -33,7 +33,10 @@ export function WorkPreview() {
             ))}
           </RevealList>
 
-          <Link href="/work" className="text-body text-accent hover:text-accent-hover">
+          <Link
+            href="/work"
+            className="inline-flex w-fit items-center rounded-full bg-surface px-20 py-10 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
+          >
             See all work →
           </Link>
         </div>

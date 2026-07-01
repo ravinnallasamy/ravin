@@ -15,7 +15,7 @@ const LABELS: Record<ProjectStatus, string> = {
 export function StatusPill({ status }: { status: ProjectStatus }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-12 py-4 font-mono text-mono-label ${STYLES[status]}`}
+      className={`inline-flex items-center rounded-full px-12 py-4 font-mono text-mono-label shadow-sm ${STYLES[status]}`}
     >
       {LABELS[status]}
     </span>

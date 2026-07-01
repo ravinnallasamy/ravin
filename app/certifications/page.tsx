@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { CertificationsPreview } from '@/components/sections/CertificationsPreview';
-import { Reveal } from '@/components/ui/Reveal';
+import { Hero } from '@/components/certifications/Hero';
+import { List } from '@/components/certifications/List';
 
 export const metadata: Metadata = {
   title: 'Certifications',
@@ -10,13 +9,9 @@ export const metadata: Metadata = {
 
 export default function CertificationsPage() {
   return (
-    <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
-      <div className="flex flex-col gap-32">
-        <Reveal>
-          <SectionHeading as="h1" eyebrow="Credentials" title="Certifications" />
-        </Reveal>
-        <CertificationsPreview />
-      </div>
-    </section>
+    <div className="flex flex-col">
+      <Hero />
+      <List />
+    </div>
   );
 }

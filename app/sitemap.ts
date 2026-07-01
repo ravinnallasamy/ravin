@@ -5,7 +5,7 @@ import { getAllPosts } from '@/lib/blog';
 const BASE_URL = 'https://ravinnallasamy.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['', '/about', '/work', '/certifications', '/coding', '/blog', '/contact'].map((path) => ({
+  const staticRoutes = ['', '/work', '/certifications', '/coding', '/blog', '/contact'].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
   }));

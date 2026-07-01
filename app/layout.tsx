@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     description: siteJson.mission,
     images: ['/images/og/default.jpg'],
   },
+  icons: {
+    icon: '/images/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

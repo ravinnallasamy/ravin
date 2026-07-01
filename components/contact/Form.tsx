@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import socialJson from '@/content/social.json';
 
-export function ContactForm() {
+export function Form() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -19,7 +19,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-16">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-12">
       <div className="flex flex-col gap-8">
         <label htmlFor="name" className="text-mono-label font-mono text-ink-muted">
           Name
@@ -31,7 +31,7 @@ export function ContactForm() {
           required
           value={form.name}
           onChange={handleChange}
-          className="rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40"
         />
       </div>
 
@@ -46,7 +46,7 @@ export function ContactForm() {
           required
           value={form.email}
           onChange={handleChange}
-          className="rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40"
         />
       </div>
 
@@ -57,17 +57,17 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={6}
+          rows={3}
           required
           value={form.message}
           onChange={handleChange}
-          className="resize-none rounded-lg border border-border bg-paper px-16 py-12 text-body text-ink focus:border-border-strong"
+          className="resize-none rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40"
         />
       </div>
 
       <button
         type="submit"
-        className="w-fit rounded-full bg-accent px-24 py-12 text-body text-paper hover:bg-accent-hover"
+        className="w-fit rounded-full bg-accent px-24 py-8 text-body text-paper shadow-glass hover:bg-accent-hover"
       >
         Send message
       </button>

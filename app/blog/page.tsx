@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { getTechDigest } from '@/lib/blog';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { BlogPreview } from '@/components/sections/BlogPreview';
+import { Hero } from '@/components/blog/Hero';
+import { Posts } from '@/components/blog/Posts';
+import { Digest } from '@/components/blog/Digest';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -10,46 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const digest = getTechDigest();
-
   return (
     <div className="flex flex-col">
-      <section className="mx-auto max-w-5xl px-16 pt-48 md:px-24 md:pt-80">
-        <h1 className="text-h1 md:text-h1-lg text-ink">Blog</h1>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
-        <div className="flex flex-col gap-32">
-          <SectionHeading eyebrow="Writing" title="Posts" />
-          <BlogPreview />
-        </div>
-      </section>
-
-      <section className="bg-surface">
-        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
-          <div className="flex flex-col gap-32">
-            <SectionHeading eyebrow="Reading" title="Tech digest" />
-            {digest.length > 0 ? (
-              <ul className="flex flex-col gap-12">
-                {digest.map((item) => (
-                  <li key={item.url} className="rounded-xl border border-border bg-paper p-16">
-                    <Link href={item.url} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
-                      {item.title}
-                    </Link>
-                    <p className="mt-4 font-mono text-mono-label text-ink-faint">
-                      {item.source} · {item.date}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="rounded-xl border border-border bg-paper p-24 font-mono text-mono-label text-ink-faint">
-                Tech digest coming soon.
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
+      <Hero />
+      <Posts />
+      <Digest />
     </div>
   );
 }

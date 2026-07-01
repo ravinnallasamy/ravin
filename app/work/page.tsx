@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-import { getProjects } from '@/lib/content';
-import { BuildLogEntry } from '@/components/ui/BuildLogEntry';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
+import { Hero } from '@/components/work/Hero';
+import { List } from '@/components/work/List';
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -10,71 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
-  const projects = getProjects();
-
-  const grouped = new Map<string, typeof projects>();
-
-  for (const project of projects) {
-    if (project.collection) {
-      const existing = grouped.get(project.collection) ?? [];
-      existing.push(project);
-      grouped.set(project.collection, existing);
-    }
-  }
-
-  const renderedCollections = new Set<string>();
-
   return (
-    <section className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-80">
-      <div className="flex flex-col gap-32">
-        <Reveal>
-          <SectionHeading
-            as="h1"
-            eyebrow="Work"
-            title="Everything I've shipped"
-            description="Sorted by what I'd point you to first."
-          />
-        </Reveal>
-
-        <RevealList className="flex flex-col gap-32">
-          {projects.map((project) => {
-            if (project.collection) {
-              if (renderedCollections.has(project.collection)) return null;
-              renderedCollections.add(project.collection);
-              const items = grouped.get(project.collection)!;
-              return (
-                <RevealItem key={project.collection} className="flex flex-col gap-16">
-                  <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">
-                    {project.collection.replace(/-/g, ' ')}
-                  </h3>
-                  {items.map((p) => (
-                    <BuildLogEntry
-                      key={p.slug}
-                      slug={p.slug}
-                      href={`/work/${p.slug}`}
-                      summary={`${p.title}: ${p.tagline}`}
-                      status={p.status}
-                      date={p.year}
-                    />
-                  ))}
-                </RevealItem>
-              );
-            }
-
-            return (
-              <RevealItem key={project.slug}>
-                <BuildLogEntry
-                  slug={project.slug}
-                  href={`/work/${project.slug}`}
-                  summary={`${project.title}: ${project.tagline}`}
-                  status={project.status}
-                  date={project.year}
-                />
-              </RevealItem>
-            );
-          })}
-        </RevealList>
-      </div>
-    </section>
+    <div className="flex flex-col">
+      <Hero />
+      <List />
+    </div>
   );
 }

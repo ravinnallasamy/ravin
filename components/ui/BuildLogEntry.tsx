@@ -28,7 +28,7 @@ export function BuildLogEntry({ slug, href, summary, status, date, children }: B
 
   return (
     <div
-      className={`rounded-xl border border-border ${status ? `border-l-4 ${BORDER_ACCENT[status]}` : ''} bg-paper p-24 transition-shadow duration-200 hover:-translate-y-[2px] hover:shadow-md motion-reduce:hover:-translate-y-0 shadow-sm md:p-32`}
+      className={`rounded-2xl bg-surface p-24 shadow-neu transition-shadow duration-200 hover:shadow-neu-inset md:p-32 ${status ? `border-l-4 ${BORDER_ACCENT[status]}` : ''}`}
     >
       <div className="flex flex-wrap items-center gap-12">
         <span className="rounded-full bg-accent-subtle px-12 py-4 font-mono text-mono-label text-accent">

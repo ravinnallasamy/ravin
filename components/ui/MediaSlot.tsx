@@ -34,7 +34,7 @@ export function MediaSlot({ src, alt, aspect = '16/9', fit = 'cover', className 
   if (failed) {
     return (
       <div
-        className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-12 rounded-xl border border-border bg-surface-raised px-16 text-center`}
+        className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-12 rounded-xl border border-white/40 bg-surface-raised/60 px-16 text-center shadow-glass backdrop-blur-glass`}
       >
         <ImageOff size={20} className="text-ink-faint" aria-hidden />
         <p className="text-mono-label text-ink-faint">{alt}</p>

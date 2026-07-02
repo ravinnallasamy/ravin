@@ -1,0 +1,22 @@
+[
+  {
+    "degree": "Bachelor of Engineering in Computer Science & Engineering",
+    "school": "Anna University Affiliated College / Coimbatore",
+    "period": "2023 — 2027",
+    "details": [
+      "Focused on Core Computer Science principles: Data Structures & Algorithms, DBMS, Operating Systems, and Software Engineering.",
+      "Maintained a strong academic record with practical expertise in web and mobile technologies.",
+      "Completed certification courses including NPTEL Java and NPTEL C with elite scores.",
+      "Active member of the college coding club, collaborating on open-source projects."
+    ]
+  },
+  {
+    "degree": "Higher Secondary School Certificate (Computer Science)",
+    "school": "Coimbatore, Tamil Nadu",
+    "period": "Completed 2023",
+    "details": [
+      "Specialized in Computer Science, Mathematics, Physics, and Chemistry.",
+      "First introduced to programming concepts through C++ and Python."
+    ]
+  }
+]

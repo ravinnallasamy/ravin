@@ -1,11 +1,11 @@
 'use client';
 
-// Full-section: rocket launching from a git tree (left), commit ticker at bottom
+// Centered square scene: a terrible commit message card center stage, launching a rocket straight up
 export function RocketCommit() {
   return (
     <svg
-      viewBox="0 0 1200 700"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 600 600"
+      preserveAspectRatio="xMidYMid meet"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
@@ -13,126 +13,119 @@ export function RocketCommit() {
     >
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .rocket  { animation: rocket-launch 4s cubic-bezier(0.4,0,0.2,1) infinite; }
-          .flame-m { animation: flame-flicker 0.18s ease-in-out infinite alternate; transform-origin: 600px 520px; }
-          .flame-sl{ animation: flame-side    0.22s ease-in-out infinite alternate; transform-origin: 578px 518px; }
-          .flame-sr{ animation: flame-side    0.22s ease-in-out infinite alternate-reverse; transform-origin: 622px 518px; }
-          .smoke-a { animation: smoke-puff 1.4s ease-out infinite 0s; }
-          .smoke-b { animation: smoke-puff 1.4s ease-out infinite 0.47s; }
-          .smoke-c { animation: smoke-puff 1.4s ease-out infinite 0.94s; }
-          .ticker  { animation: ticker-scroll 9s linear infinite; }
-          .node-p  { animation: node-pulse 2s ease-in-out infinite; }
-          .exhaust-trail { animation: trail-fade 4s cubic-bezier(0.4,0,0.2,1) infinite; }
-          .win-blink { animation: win-blink 4s step-end infinite; }
+          .rocket-hull { animation: launch-trajectory 5s cubic-bezier(0.25, 1, 0.5, 1) infinite; transform-origin: 0px 0px; }
+          .thruster-glow { animation: thruster-pulse 0.15s ease-in-out infinite alternate; }
+          .exhaust-smoke-1 { animation: puff-fade 1.6s ease-out infinite; }
+          .exhaust-smoke-2 { animation: puff-fade 1.6s ease-out infinite 0.53s; }
+          .exhaust-smoke-3 { animation: puff-fade 1.6s ease-out infinite 1.06s; }
+          .commit-text-glow { animation: card-pulse 4s ease-in-out infinite alternate; }
+          .star-shimmer { animation: star-glow-pulse 3s ease-in-out infinite; }
         }
-        @keyframes rocket-launch {
-          0%   { transform:translate(0,0);     opacity:1; }
-          72%  { transform:translate(-80px,-440px); opacity:1; }
-          88%  { transform:translate(-100px,-520px); opacity:0; }
-          89%  { transform:translate(0,0);     opacity:0; }
-          100% { transform:translate(0,0);     opacity:1; }
+
+        @keyframes launch-trajectory {
+          0% { transform: translate(0, 0); opacity: 1; }
+          75% { transform: translate(0, -260px); opacity: 1; }
+          90% { transform: translate(0, -330px); opacity: 0; }
+          91% { transform: translate(0, 40px); opacity: 0; }
+          100% { transform: translate(0, 0); opacity: 1; }
         }
-        @keyframes flame-flicker {
-          from { transform:scaleY(1)   scaleX(1); }
-          to   { transform:scaleY(1.4) scaleX(0.8); }
+        @keyframes thruster-pulse {
+          0% { transform: scaleY(0.9) scaleX(0.95); opacity: 0.85; }
+          100% { transform: scaleY(1.3) scaleX(1.05); opacity: 1; }
         }
-        @keyframes flame-side {
-          from { transform:scaleY(1)   rotate(0deg); }
-          to   { transform:scaleY(0.6) rotate(10deg); }
+        @keyframes puff-fade {
+          0% { transform: translate(0, 0) scale(0.5); opacity: 0.5; }
+          100% { transform: translate(8px, 55px) scale(1.8); opacity: 0; }
         }
-        @keyframes smoke-puff {
-          0%   { transform:translate(0,0)    scale(0.4); opacity:0.6; }
-          100% { transform:translate(0,80px) scale(2);   opacity:0; }
+        @keyframes card-pulse {
+          0% { opacity: 0.55; filter: drop-shadow(0 2px 6px rgba(176,137,104,0.12)); }
+          100% { opacity: 0.9; filter: drop-shadow(0 6px 16px rgba(176,137,104,0.28)); }
         }
-        @keyframes ticker-scroll {
-          from { transform:translateX(320px); }
-          to   { transform:translateX(-1100px); }
-        }
-        @keyframes node-pulse {
-          0%,100% { r:8; opacity:0.6; } 50% { r:11; opacity:1; }
-        }
-        @keyframes trail-fade {
-          0%,100% { opacity:0; }
-          10%,70% { opacity:0.35; }
-          88%     { opacity:0; }
-        }
-        @keyframes win-blink {
-          0%,100% { opacity:1; } 40% { opacity:0; } 42% { opacity:1; }
+        @keyframes star-glow-pulse {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.75; }
         }
       `}</style>
 
       <defs>
-        <clipPath id="rc-safe"><rect width="1200" height="700" /></clipPath>
-        <clipPath id="rc-clip"><rect x="0" y="638" width="1200" height="40" /></clipPath>
+        <filter id="rocket-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <linearGradient id="rocket-flame-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#B08968" stopOpacity="1" />
+          <stop offset="40%" stopColor="#96714F" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#B08968" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="exhaust-trail-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#D2C5AF" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#FAF7F2" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="rocket-body-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#ECE4D8" stopOpacity="0.4" />
+        </linearGradient>
       </defs>
-      <g clipPath="url(#rc-safe)">
 
-      {/* ── Git branch tree (left column) ── */}
-      <g transform="translate(200,100)">
-        {/* Trunk */}
-        <line x1="0" y1="540" x2="0" y2="0" stroke="#D2C5AF" strokeWidth="4" />
-        {/* Branch right */}
-        <path d="M0,400 Q60,400 90,320 L90,180" stroke="#B08968" strokeWidth="3" fill="none" opacity="0.7" />
-        {/* Branch left */}
-        <path d="M0,300 Q-60,300 -90,220 L-90,120" stroke="#B08968" strokeWidth="3" fill="none" opacity="0.55" />
-        {/* Branch right 2 */}
-        <path d="M0,200 Q50,200 70,130 L70,60" stroke="#B08968" strokeWidth="2" fill="none" opacity="0.45" />
-        {/* Commit nodes */}
-        <circle className="node-p" cx="0" cy="540" r="8" fill="#D2C5AF" />
-        <circle cx="0" cy="400" r="8" fill="#B08968" opacity="0.7" />
-        <circle cx="90" cy="180" r="8" fill="#B08968" opacity="0.7" />
-        <circle cx="-90" cy="120" r="8" fill="#B08968" opacity="0.55" />
-        <circle cx="70" cy="60" r="7" fill="#B08968" opacity="0.45" />
-        <circle cx="0" cy="200" r="8" fill="#D2C5AF" />
-        <circle cx="0" cy="100" r="8" fill="#B08968" />
-        <circle cx="0" cy="0"   r="10" fill="#B08968" />
+      {/* Shimmering stars around the frame */}
+      <circle className="star-shimmer" cx="90" cy="110" r="2" fill="#B08968" />
+      <circle className="star-shimmer" cx="510" cy="100" r="2" fill="#B08968" style={{ animationDelay: '1s' }} />
+      <circle className="star-shimmer" cx="470" cy="470" r="2.5" fill="#D2C5AF" style={{ animationDelay: '2s' }} />
+      <circle className="star-shimmer" cx="110" cy="480" r="2" fill="#B08968" style={{ animationDelay: '0.5s' }} />
+
+      {/* ── Rocket, launching straight up from the card, dead center ──
+          Outer <g> only positions (static transform attribute); inner <g> carries the CSS animation.
+          A CSS `animation` that sets `transform` overrides an element's own transform="" attribute entirely,
+          so mixing both on one node causes the base translate to be dropped mid-animation. */}
+      <g transform="translate(300, 300) scale(0.9)">
+        <g className="rocket-hull">
+          <rect x="-3" y="60" width="6" height="150" rx="3" fill="url(#exhaust-trail-grad)" />
+
+          <g transform="translate(0, 60)">
+            <circle className="exhaust-smoke-1" cx="-12" cy="15" r="10" fill="#D2C5AF" />
+            <circle className="exhaust-smoke-2" cx="12" cy="20" r="8" fill="#D2C5AF" />
+            <circle className="exhaust-smoke-3" cx="0" cy="30" r="12" fill="#D2C5AF" />
+          </g>
+
+          <ellipse className="thruster-glow" cx="0" cy="50" rx="16" ry="32" fill="url(#rocket-flame-grad)" />
+          <ellipse className="thruster-glow" cx="-18" cy="48" rx="8" ry="18" fill="url(#rocket-flame-grad)" style={{ animationDelay: '0.07s' }} />
+          <ellipse className="thruster-glow" cx="18" cy="48" rx="8" ry="18" fill="url(#rocket-flame-grad)" style={{ animationDelay: '0.07s' }} />
+
+          <path d="M-28,30 L-50,65 L-28,55 Z" fill="#D2C5AF" stroke="#D2C5AF" strokeWidth="1.5" />
+          <path d="M28,30 L50,65 L28,55 Z" fill="#D2C5AF" stroke="#D2C5AF" strokeWidth="1.5" />
+
+          <path d="M-28,-70 L-28,40 C-28,45 -20,50 0,50 C20,50 28,45 28,40 L28,-70 C28,-100 20,-120 0,-150 C-20,-120 -28,-100 -28,-70 Z"
+                fill="url(#rocket-body-grad)" stroke="#D2C5AF" strokeWidth="2" strokeLinejoin="round" filter="url(#rocket-glow)" />
+
+          <line x1="-26" y1="-30" x2="26" y2="-30" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.6" />
+          <line x1="-26" y1="5" x2="26" y2="5" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.6" />
+
+          <circle cx="0" cy="-50" r="16" fill="#1E2A3A" opacity="0.15" />
+          <circle cx="0" cy="-50" r="11" fill="none" stroke="#D2C5AF" strokeWidth="1.5" />
+        </g>
       </g>
 
-      {/* ── Rocket (fires from top of git tree) ── */}
-      <g className="rocket" transform="translate(600,380)">
-        {/* Exhaust trail */}
-        <rect className="exhaust-trail" x="-4" y="140" width="8" height="200" rx="4" fill="#94A0AB" />
-        {/* Body */}
-        <rect x="-44" y="-40" width="88" height="180" rx="12" fill="#ECE4D8" stroke="#D2C5AF" strokeWidth="3" />
-        {/* Nose */}
-        <path d="M-44,-40 Q0,-140 44,-40 Z" fill="#B08968" />
-        {/* Window */}
-        <circle className="win-blink" cx="0" cy="40" r="22" fill="#1E2A3A" opacity="0.7" />
-        <circle cx="0" cy="40" r="15" fill="#52606D" opacity="0.5" />
-        <circle cx="-5" cy="33" r="5" fill="#FAF7F2" opacity="0.55" />
-        {/* Fins */}
-        <path d="M-44,120 L-80,180 L-44,165 Z" fill="#D2C5AF" />
-        <path d="M44,120  L80,180  L44,165  Z" fill="#D2C5AF" />
-        {/* Flames */}
-        <ellipse className="flame-m"  cx="0"   cy="155" rx="24" ry="48" fill="#B08968" opacity="0.9" />
-        <ellipse className="flame-sl" cx="-32" cy="150" rx="14" ry="30" fill="#D2C5AF" opacity="0.7" />
-        <ellipse className="flame-sr" cx="32"  cy="150" rx="14" ry="30" fill="#D2C5AF" opacity="0.7" />
-        {/* Smoke */}
-        <circle className="smoke-a" cx="-16" cy="200" r="18" fill="#94A0AB" opacity="0.45" />
-        <circle className="smoke-b" cx="18"  cy="210" r="15" fill="#94A0AB" opacity="0.4" />
-        <circle className="smoke-c" cx="0"   cy="225" r="22" fill="#94A0AB" opacity="0.35" />
-      </g>
-
-      {/* ── Commit ticker at bottom ── */}
-      <rect x="0" y="638" width="1200" height="40" fill="#1E2A3A" opacity="0.07" />
-      <g clipPath="url(#rc-clip)">
-        <text className="ticker" y="664" fontSize="18" fontFamily="monospace" fill="#94A0AB" letterSpacing="1">
-          git commit -m &quot;fix bug&quot; · git commit -m &quot;fix fix&quot; · git commit -m &quot;ok this time&quot; · git commit -m &quot;pls work&quot; · git commit -m &quot;.&quot; · git commit -m &quot;final FINAL v3&quot; · git commit -m &quot;🙏&quot; ·
+      {/* ── Terrible commit message, launch pad, dead center — plain floating text, no card ── */}
+      <g className="commit-text-glow" transform="translate(300, 440)">
+        <text x="0" y="-6" textAnchor="middle" fontSize="15" fontFamily="var(--font-mono), monospace" fill="#B08968" letterSpacing="0.5">
+          $ git commit -m
         </text>
+        <text x="0" y="20" textAnchor="middle" fontSize="15" fontFamily="var(--font-mono), monospace" fill="#1E2A3A" fontStyle="italic" opacity="0.75">
+          &quot;fix idk it works now&quot;
+        </text>
+
+        {/* Blinking cursor */}
+        <rect x="140" y="8" width="8" height="16" fill="#B08968" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;0;0.7" dur="1s" repeatCount="indefinite" />
+        </rect>
       </g>
 
-      {/* Stars */}
-      <circle cx="900" cy="80"  r="3" fill="#B08968" opacity="0.5" />
-      <circle cx="1050" cy="160" r="2" fill="#B08968" opacity="0.4" />
-      <circle cx="750" cy="50"  r="2" fill="#B08968" opacity="0.35" />
-      <circle cx="1150" cy="300" r="3" fill="#B08968" opacity="0.3" />
-      <circle cx="850" cy="220" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="1000" cy="400" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="650" cy="120" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="50"  cy="80"  r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="350" cy="500" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="1180" cy="500" r="2" fill="#B08968" opacity="0.25" />
-
+      {/* Caption under the pad */}
+      <g transform="translate(300, 528)">
+        <text textAnchor="middle" fontSize="13" fontFamily="var(--font-mono), monospace" fill="#B08968" opacity="0.6" letterSpacing="3">
+          LAUNCHED ANYWAY
+        </text>
       </g>
     </svg>
   );

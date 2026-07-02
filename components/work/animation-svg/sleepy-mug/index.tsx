@@ -1,11 +1,11 @@
 'use client';
 
-// Full-section: giant sleepy mug left, dozing moon right, stars everywhere
+// Centered square night scene: crescent moon above, sleepy coffee mug below, both on the vertical centerline
 export function SleepyMug() {
   return (
     <svg
-      viewBox="0 0 1200 700"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 600 600"
+      preserveAspectRatio="xMidYMid meet"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
@@ -13,111 +13,120 @@ export function SleepyMug() {
     >
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .steam-1 { animation: steam-rise 2.8s ease-in-out infinite; }
-          .steam-2 { animation: steam-rise 2.8s ease-in-out infinite 0.9s; }
-          .steam-3 { animation: steam-rise 2.8s ease-in-out infinite 1.8s; }
-          .moon-bob { animation: moon-float 4s ease-in-out infinite; }
-          .z-1 { animation: z-drift 2.8s ease-out infinite; }
-          .z-2 { animation: z-drift 2.8s ease-out infinite 0.93s; }
-          .z-3 { animation: z-drift 2.8s ease-out infinite 1.86s; }
-          .star-tw-1 { animation: tw 2s ease-in-out infinite 0s; }
-          .star-tw-2 { animation: tw 2s ease-in-out infinite 0.7s; }
-          .star-tw-3 { animation: tw 2s ease-in-out infinite 1.4s; }
-          .star-tw-4 { animation: tw 2s ease-in-out infinite 0.35s; }
-          .wave { animation: liquid-sway 2.4s ease-in-out infinite; transform-origin: 340px 460px; }
+          .steam-line-1 { animation: steam-flow 3.5s ease-in-out infinite; }
+          .steam-line-2 { animation: steam-flow 3.5s ease-in-out infinite 1.1s; }
+          .moon-float { animation: floating-moon 6s ease-in-out infinite; }
+          .zzz-text-1 { animation: drift-z 3s ease-out infinite; }
+          .zzz-text-2 { animation: drift-z 3s ease-out infinite 1s; }
+          .zzz-text-3 { animation: drift-z 3s ease-out infinite 2s; }
+          .star-glow-1 { animation: star-pulsate 2.5s ease-in-out infinite; }
+          .star-glow-2 { animation: star-pulsate 2.5s ease-in-out infinite 0.8s; }
+          .star-glow-3 { animation: star-pulsate 2.5s ease-in-out infinite 1.6s; }
+          .cup-glowing { animation: border-glow-pulse 4s ease-in-out infinite alternate; }
         }
-        @keyframes steam-rise {
-          0%   { transform:translateY(0) scaleX(1);     opacity:0; }
-          15%  { opacity:0.65; }
-          70%  { transform:translateY(-120px) scaleX(1.4); opacity:0.4; }
-          100% { transform:translateY(-180px) scaleX(0.6); opacity:0; }
+
+        @keyframes steam-flow {
+          0% { opacity: 0; transform: translateY(10px) scaleX(0.9); }
+          15% { opacity: 0.6; }
+          75% { opacity: 0.3; }
+          100% { opacity: 0; transform: translateY(-70px) scaleX(1.3); }
         }
-        @keyframes moon-float {
-          0%,100% { transform:translateY(0); }
-          50%     { transform:translateY(-18px); }
+        @keyframes floating-moon {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-12px) rotate(3deg); }
         }
-        @keyframes z-drift {
-          0%   { transform:translate(0,0)     scale(0.5); opacity:0; }
-          25%  { opacity:1; }
-          100% { transform:translate(60px,-110px) scale(1.4); opacity:0; }
+        @keyframes drift-z {
+          0% { transform: translate(0, 0) scale(0.6) rotate(-5deg); opacity: 0; }
+          20% { opacity: 0.8; }
+          80% { opacity: 0.3; }
+          100% { transform: translate(30px, -60px) scale(1.1) rotate(15deg); opacity: 0; }
         }
-        @keyframes tw {
-          0%,100% { opacity:0.15; } 50% { opacity:0.9; }
+        @keyframes star-pulsate {
+          0%, 100% { opacity: 0.25; transform: scale(0.8); }
+          50% { opacity: 0.85; transform: scale(1.25); }
         }
-        @keyframes liquid-sway {
-          0%,100% { transform:skewX(0deg); } 50% { transform:skewX(2deg); }
+        @keyframes border-glow-pulse {
+          0% { opacity: 0.5; filter: drop-shadow(0 2px 4px rgba(176,137,104,0.1)); }
+          100% { opacity: 0.9; filter: drop-shadow(0 4px 12px rgba(176,137,104,0.3)); }
         }
       `}</style>
 
       <defs>
-        <clipPath id="sm-safe"><rect width="1200" height="700" /></clipPath>
+        <filter id="moon-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="10" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <linearGradient id="cup-fill-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ECE4D8" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#ECE4D8" stopOpacity="0.04" />
+        </linearGradient>
+        <linearGradient id="moon-fill-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="#B08968" stopOpacity="0.03" />
+        </linearGradient>
       </defs>
-      <g clipPath="url(#sm-safe)">
 
-      {/* Stars */}
-      <circle className="star-tw-1" cx="100"  cy="80"  r="4" fill="#B08968" />
-      <circle className="star-tw-2" cx="500"  cy="40"  r="3" fill="#B08968" />
-      <circle className="star-tw-3" cx="900"  cy="100" r="4" fill="#B08968" />
-      <circle className="star-tw-4" cx="1100" cy="60"  r="3" fill="#B08968" />
-      <circle cx="200"  cy="200" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="700"  cy="150" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="1050" cy="300" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="60"   cy="400" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="1150" cy="500" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="30"   cy="120" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="350"  cy="600" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="1180" cy="220" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="20"   cy="640" r="2" fill="#B08968" opacity="0.18" />
-      <circle cx="600"  cy="650" r="2" fill="#B08968" opacity="0.2" />
-      <circle cx="950"  cy="600" r="3" fill="#B08968" opacity="0.25" />
+      {/* Twinkling stars scattered around the pair, kept away from the vertical centerline */}
+      <g className="star-glow-1" style={{ transformOrigin: '110px 90px' }}>
+        <path d="M110,82 L112,88 L118,90 L112,92 L110,98 L108,92 L102,90 L108,88 Z" fill="#B08968" />
+      </g>
+      <g className="star-glow-2" style={{ transformOrigin: '490px 130px', animationDelay: '0.6s' }}>
+        <path d="M490,125 L491.5,129 L495,130 L491.5,131 L490,135 L488.5,131 L485,130 L488.5,129 Z" fill="#ECE4D8" opacity="0.8" />
+      </g>
+      <g className="star-glow-3" style={{ transformOrigin: '470px 400px', animationDelay: '1.2s' }}>
+        <path d="M470,392 L472,398 L478,400 L472,402 L470,408 L468,402 L462,400 L468,398 Z" fill="#B08968" />
+      </g>
+      <circle cx="130" cy="230" r="1.5" fill="#B08968" opacity="0.3" />
+      <circle cx="90" cy="380" r="1.5" fill="#B08968" opacity="0.25" />
+      <circle cx="510" cy="260" r="1.5" fill="#B08968" opacity="0.2" />
 
-      {/* ── Giant mug (centre-left) ── */}
-      <g transform="translate(340,300)">
-        {/* Mug body */}
-        <rect x="-130" y="-80" width="260" height="200" rx="18" fill="#ECE4D8" stroke="#D2C5AF" strokeWidth="3" />
-        {/* Base */}
-        <rect x="-150" y="116" width="300" height="20" rx="8" fill="#D2C5AF" />
-        {/* Handle */}
-        <path d="M130,-40 Q210,-40 210,60 Q210,160 130,160" stroke="#D2C5AF" strokeWidth="16" fill="none" strokeLinecap="round" />
-        {/* Coffee liquid */}
-        <g className="wave">
-          <rect x="-126" y="-20" width="252" height="156" rx="10" fill="#B08968" opacity="0.28" />
-          <ellipse cx="0" cy="-20" rx="126" ry="14" fill="#96714F" opacity="0.45" />
-        </g>
-        {/* Steam */}
-        <g transform="translate(-60,-80)">
-          <path className="steam-1" d="M0,0 Q-14,-30 0,-58 Q14,-86 0,-116" stroke="#94A0AB" strokeWidth="5" strokeLinecap="round" fill="none" />
-        </g>
-        <g transform="translate(0,-90)">
-          <path className="steam-2" d="M0,0 Q16,-30 0,-58 Q-16,-86 0,-116" stroke="#94A0AB" strokeWidth="7" strokeLinecap="round" fill="none" />
-        </g>
-        <g transform="translate(60,-80)">
-          <path className="steam-3" d="M0,0 Q-10,-30 0,-58 Q10,-86 0,-116" stroke="#94A0AB" strokeWidth="5" strokeLinecap="round" fill="none" />
+      {/* ── Moon, upper half, centered horizontally — full disc with a crescent shadow cut by an offset circle ── */}
+      {/* Outer <g> only positions (static transform attribute); inner <g> carries the CSS animation.
+          A CSS `animation` that sets `transform` overrides an element's own transform="" attribute entirely,
+          so mixing both on one node causes the base translate to be dropped mid-animation. */}
+      <g transform="translate(300, 140)">
+        <g className="moon-float">
+          <circle cx="0" cy="0" r="80" fill="url(#moon-fill-grad)" opacity="0.35" filter="url(#moon-glow)" />
+
+          <mask id="moon-crescent-mask">
+            <rect x="-90" y="-90" width="180" height="180" fill="white" />
+            <circle cx="24" cy="-16" r="58" fill="black" />
+          </mask>
+          <circle cx="0" cy="0" r="68" fill="url(#moon-fill-grad)" stroke="#D2C5AF" strokeWidth="2.5" mask="url(#moon-crescent-mask)" />
+
+          {/* Sleeping face */}
+          <path d="M-38,-8 Q-30,-15 -22,-8" stroke="#1E2A3A" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.75" />
+          <path d="M-30,14 Q-21,21 -12,14" stroke="#1E2A3A" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
+          <circle cx="-40" cy="6" r="6.5" fill="#B08968" opacity="0.15" />
         </g>
       </g>
 
-      {/* ── Moon (right side) ── */}
-      <g className="moon-bob" transform="translate(870,280)">
-        <path d="M0,-110 A110,110 0 1 1 -77.8,77.8 A70,70 0 0 0 0,-110 Z" fill="#ECE4D8" stroke="#D2C5AF" strokeWidth="3" />
-        {/* Sleepy eyes */}
-        <path d="M-38,-16 Q-26,-30 -14,-16" stroke="#1E2A3A" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <path d="M14,-16 Q26,-30 38,-16"  stroke="#1E2A3A" strokeWidth="4" fill="none" strokeLinecap="round" />
-        {/* Smile */}
-        <path d="M-20,24 Q0,40 20,24" stroke="#94A0AB" strokeWidth="3" fill="none" strokeLinecap="round" />
-        {/* Blush */}
-        <ellipse cx="-46" cy="14" rx="16" ry="10" fill="#B08968" opacity="0.2" />
-        <ellipse cx="46"  cy="14" rx="16" ry="10" fill="#B08968" opacity="0.2" />
-        {/* ZZZ */}
-        <text className="z-1" x="90"  y="0"   fontSize="38" fontWeight="bold" fill="#B08968" fontFamily="monospace">z</text>
-        <text className="z-2" x="115" y="-50" fontSize="50" fontWeight="bold" fill="#B08968" fontFamily="monospace">z</text>
-        <text className="z-3" x="148" y="-110" fontSize="64" fontWeight="bold" fill="#B08968" fontFamily="monospace">Z</text>
-      </g>
+      {/* ── Mug, lower half, centered horizontally, steam rising toward the moon ── */}
+      <g className="cup-glowing" transform="translate(300, 430)">
+        <path d="M75,-28 C108,-28 116,28 75,35" stroke="#D2C5AF" strokeWidth="2.5" fill="none" strokeLinecap="round" />
 
-      {/* Small decorative stars near moon */}
-      <circle cx="700" cy="180" r="3" fill="#B08968" opacity="0.4" />
-      <circle cx="760" cy="120" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="1050" cy="160" r="3" fill="#B08968" opacity="0.35" />
+        <path d="M-75,-55 L-75,60 C-75,74 -60,76 -45,76 L45,76 C60,76 75,74 75,60 L75,-55 Z"
+              stroke="#D2C5AF" strokeWidth="2.5" fill="url(#cup-fill-grad)" strokeLinecap="round" strokeLinejoin="round" />
 
+        <line x1="-70" y1="-16" x2="70" y2="-16" stroke="#B08968" strokeWidth="1.5" opacity="0.4" strokeDasharray="5 3" />
+
+        {/* Steam rising, becoming Z's toward the moon */}
+        <g transform="translate(0, -70)">
+          <path className="steam-line-1" d="M0,15 Q-10,0 0,-15 Q10,-30 0,-45"
+                stroke="#B08968" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.6" />
+        </g>
+        <g transform="translate(-22, -62)">
+          <path className="steam-line-2" d="M0,15 Q8,0 0,-15 Q-8,-30 0,-45"
+                stroke="#D2C5AF" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+        </g>
+
+        {/* Zzz drifting up out of the steam toward the moon */}
+        <g transform="translate(30, -85)">
+          <text className="zzz-text-1" x="0" y="0" fontSize="16" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
+          <text className="zzz-text-2" x="12" y="-20" fontSize="22" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
+          <text className="zzz-text-3" x="28" y="-46" fontSize="30" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">Z</text>
+        </g>
       </g>
     </svg>
   );

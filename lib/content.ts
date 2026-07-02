@@ -3,6 +3,9 @@ import socialJson from '@/content/social.json';
 import skillsJson from '@/content/skills.json';
 import projectsJson from '@/content/projects.json';
 import certificationsJson from '@/content/certifications.json';
+import servicesJson from '@/content/services.json';
+import experienceJson from '@/content/experience.json';
+import educationJson from '@/content/education.json';
 
 export interface Site {
   name: string;
@@ -62,6 +65,29 @@ export interface Certification {
   image: string;
 }
 
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  features: string[];
+  icon: string;
+}
+
+export interface ExperienceEntry {
+  role: string;
+  company: string;
+  period: string;
+  description: string[];
+  skills: string[];
+}
+
+export interface EducationEntry {
+  degree: string;
+  school: string;
+  period: string;
+  details: string[];
+}
+
 export function getSite(): Site {
   return siteJson;
 }
@@ -86,4 +112,16 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getCertifications(): Certification[] {
   return certificationsJson as Certification[];
+}
+
+export function getServices(): Service[] {
+  return servicesJson as Service[];
+}
+
+export function getExperience(): ExperienceEntry[] {
+  return experienceJson as ExperienceEntry[];
+}
+
+export function getEducation(): EducationEntry[] {
+  return educationJson as EducationEntry[];
 }

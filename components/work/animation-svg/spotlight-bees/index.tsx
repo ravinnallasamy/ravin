@@ -1,11 +1,11 @@
 'use client';
 
-// Full-section background: bees flying from edges converging on a centre spotlight
+// Centered square stage audition: a bug center-stage in a spotlight, performing like the lead
 export function SpotlightBees() {
   return (
     <svg
-      viewBox="0 0 1200 700"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 600 600"
+      preserveAspectRatio="xMidYMid meet"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
@@ -13,147 +13,164 @@ export function SpotlightBees() {
     >
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .spot-cone   { animation: spot-flicker 3s ease-in-out infinite; }
-          .spot-cone-2 { animation: spot-flicker 3s ease-in-out infinite 1.5s; }
-          .bee-a { animation: bee-orbit-a 8s ease-in-out infinite; }
-          .bee-b { animation: bee-orbit-b 9s ease-in-out infinite 1s; }
-          .bee-c { animation: bee-orbit-c 7s ease-in-out infinite 2s; }
-          .bee-d { animation: bee-orbit-d 10s ease-in-out infinite 0.5s; }
-          .bee-e { animation: bee-orbit-e 8.5s ease-in-out infinite 3s; }
-          .bee-f { animation: bee-orbit-f 7.5s ease-in-out infinite 1.5s; }
-          .bee-g { animation: bee-orbit-g 9.5s ease-in-out infinite 2.5s; }
-          .bee-h { animation: bee-orbit-h 8s ease-in-out infinite 4s; }
-          .bee-i { animation: bee-orbit-a 8.8s ease-in-out infinite 0.8s; }
-          .bee-j { animation: bee-orbit-b 7.6s ease-in-out infinite 2.2s; }
-          .bee-k { animation: bee-orbit-c 9.2s ease-in-out infinite 3.6s; }
-          .bee-l { animation: bee-orbit-d 8.4s ease-in-out infinite 1.4s; }
-          .wing-a { animation: wing-beat 0.1s linear infinite alternate; }
-          .wing-b { animation: wing-beat 0.1s linear infinite alternate-reverse; }
-          .star-p { animation: star-pop 2.4s ease-in-out infinite; }
-          .star-q { animation: star-pop 2.4s ease-in-out infinite 0.8s; }
-          .star-r { animation: star-pop 2.4s ease-in-out infinite 1.6s; }
+          .spot-cone-left { animation: beam-swing-left 6s ease-in-out infinite alternate; transform-origin: 0px 0px; }
+          .spot-cone-right { animation: beam-swing-right 7s ease-in-out infinite alternate; transform-origin: 0px 0px; }
+          .ambient-pulse { animation: pulse-glow 4s ease-in-out infinite alternate; }
+          .star-twinkle { animation: twinkle 3s ease-in-out infinite; }
+          .bug-bow { animation: bug-take-a-bow 4s ease-in-out infinite; transform-origin: 300px 420px; }
+          .bug-leg-left { animation: leg-tap-l 0.6s ease-in-out infinite alternate; transform-origin: 270px 400px; }
+          .bug-leg-right { animation: leg-tap-r 0.6s ease-in-out infinite alternate; transform-origin: 330px 400px; }
+          .wing-flutter-left { animation: flutter 0.09s linear infinite alternate; transform-origin: 285px 350px; }
+          .wing-flutter-right { animation: flutter 0.09s linear infinite alternate-reverse; transform-origin: 315px 350px; }
+          .confetti-1 { animation: drift-fall 4s linear infinite; }
+          .confetti-2 { animation: drift-fall 4.5s linear infinite 1.2s; }
+          .confetti-3 { animation: drift-fall 3.8s linear infinite 2.4s; }
         }
-        @keyframes spot-flicker {
-          0%,100% { opacity:0.18; } 45% { opacity:0.12; } 50% { opacity:0.08; } 55% { opacity:0.16; }
+
+        @keyframes beam-swing-left { 0% { transform: rotate(-5deg); opacity: 0.14; } 100% { transform: rotate(2deg); opacity: 0.2; } }
+        @keyframes beam-swing-right { 0% { transform: rotate(5deg); opacity: 0.2; } 100% { transform: rotate(-2deg); opacity: 0.14; } }
+        @keyframes pulse-glow { 0% { opacity: 0.25; } 100% { opacity: 0.55; } }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 0.9; transform: scale(1.2); } }
+        @keyframes bug-take-a-bow {
+          0%, 20% { transform: translateY(0) rotate(0deg); }
+          35% { transform: translateY(6px) rotate(6deg); }
+          50% { transform: translateY(0) rotate(0deg); }
+          100% { transform: translateY(0) rotate(0deg); }
         }
-        @keyframes bee-orbit-a {
-          0%   { transform: translate(0,0); }
-          25%  { transform: translate(60px,-40px); }
-          50%  { transform: translate(120px,20px); }
-          75%  { transform: translate(60px,50px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-b {
-          0%   { transform: translate(0,0); }
-          30%  { transform: translate(-80px,30px); }
-          60%  { transform: translate(-40px,-60px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-c {
-          0%   { transform: translate(0,0); }
-          20%  { transform: translate(50px,70px); }
-          50%  { transform: translate(-30px,90px); }
-          80%  { transform: translate(-60px,20px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-d {
-          0%   { transform: translate(0,0); }
-          35%  { transform: translate(-90px,-50px); }
-          65%  { transform: translate(30px,-80px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-e {
-          0%   { transform: translate(0,0); }
-          40%  { transform: translate(100px,60px); }
-          80%  { transform: translate(40px,-30px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-f {
-          0%   { transform: translate(0,0); }
-          25%  { transform: translate(-70px,80px); }
-          75%  { transform: translate(80px,40px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-g {
-          0%   { transform: translate(0,0); }
-          33%  { transform: translate(-100px,-30px); }
-          66%  { transform: translate(50px,-90px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes bee-orbit-h {
-          0%   { transform: translate(0,0); }
-          50%  { transform: translate(120px,-70px); }
-          100% { transform: translate(0,0); }
-        }
-        @keyframes wing-beat { from { transform:scaleY(1); } to { transform:scaleY(0.2); } }
-        @keyframes star-pop {
-          0%,100% { opacity:0.15; r:3; } 50% { opacity:0.7; r:5; }
+        @keyframes leg-tap-l { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+        @keyframes leg-tap-r { from { transform: rotate(10deg); } to { transform: rotate(-10deg); } }
+        @keyframes flutter { from { transform: scaleY(1); } to { transform: scaleY(0.15); } }
+        @keyframes drift-fall {
+          0% { transform: translateY(-20px) rotate(0deg) scale(0.6); opacity: 0; }
+          20% { opacity: 0.8; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(160px) rotate(360deg) scale(1.1); opacity: 0; }
         }
       `}</style>
 
       <defs>
-        <clipPath id="sb-safe"><rect width="1200" height="700" /></clipPath>
+        <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        <filter id="strong-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="14" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <linearGradient id="beam-grad-left" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#B08968" stopOpacity="0.25" />
+          <stop offset="50%" stopColor="#B08968" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#B08968" stopOpacity="0.00" />
+        </linearGradient>
+        <linearGradient id="beam-grad-right" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ECE4D8" stopOpacity="0.25" />
+          <stop offset="60%" stopColor="#B08968" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#B08968" stopOpacity="0.00" />
+        </linearGradient>
+        <radialGradient id="center-stage" cx="50%" cy="72%" r="42%">
+          <stop offset="0%" stopColor="#F0E6D8" stopOpacity="0.45" />
+          <stop offset="60%" stopColor="#FAF7F2" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#FAF7F2" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="bug-shell-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#B08968" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#96714F" stopOpacity="0.55" />
+        </linearGradient>
       </defs>
-      <g clipPath="url(#sb-safe)">
 
-      {/* Spotlight cones from top corners */}
-      <g className="spot-cone">
-        <polygon points="180,0 0,700 500,700"  fill="#B08968" opacity="0.18" />
-        <polygon points="120,0 0,700 350,700"  fill="#B08968" opacity="0.08" />
+      {/* Ambient stage glow, centered on the bug */}
+      <circle className="ambient-pulse" cx="300" cy="420" r="180" fill="url(#center-stage)" filter="url(#strong-glow)" />
+
+      {/* Two spotlights crossing toward center.
+          Outer <g> only positions (static transform attribute); inner <g> carries the CSS animation.
+          A CSS `animation` that sets `transform` overrides an element's own transform="" attribute entirely,
+          so mixing both on one node causes the base translate to be dropped mid-animation. */}
+      <g transform="translate(150, 40)">
+        <g className="spot-cone-left">
+          <polygon points="0,0 -110,420 130,420" fill="url(#beam-grad-left)" />
+        </g>
       </g>
-      <g className="spot-cone-2">
-        <polygon points="1020,0 700,700 1200,700" fill="#B08968" opacity="0.18" />
-        <polygon points="1080,0 850,700 1200,700" fill="#B08968" opacity="0.08" />
+      <g transform="translate(450, 40)">
+        <g className="spot-cone-right">
+          <polygon points="0,0 -130,420 110,420" fill="url(#beam-grad-right)" />
+        </g>
       </g>
 
-      {/* Stage floor */}
-      <line x1="0" y1="680" x2="1200" y2="680" stroke="#D2C5AF" strokeWidth="1" opacity="0.3" />
+      {/* Stage floor, centered */}
+      <ellipse cx="300" cy="470" rx="200" ry="18" fill="#D2C5AF" opacity="0.15" />
+      <line x1="90" y1="470" x2="510" y2="470" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.3" strokeDasharray="6 4" />
 
-      {/* Scattered stars */}
-      <circle className="star-p" cx="200"  cy="80"  r="3" fill="#B08968" />
-      <circle className="star-q" cx="600"  cy="50"  r="4" fill="#B08968" />
-      <circle className="star-r" cx="1000" cy="100" r="3" fill="#B08968" />
-      <circle cx="80"  cy="200" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="400" cy="130" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="800" cy="60"  r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="1100" cy="180" r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="30"  cy="350" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="280" cy="40"  r="2" fill="#B08968" opacity="0.3" />
-      <circle cx="520" cy="650" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="950" cy="630" r="3" fill="#B08968" opacity="0.3" />
-      <circle cx="1170" cy="380" r="2" fill="#B08968" opacity="0.25" />
-      <circle cx="20"  cy="600" r="2" fill="#B08968" opacity="0.2" />
+      {/* Twinkling ambient stars around the frame */}
+      <g className="star-twinkle" style={{ transformOrigin: '110px 90px' }}>
+        <circle cx="110" cy="90" r="2.5" fill="#B08968" filter="url(#soft-glow)" />
+      </g>
+      <g className="star-twinkle" style={{ transformOrigin: '490px 110px', animationDelay: '1.5s' }}>
+        <circle cx="490" cy="110" r="2" fill="#B08968" filter="url(#soft-glow)" />
+      </g>
+      <g className="star-twinkle" style={{ transformOrigin: '150px 200px', animationDelay: '0.8s' }}>
+        <circle cx="150" cy="200" r="1.5" fill="#ECE4D8" opacity="0.8" />
+      </g>
+      <g className="star-twinkle" style={{ transformOrigin: '450px 190px', animationDelay: '2.2s' }}>
+        <circle cx="450" cy="190" r="2" fill="#B08968" opacity="0.5" />
+      </g>
 
-      {/* Bees spread across the canvas */}
-      <Bee cx={150}  cy={200} wc="bee-a" />
-      <Bee cx={350}  cy={500} wc="bee-b" />
-      <Bee cx={550}  cy={150} wc="bee-c" />
-      <Bee cx={700}  cy={450} wc="bee-d" />
-      <Bee cx={900}  cy={200} wc="bee-e" />
-      <Bee cx={1000} cy={500} wc="bee-f" />
-      <Bee cx={250}  cy={580} wc="bee-g" />
-      <Bee cx={750}  cy={570} wc="bee-h" />
-      <Bee cx={60}   cy={420} wc="bee-i" />
-      <Bee cx={450}  cy={320} wc="bee-j" />
-      <Bee cx={1130} cy={350} wc="bee-k" />
-      <Bee cx={1080} cy={120} wc="bee-l" />
+      {/* Celebration confetti drifting around the star of the show */}
+      <g className="confetti-1">
+        <polygon points="200,140 205,148 210,140 205,132" fill="#B08968" opacity="0.6" />
+      </g>
+      <g className="confetti-2">
+        <polygon points="400,120 404,127 408,120 404,113" fill="#D2C5AF" opacity="0.8" />
+      </g>
+      <g className="confetti-3">
+        <polygon points="230,110 234,117 238,110 234,103" fill="#ECE4D8" opacity="0.5" />
+      </g>
 
+      {/* ── The Bug, center stage, taking its bow ── */}
+      <g className="bug-bow">
+        {/* Legs */}
+        <g className="bug-leg-left">
+          <path d="M270,400 Q245,400 250,430" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.5" />
+          <path d="M270,415 Q245,415 250,445" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.5" />
+        </g>
+        <g className="bug-leg-right">
+          <path d="M330,400 Q355,400 350,430" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.5" />
+          <path d="M330,415 Q355,415 350,445" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.5" />
+        </g>
+
+        {/* Body, dead center of the frame */}
+        <ellipse cx="300" cy="400" rx="38" ry="50" fill="url(#bug-shell-grad)" stroke="#D2C5AF" strokeWidth="2.5" filter="url(#soft-glow)" />
+
+        {/* Segment lines */}
+        <path d="M266,388 Q300,394 334,388" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" />
+        <path d="M265,412 Q300,418 335,412" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" />
+
+        {/* Wings spread like a performer's cape */}
+        <ellipse className="wing-flutter-left" cx="285" cy="350" rx="18" ry="42" fill="#FAF7F2" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" transform="rotate(-16, 285, 350)" />
+        <ellipse className="wing-flutter-right" cx="315" cy="350" rx="18" ry="42" fill="#FAF7F2" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" transform="rotate(16, 315, 350)" />
+
+        {/* Head */}
+        <circle cx="300" cy="330" r="22" fill="#ECE4D8" stroke="#D2C5AF" strokeWidth="2.5" />
+
+        {/* Eyes, bright with the spotlight */}
+        <circle cx="291" cy="326" r="4.5" fill="#1E2A3A" />
+        <circle cx="309" cy="326" r="4.5" fill="#1E2A3A" />
+        <circle cx="289" cy="324" r="1.6" fill="#FAF7F2" />
+        <circle cx="307" cy="324" r="1.6" fill="#FAF7F2" />
+
+        {/* Antennae reaching up like jazz hands */}
+        <path d="M288,312 Q278,296 272,276" stroke="#1E2A3A" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M312,312 Q322,296 328,276" stroke="#1E2A3A" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <circle cx="272" cy="276" r="4.5" fill="#B08968" filter="url(#soft-glow)" />
+        <circle cx="328" cy="276" r="4.5" fill="#B08968" filter="url(#soft-glow)" />
+      </g>
+
+      {/* Marquee-style label under the stage */}
+      <g transform="translate(300, 540)">
+        <text textAnchor="middle" fontSize="13" fontFamily="var(--font-mono), monospace" fill="#B08968" opacity="0.6" letterSpacing="3">
+          NOW AUDITIONING
+        </text>
       </g>
     </svg>
-  );
-}
-
-function Bee({ cx, cy, wc }: { cx: number; cy: number; wc: string }) {
-  return (
-    <g transform={`translate(${cx},${cy})`} className={wc}>
-      <ellipse rx="18" ry="11" fill="#B08968" />
-      <line x1="-7"  y1="-9" x2="-7"  y2="9" stroke="#1E2A3A" strokeWidth="3" opacity="0.4" />
-      <line x1="2"   y1="-9" x2="2"   y2="9" stroke="#1E2A3A" strokeWidth="3" opacity="0.4" />
-      <line x1="10"  y1="-7" x2="10"  y2="7" stroke="#1E2A3A" strokeWidth="3" opacity="0.4" />
-      <ellipse className="wing-a" cx="-4"  cy="-13" rx="9"  ry="6" fill="#E2D9CB" opacity="0.8" />
-      <ellipse className="wing-b" cx="7"   cy="-13" rx="9"  ry="6" fill="#E2D9CB" opacity="0.8" />
-      <path d="M-18,0 L-26,-2 L-26,2 Z" fill="#94A0AB" />
-      <circle cx="15" cy="-2" r="2.5" fill="#1E2A3A" />
-    </g>
   );
 }

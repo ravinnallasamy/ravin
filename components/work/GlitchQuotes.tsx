@@ -90,7 +90,7 @@ export function GlitchQuotes({
 
   if (shouldReduceMotion) {
     return (
-      <p className="text-h2 md:text-h1-lg font-display text-ink text-center">
+      <p className="text-h2 md:text-h1-lg font-display text-ink text-left">
         {QUOTES[index].text}
       </p>
     );
@@ -100,7 +100,7 @@ export function GlitchQuotes({
     <div className="relative w-full">
       <p
         data-glitch-text={text}
-        className={`text-h2 md:text-h1-lg font-display text-ink text-center ${phase === 'glitching' ? 'glitch-text glitch-scanlines' : ''}`}
+        className={`text-h2 md:text-h1-lg font-display text-ink text-left ${phase === 'glitching' ? 'glitch-text glitch-scanlines' : ''}`}
       >
         {text}
         <span

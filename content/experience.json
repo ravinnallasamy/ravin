@@ -1,0 +1,26 @@
+[
+  {
+    "role": "Freelance Full-Stack & AI Engineer",
+    "company": "Self-Employed / Remote",
+    "period": "Nov 2025 — Present",
+    "description": [
+      "Architect and ship production-ready applications including Uzhavan Rentals (a two-sided farming equipment rental marketplace) and Cerina Protocol Foundry.",
+      "Design and deploy multi-agent LLM architectures using LangGraph and LangChain to automate clinical protocol writing with human-in-the-loop validation.",
+      "Develop cross-platform healthcare apps tracking patient vitals and medications using Flutter and Dart.",
+      "Construct performant, responsive web apps using Next.js, React, and Tailwind CSS."
+    ],
+    "skills": ["Next.js", "React", "TypeScript", "Flutter", "LangGraph", "FastAPI", "MongoDB", "PostgreSQL", "n8n"]
+  },
+  {
+    "role": "Full-Stack Development Intern",
+    "company": "Tech Startup / Coimbatore",
+    "period": "Jun 2025 — Oct 2025",
+    "description": [
+      "Contributed to building full-stack web products using the MERN stack.",
+      "Developed web scrapers and automation scripts using Playwright and Node.js.",
+      "Integrated third-party services including the WhatsApp Business API and Telegram Bot API.",
+      "Designed database schemas in PostgreSQL and implemented user authentication workflows."
+    ],
+    "skills": ["Node.js", "Express", "PostgreSQL", "Playwright", "WhatsApp API", "Telegram API", "Git"]
+  }
+]

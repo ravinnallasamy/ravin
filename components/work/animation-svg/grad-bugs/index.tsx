@@ -1,11 +1,11 @@
 'use client';
 
-// Full-section: 6 grad-cap bugs marching left→right across the full width toward a giant diploma
+// Centered square promotion ceremony: a graduating bug receiving its "FEATURE" diploma, dead center
 export function GradBugs() {
   return (
     <svg
-      viewBox="0 0 1200 700"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 600 600"
+      preserveAspectRatio="xMidYMid meet"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
@@ -13,140 +13,148 @@ export function GradBugs() {
     >
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .bug-1 { animation: march 2.4s ease-in-out infinite 0s; }
-          .bug-2 { animation: march 2.4s ease-in-out infinite 0.4s; }
-          .bug-3 { animation: march 2.4s ease-in-out infinite 0.8s; }
-          .bug-4 { animation: march 2.4s ease-in-out infinite 1.2s; }
-          .bug-5 { animation: march 2.4s ease-in-out infinite 1.6s; }
-          .bug-6 { animation: march 2.4s ease-in-out infinite 2.0s; }
-          .diploma-wave { animation: dip-wave 2.4s ease-in-out infinite; transform-origin: 980px 340px; }
-          .confetti-a { animation: fall 2.8s linear infinite 0s; }
-          .confetti-b { animation: fall 2.8s linear infinite 0.7s; }
-          .confetti-c { animation: fall 2.8s linear infinite 1.4s; }
-          .confetti-d { animation: fall 2.8s linear infinite 2.1s; }
-          .confetti-e { animation: fall 2.8s linear infinite 0.35s; }
-          .confetti-f { animation: fall 2.8s linear infinite 1.75s; }
-          .confetti-g { animation: fall 2.8s linear infinite 1.05s; }
-          .confetti-h { animation: fall 2.8s linear infinite 2.45s; }
-          .confetti-i { animation: fall 2.8s linear infinite 0.55s; }
-          .confetti-j { animation: fall 2.8s linear infinite 1.9s; }
-          .leg-l { animation: leg-l 0.48s ease-in-out infinite alternate; }
-          .leg-r { animation: leg-r 0.48s ease-in-out infinite alternate; }
-          .tassel { animation: tassel-sw 0.48s ease-in-out infinite alternate; }
+          .bug-hop { animation: proud-hop 3s ease-in-out infinite; transform-origin: 300px 400px; }
+          .scroll-diploma { animation: diploma-hover 5s ease-in-out infinite alternate; transform-origin: 0px 0px; }
+          .glitter-particle-1 { animation: drift-fall 4s linear infinite; }
+          .glitter-particle-2 { animation: drift-fall 4.5s linear infinite 1.2s; }
+          .glitter-particle-3 { animation: drift-fall 3.8s linear infinite 2.4s; }
+          .bug-leg-left { animation: leg-swing-l 0.5s ease-in-out infinite alternate; transform-origin: 270px 390px; }
+          .bug-leg-right { animation: leg-swing-r 0.5s ease-in-out infinite alternate; transform-origin: 330px 390px; }
+          .cap-tassel-swing { animation: tassel-sway 0.5s ease-in-out infinite alternate; transform-origin: 322px 298px; }
         }
-        @keyframes march {
-          0%,100% { transform:translateY(0); }
-          50%     { transform:translateY(-14px); }
+
+        @keyframes proud-hop {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-14px); }
         }
-        @keyframes dip-wave {
-          0%,100% { transform:rotate(-5deg); } 50% { transform:rotate(5deg); }
+        @keyframes diploma-hover {
+          0% { transform: translateY(0) rotate(-4deg); }
+          100% { transform: translateY(-8px) rotate(3deg); }
         }
-        @keyframes fall {
-          0%   { transform:translate(0,-20px) rotate(0deg);   opacity:1; }
-          100% { transform:translate(0,80px) rotate(540deg); opacity:0; }
+        @keyframes drift-fall {
+          0% { transform: translateY(-20px) rotate(0deg) scale(0.6); opacity: 0; }
+          20% { opacity: 0.8; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(120px) rotate(360deg) scale(1.1); opacity: 0; }
         }
-        @keyframes leg-l {
-          from { transform:rotate(-22deg); } to { transform:rotate(22deg); }
-        }
-        @keyframes leg-r {
-          from { transform:rotate(22deg); } to { transform:rotate(-22deg); }
-        }
-        @keyframes tassel-sw {
-          from { transform:rotate(-18deg); } to { transform:rotate(18deg); }
-        }
+        @keyframes leg-swing-l { from { transform: rotate(-15deg); } to { transform: rotate(15deg); } }
+        @keyframes leg-swing-r { from { transform: rotate(15deg); } to { transform: rotate(-15deg); } }
+        @keyframes tassel-sway { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
       `}</style>
 
       <defs>
-        <clipPath id="gb-safe"><rect width="1200" height="700" /></clipPath>
+        <filter id="diploma-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="8" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <linearGradient id="diploma-sheet" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#ECE4D8" stopOpacity="0.65" />
+        </linearGradient>
+        <linearGradient id="bug-shell-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#B08968" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#FAF7F2" stopOpacity="0.06" />
+        </linearGradient>
       </defs>
-      <g clipPath="url(#gb-safe)">
 
-      {/* Ground */}
-      <line x1="0" y1="560" x2="1200" y2="560" stroke="#E2D9CB" strokeWidth="2" opacity="0.5" />
+      {/* Groundline, centered under the ceremony */}
+      <line x1="80" y1="470" x2="520" y2="470" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.3" strokeDasharray="6 4" />
 
-      {/* Confetti */}
-      <rect className="confetti-a" x="200"  y="200" width="14" height="14" rx="2" fill="#B08968" opacity="0.7"  transform="rotate(20,207,207)" />
-      <rect className="confetti-b" x="400"  y="160" width="12" height="12" rx="2" fill="#52606D" opacity="0.55" transform="rotate(45,406,166)" />
-      <rect className="confetti-c" x="620"  y="220" width="14" height="14" rx="2" fill="#B08968" opacity="0.65" transform="rotate(60,627,227)" />
-      <rect className="confetti-d" x="820"  y="170" width="10" height="18" rx="2" fill="#94A0AB" opacity="0.55" transform="rotate(30,825,179)" />
-      <rect className="confetti-e" x="300"  y="140" width="12" height="12" rx="2" fill="#D2C5AF" opacity="0.6"  transform="rotate(15,306,146)" />
-      <rect className="confetti-f" x="700"  y="190" width="14" height="8"  rx="2" fill="#B08968" opacity="0.5"  transform="rotate(50,707,194)" />
-      <rect className="confetti-g" x="60"   y="120" width="12" height="12" rx="2" fill="#94A0AB" opacity="0.5"  transform="rotate(25,66,126)" />
-      <rect className="confetti-h" x="1050" y="250" width="14" height="14" rx="2" fill="#B08968" opacity="0.55" transform="rotate(40,1057,257)" />
-      <rect className="confetti-i" x="500"  y="80"  width="10" height="10" rx="2" fill="#D2C5AF" opacity="0.5"  transform="rotate(10,505,85)" />
-      <rect className="confetti-j" x="1130" y="100" width="12" height="12" rx="2" fill="#52606D" opacity="0.45" transform="rotate(55,1136,106)" />
-
-      {/* ── Giant diploma (right side, destination) ── */}
-      <g className="diploma-wave" transform="translate(980,340)">
-        <rect x="-90" y="-70" width="180" height="140" rx="10" fill="#FAF7F2" stroke="#D2C5AF" strokeWidth="3" />
-        <line x1="-60" y1="-30" x2="60"  y2="-30" stroke="#D2C5AF" strokeWidth="3" />
-        <line x1="-60" y1="-6"  x2="60"  y2="-6"  stroke="#D2C5AF" strokeWidth="3" />
-        <line x1="-60" y1="18"  x2="30"  y2="18"  stroke="#D2C5AF" strokeWidth="3" />
-        {/* Ribbon */}
-        <rect x="-90" y="-14" width="22" height="28" rx="3" fill="#B08968" />
-        <rect x="68"  y="-14" width="22" height="28" rx="3" fill="#B08968" />
-        <line x1="-80" y1="0" x2="80" y2="0" stroke="#B08968" strokeWidth="2" opacity="0.35" />
-        {/* Gold star */}
-        <text x="-20" y="-44" fontSize="36" fill="#B08968">★</text>
-        {/* Seal */}
-        <circle cx="55" cy="48" r="18" fill="#ECE4D8" stroke="#B08968" strokeWidth="2" />
-        <text x="46" y="53" fontSize="14" fill="#B08968" fontFamily="monospace">✓</text>
+      {/* Celebration glitter around the pair */}
+      <g className="glitter-particle-1">
+        <polygon points="150,150 155,158 160,150 155,142" fill="#B08968" opacity="0.6" />
+      </g>
+      <g className="glitter-particle-2">
+        <polygon points="440,140 444,147 448,140 444,133" fill="#D2C5AF" opacity="0.8" />
+      </g>
+      <g className="glitter-particle-3">
+        <polygon points="470,220 475,228 480,220 475,212" fill="#B08968" opacity="0.6" />
+      </g>
+      <g className="glitter-particle-1" style={{ animationDelay: '2.1s' }}>
+        <polygon points="130,240 134,247 138,240 134,233" fill="#ECE4D8" opacity="0.5" />
+      </g>
+      <g className="glitter-particle-2" style={{ animationDelay: '0.8s' }}>
+        <polygon points="200,120 205,128 210,120 205,112" fill="#B08968" opacity="0.5" />
       </g>
 
-      {/* 6 bugs marching evenly spaced */}
-      <Bug cx={120}  cy={520} cls="bug-1" />
-      <Bug cx={300}  cy={520} cls="bug-2" />
-      <Bug cx={480}  cy={520} cls="bug-3" />
-      <Bug cx={660}  cy={520} cls="bug-4" />
-      <Bug cx={840}  cy={520} cls="bug-5" />
-      <Bug cx={820}  cy={380} cls="bug-6" />
+      {/* ── The graduating bug, left of center, taking its promotion diploma ── */}
+      <g className="bug-hop" transform="translate(-70, 0)">
+        <g className="bug-leg-left">
+          <path d="M270,375 Q245,375 250,405" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
+          <path d="M270,395 Q245,395 250,425" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
+        </g>
+        <g className="bug-leg-right">
+          <path d="M330,375 Q355,375 350,405" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
+          <path d="M330,395 Q355,395 350,425" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
+        </g>
 
+        <ellipse cx="300" cy="400" rx="36" ry="48" fill="url(#bug-shell-grad)" stroke="#D2C5AF" strokeWidth="2.5" />
+
+        <path d="M267,388 Q300,393 333,388" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" />
+        <path d="M266,412 Q300,417 334,412" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.5" />
+
+        <ellipse cx="281" cy="397" rx="17" ry="41" fill="#FAF7F2" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.45" transform="rotate(-10, 281, 397)" />
+        <ellipse cx="319" cy="397" rx="17" ry="41" fill="#FAF7F2" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.45" transform="rotate(10, 319, 397)" />
+
+        <circle cx="300" cy="345" r="19" fill="#ECE4D8" stroke="#D2C5AF" strokeWidth="2.5" />
+
+        <circle cx="294" cy="341" r="4" fill="#1E2A3A" />
+        <circle cx="306" cy="341" r="4" fill="#1E2A3A" />
+        <circle cx="295" cy="339" r="1.3" fill="#FAF7F2" />
+        <circle cx="307" cy="339" r="1.3" fill="#FAF7F2" />
+
+        <path d="M292,327 Q285,313 282,296" stroke="#1E2A3A" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+        <path d="M308,327 Q315,313 318,296" stroke="#1E2A3A" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+        <circle cx="282" cy="296" r="4" fill="#1E2A3A" />
+        <circle cx="318" cy="296" r="4" fill="#1E2A3A" />
+
+        {/* Graduation cap */}
+        <polygon points="300,278 268,296 300,314 332,296" fill="#1E2A3A" stroke="#1E2A3A" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M290,304 C290,312 310,312 310,304" stroke="#1E2A3A" strokeWidth="4" strokeLinecap="round" />
+
+        <g className="cap-tassel-swing">
+          <path d="M322,296 Q332,309 330,324" stroke="#B08968" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <circle cx="330" cy="326" r="4.5" fill="#B08968" />
+        </g>
+
+        {/* Front leg reaching toward the diploma */}
+        <path d="M330,410 Q352,395 368,382" stroke="#1E2A3A" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.55" />
+      </g>
+
+      {/* ── Diploma scroll being handed over, right of center — curled edges, no card border ──
+          Outer <g> only positions (static transform attribute); inner <g> carries the CSS animation.
+          A CSS `animation` that sets `transform` overrides an element's own transform="" attribute entirely,
+          so mixing both on one node causes the base translate to be dropped mid-animation. */}
+      <g transform="translate(440, 340) scale(0.8)">
+        <g className="scroll-diploma">
+          <ellipse cx="0" cy="0" rx="100" ry="75" fill="#B08968" opacity="0.05" filter="url(#diploma-glow)" />
+
+          {/* Scroll body with rolled top and bottom edges */}
+          <path
+            d="M-90,-56 C-90,-64 90,-64 90,-56 L90,56 C90,64 -90,64 -90,56 Z"
+            fill="url(#diploma-sheet)"
+          />
+          <ellipse cx="0" cy="-56" rx="90" ry="8" fill="url(#diploma-sheet)" stroke="#D2C5AF" strokeWidth="1.5" />
+          <ellipse cx="0" cy="56" rx="90" ry="8" fill="url(#diploma-sheet)" stroke="#D2C5AF" strokeWidth="1.5" />
+
+          <text x="-8" y="-28" textAnchor="middle" fontSize="12" fontFamily="var(--font-mono), monospace" fill="#B08968" letterSpacing="1.5" opacity="0.85">
+            CERTIFIED
+          </text>
+          <text x="-8" y="-4" textAnchor="middle" fontSize="15" fontFamily="var(--font-mono), monospace" fill="#1E2A3A" fontWeight="600" letterSpacing="1">
+            FEATURE
+          </text>
+          <line x1="-42" y1="12" x2="26" y2="12" stroke="#D2C5AF" strokeWidth="1.5" opacity="0.6" />
+
+          <circle cx="52" cy="26" r="14" fill="none" stroke="#B08968" strokeWidth="1.5" />
+          <circle cx="52" cy="26" r="10" fill="#ECE4D8" stroke="#B08968" strokeWidth="1" />
+          <text x="52" y="30" textAnchor="middle" fontSize="11" fill="#B08968" fontFamily="sans-serif">✓</text>
+        </g>
       </g>
     </svg>
-  );
-}
-
-function Bug({ cx, cy, cls }: { cx: number; cy: number; cls: string }) {
-  return (
-    <g transform={`translate(${cx},${cy})`} className={cls}>
-      {/* Legs */}
-      <g className="leg-l" style={{ transformOrigin: '-40px 0px' }}>
-        <line x1="-40" y1="0"   x2="-62" y2="26"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-        <line x1="-40" y1="-14" x2="-62" y2="12"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-        <line x1="-40" y1="14"  x2="-62" y2="40"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-      </g>
-      <g className="leg-r" style={{ transformOrigin: '40px 0px' }}>
-        <line x1="40"  y1="0"   x2="62"  y2="26"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-        <line x1="40"  y1="-14" x2="62"  y2="12"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-        <line x1="40"  y1="14"  x2="62"  y2="40"  stroke="#1E2A3A" strokeWidth="4" opacity="0.4" strokeLinecap="round" />
-      </g>
-      {/* Abdomen */}
-      <ellipse cy="-48" rx="32" ry="24" fill="#96714F" />
-      {/* Body (thorax) */}
-      <ellipse cy="8" rx="40" ry="28" fill="#B08968" />
-      {/* Wing sheaths */}
-      <ellipse cx="-24" cy="2" rx="20" ry="28" fill="#ECE4D8" opacity="0.65" transform="rotate(-12)" />
-      <ellipse cx="24"  cy="2" rx="20" ry="28" fill="#ECE4D8" opacity="0.65" transform="rotate(12)" />
-      {/* Head */}
-      <circle cy="-82" r="28" fill="#B08968" />
-      {/* Eyes */}
-      <circle cx="-10" cy="-86" r="6" fill="#1E2A3A" />
-      <circle cx="10"  cy="-86" r="6" fill="#1E2A3A" />
-      <circle cx="-8"  cy="-88" r="2" fill="#FAF7F2" opacity="0.7" />
-      <circle cx="12"  cy="-88" r="2" fill="#FAF7F2" opacity="0.7" />
-      {/* Antennae */}
-      <line x1="-10" y1="-108" x2="-26" y2="-136" stroke="#1E2A3A" strokeWidth="3" strokeLinecap="round" />
-      <line x1="10"  y1="-108" x2="26"  y2="-136" stroke="#1E2A3A" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="-26" cy="-136" r="5" fill="#1E2A3A" />
-      <circle cx="26"  cy="-136" r="5" fill="#1E2A3A" />
-      {/* Grad cap board */}
-      <rect x="-46" y="-152" width="92" height="14" rx="3" fill="#1E2A3A" />
-      <rect x="-16" y="-180" width="32" height="30" rx="3" fill="#1E2A3A" />
-      {/* Tassel */}
-      <g className="tassel" style={{ transformOrigin: '40px -152px' }}>
-        <line x1="40" y1="-152" x2="58" y2="-118" stroke="#B08968" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="58" cy="-114" r="7" fill="#B08968" />
-      </g>
-    </g>
   );
 }

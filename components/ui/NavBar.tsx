@@ -10,6 +10,8 @@ import siteJson from '@/content/site.json';
 const NAV_GROUPS = [
   { label: 'Home', href: '/' },
   { label: 'Work', href: '/work' },
+  { label: 'Skills & Services', href: '/skills-services' },
+  { label: 'Experience & Education', href: '/experience-education' },
   { label: 'Coding', href: '/coding' },
   { label: 'Blog', href: '/blog' },
 ];
@@ -44,14 +46,14 @@ export function NavBar() {
           {siteJson.name.split(' ')[0]}
         </Link>
 
-        <nav className="hidden items-center gap-4 md:flex">
+        <nav className="hidden items-center gap-4 lg:gap-8 md:flex">
           {NAV_GROUPS.map((item) => {
             const active = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative rounded-full px-16 py-8 text-body transition-colors ${
+                className={`relative rounded-full px-8 lg:px-12 xl:px-16 py-8 text-body transition-colors ${
                   active ? 'text-ink' : 'text-ink-muted hover:text-ink'
                 }`}
               >

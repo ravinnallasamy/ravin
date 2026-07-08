@@ -215,9 +215,9 @@ export default function ExperienceEducationPage() {
       <section className="bg-surface border-t border-border/50">
         <div className="mx-auto max-w-5xl px-16 py-64 text-center md:px-24 md:py-96">
           <Reveal className="flex flex-col items-center gap-24">
-            <h2 className="text-h2 md:text-h2-lg text-ink font-display">Let's work together</h2>
+            <h2 className="text-h2 md:text-h2-lg text-ink font-display">Let&apos;s work together</h2>
             <p className="max-w-md text-body text-ink-muted">
-              Interested in how my experience can help your project succeed? Let's connect and discuss your requirements.
+              Interested in how my experience can help your project succeed? Let&apos;s connect and discuss your requirements.
             </p>
             <Link
               href="/contact"

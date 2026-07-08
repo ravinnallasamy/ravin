@@ -13,9 +13,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
       />
       <Hero />
-      <WorkPreview />
       <AboutSection />
-      <Skills compact tinted />
+      <Skills tinted />
+      <WorkPreview />
       <ContactPanel />
     </>
   );

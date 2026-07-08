@@ -132,7 +132,7 @@ export default function SkillsServicesPage() {
           <Reveal className="flex flex-col items-center gap-24">
             <h2 className="text-h2 md:text-h2-lg text-ink font-display">Have a project in mind?</h2>
             <p className="max-w-md text-body text-ink-muted">
-              Whether you need a custom AI integration, an automated workflow, or a polished full-stack application, let's build something exceptional together.
+              Whether you need a custom AI integration, an automated workflow, or a polished full-stack application, let&apos;s build something exceptional together.
             </p>
             <Link
               href="/contact"

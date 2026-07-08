@@ -196,6 +196,7 @@ export function WelcomeChef() {
           variants={trayFloat}
           initial="rest"
           animate="float"
+          style={{ willChange: 'transform' }}
         >
           {/* arm */}
           <path
@@ -216,7 +217,7 @@ export function WelcomeChef() {
           <circle cx="126" cy="150" r="8" fill="url(#skinGrad)" />
 
           {/* tray */}
-          <ellipse cx="112" cy="145" rx="26" ry="5" fill="url(#trayGrad)" filter="url(#tinyShadow)" />
+          <ellipse cx="112" cy="146" rx="25" ry="5" fill={INK} opacity="0.18" />
           <ellipse cx="112" cy="144" rx="26" ry="5" fill="url(#trayGrad)" />
           <rect x="86" y="140" width="52" height="5" rx="2" fill="url(#trayGrad)" />
           <ellipse cx="112" cy="142.5" rx="22" ry="1.4" fill="white" opacity="0.4" />

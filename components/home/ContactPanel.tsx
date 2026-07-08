@@ -5,7 +5,7 @@ import { Reveal } from '@/components/ui/Reveal';
 export function ContactPanel() {
   return (
     <section
-      className="relative overflow-hidden px-16 py-48 md:py-96"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-16 py-48 md:min-h-[100svh] md:py-64"
       style={{ background: 'linear-gradient(135deg, #DCC9A8 0%, #B08968 50%, #8C6A4A 100%)' }}
     >
       {/* decorative blurred blobs for glass depth */}

@@ -15,6 +15,7 @@ const ASPECT_CLASS: Record<string, string> = {
   '16/9': 'aspect-[16/9]',
   '1/1': 'aspect-square',
   '4/3': 'aspect-[4/3]',
+  '3/4': 'aspect-[3/4]',
 };
 
 export function MediaSlot({ src, alt, aspect = '16/9', fit = 'cover', className = '' }: MediaSlotProps) {

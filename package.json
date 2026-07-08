@@ -15,7 +15,9 @@
     "next": "^15.3.0",
     "next-mdx-remote": "^6.0.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "recharts": "^3.9.2",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

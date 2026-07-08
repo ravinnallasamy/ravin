@@ -2,6 +2,7 @@ import siteJson from '@/content/site.json';
 import { getProjects } from '@/lib/content';
 import { StatReadout } from '@/components/ui/StatReadout';
 import { WelcomeChef } from '@/components/illustrations/WelcomeChef';
+import { ContactCtaButton } from '@/components/ui/ContactCtaButton';
 
 export function Hero() {
   const projects = getProjects();
@@ -20,9 +21,13 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-5xl gap-48 px-16 py-64 md:grid-cols-2 md:items-center md:gap-64 md:px-24">
 
-        {/* ── Left: illustration ── */}
-        <div className="flex items-center justify-center">
+        {/* ── Left: illustration & CTA ── */}
+        <div className="flex flex-col items-center justify-center gap-24 text-center">
           <WelcomeChef />
+          <div className="flex flex-col items-center gap-12">
+            <p className="text-body font-medium text-ink-muted">Want to meet me? Or want to hire me?</p>
+            <ContactCtaButton />
+          </div>
         </div>
 
         {/* ── Right: content ── */}

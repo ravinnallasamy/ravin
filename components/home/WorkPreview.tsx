@@ -8,8 +8,8 @@ export function WorkPreview() {
   const topProjects = getProjects().slice(0, 3);
 
   return (
-    <section className="bg-surface">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+    <section className="flex min-h-screen flex-col justify-center bg-paper border-t border-border/40 md:min-h-[100svh]">
+      <div className="mx-auto w-full max-w-5xl px-16 py-48 md:px-24 md:py-64">
         <div className="flex flex-col gap-32">
           <Reveal>
             <SectionHeading
@@ -35,7 +35,7 @@ export function WorkPreview() {
 
           <Link
             href="/work"
-            className="inline-flex w-fit items-center rounded-full bg-surface px-20 py-10 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
+            className="inline-flex w-fit items-center rounded-full bg-surface px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
           >
             See all work →
           </Link>

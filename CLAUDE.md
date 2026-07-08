@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
+dont read the .env and .env.local this is my strict rule. 
 ## Commands
 
 - `npm run dev` — start the Next.js dev server

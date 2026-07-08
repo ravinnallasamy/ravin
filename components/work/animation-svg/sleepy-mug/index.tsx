@@ -27,8 +27,8 @@ export function SleepyMug() {
 
         @keyframes steam-flow {
           0% { opacity: 0; transform: translateY(10px) scaleX(0.9); }
-          15% { opacity: 0.6; }
-          75% { opacity: 0.3; }
+          15% { opacity: 0.85; }
+          75% { opacity: 0.55; }
           100% { opacity: 0; transform: translateY(-70px) scaleX(1.3); }
         }
         @keyframes floating-moon {
@@ -37,17 +37,17 @@ export function SleepyMug() {
         }
         @keyframes drift-z {
           0% { transform: translate(0, 0) scale(0.6) rotate(-5deg); opacity: 0; }
-          20% { opacity: 0.8; }
-          80% { opacity: 0.3; }
+          20% { opacity: 0.95; }
+          80% { opacity: 0.6; }
           100% { transform: translate(30px, -60px) scale(1.1) rotate(15deg); opacity: 0; }
         }
         @keyframes star-pulsate {
-          0%, 100% { opacity: 0.25; transform: scale(0.8); }
-          50% { opacity: 0.85; transform: scale(1.25); }
+          0%, 100% { opacity: 0.45; transform: scale(0.8); }
+          50% { opacity: 0.95; transform: scale(1.25); }
         }
         @keyframes border-glow-pulse {
-          0% { opacity: 0.5; filter: drop-shadow(0 2px 4px rgba(176,137,104,0.1)); }
-          100% { opacity: 0.9; filter: drop-shadow(0 4px 12px rgba(176,137,104,0.3)); }
+          0% { opacity: 0.65; filter: drop-shadow(0 2px 4px rgba(176,137,104,0.25)); }
+          100% { opacity: 0.95; filter: drop-shadow(0 4px 12px rgba(176,137,104,0.55)); }
         }
       `}</style>
 
@@ -58,12 +58,12 @@ export function SleepyMug() {
         </filter>
 
         <linearGradient id="cup-fill-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#ECE4D8" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#ECE4D8" stopOpacity="0.04" />
+          <stop offset="0%" stopColor="#ECE4D8" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#ECE4D8" stopOpacity="0.15" />
         </linearGradient>
         <linearGradient id="moon-fill-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="#B08968" stopOpacity="0.03" />
+          <stop offset="0%" stopColor="#ECE4D8" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#B08968" stopOpacity="0.15" />
         </linearGradient>
       </defs>
 
@@ -72,14 +72,14 @@ export function SleepyMug() {
         <path d="M110,82 L112,88 L118,90 L112,92 L110,98 L108,92 L102,90 L108,88 Z" fill="#B08968" />
       </g>
       <g className="star-glow-2" style={{ transformOrigin: '490px 130px', animationDelay: '0.6s' }}>
-        <path d="M490,125 L491.5,129 L495,130 L491.5,131 L490,135 L488.5,131 L485,130 L488.5,129 Z" fill="#ECE4D8" opacity="0.8" />
+        <path d="M490,125 L491.5,129 L495,130 L491.5,131 L490,135 L488.5,131 L485,130 L488.5,129 Z" fill="#B08968" opacity="0.8" />
       </g>
       <g className="star-glow-3" style={{ transformOrigin: '470px 400px', animationDelay: '1.2s' }}>
         <path d="M470,392 L472,398 L478,400 L472,402 L470,408 L468,402 L462,400 L468,398 Z" fill="#B08968" />
       </g>
-      <circle cx="130" cy="230" r="1.5" fill="#B08968" opacity="0.3" />
-      <circle cx="90" cy="380" r="1.5" fill="#B08968" opacity="0.25" />
-      <circle cx="510" cy="260" r="1.5" fill="#B08968" opacity="0.2" />
+      <circle cx="130" cy="230" r="1.5" fill="#B08968" opacity="0.5" />
+      <circle cx="90" cy="380" r="1.5" fill="#B08968" opacity="0.45" />
+      <circle cx="510" cy="260" r="1.5" fill="#B08968" opacity="0.4" />
 
       {/* ── Moon, upper half, centered horizontally — full disc with a crescent shadow cut by an offset circle ── */}
       {/* Outer <g> only positions (static transform attribute); inner <g> carries the CSS animation.
@@ -87,45 +87,45 @@ export function SleepyMug() {
           so mixing both on one node causes the base translate to be dropped mid-animation. */}
       <g transform="translate(300, 140)">
         <g className="moon-float">
-          <circle cx="0" cy="0" r="80" fill="url(#moon-fill-grad)" opacity="0.35" filter="url(#moon-glow)" />
+          <circle cx="0" cy="0" r="80" fill="url(#moon-fill-grad)" opacity="0.65" filter="url(#moon-glow)" />
 
           <mask id="moon-crescent-mask">
             <rect x="-90" y="-90" width="180" height="180" fill="white" />
             <circle cx="24" cy="-16" r="58" fill="black" />
           </mask>
-          <circle cx="0" cy="0" r="68" fill="url(#moon-fill-grad)" stroke="#D2C5AF" strokeWidth="2.5" mask="url(#moon-crescent-mask)" />
+          <circle cx="0" cy="0" r="68" fill="url(#moon-fill-grad)" stroke="#B08968" strokeWidth="2.5" mask="url(#moon-crescent-mask)" />
 
           {/* Sleeping face */}
-          <path d="M-38,-8 Q-30,-15 -22,-8" stroke="#1E2A3A" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.75" />
-          <path d="M-30,14 Q-21,21 -12,14" stroke="#1E2A3A" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
-          <circle cx="-40" cy="6" r="6.5" fill="#B08968" opacity="0.15" />
+          <path d="M-38,-8 Q-30,-15 -22,-8" stroke="#1E2A3A" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.9" />
+          <path d="M-30,14 Q-21,21 -12,14" stroke="#1E2A3A" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.7" />
+          <circle cx="-40" cy="6" r="6.5" fill="#B08968" opacity="0.35" />
         </g>
       </g>
 
       {/* ── Mug, lower half, centered horizontally, steam rising toward the moon ── */}
       <g className="cup-glowing" transform="translate(300, 430)">
-        <path d="M75,-28 C108,-28 116,28 75,35" stroke="#D2C5AF" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <path d="M75,-28 C108,-28 116,28 75,35" stroke="#B08968" strokeWidth="2.5" fill="none" strokeLinecap="round" />
 
         <path d="M-75,-55 L-75,60 C-75,74 -60,76 -45,76 L45,76 C60,76 75,74 75,60 L75,-55 Z"
-              stroke="#D2C5AF" strokeWidth="2.5" fill="url(#cup-fill-grad)" strokeLinecap="round" strokeLinejoin="round" />
+              stroke="#B08968" strokeWidth="2.5" fill="url(#cup-fill-grad)" strokeLinecap="round" strokeLinejoin="round" />
 
-        <line x1="-70" y1="-16" x2="70" y2="-16" stroke="#B08968" strokeWidth="1.5" opacity="0.4" strokeDasharray="5 3" />
+        <line x1="-70" y1="-16" x2="70" y2="-16" stroke="#96714F" strokeWidth="1.5" opacity="0.7" strokeDasharray="5 3" />
 
         {/* Steam rising, becoming Z's toward the moon */}
         <g transform="translate(0, -70)">
           <path className="steam-line-1" d="M0,15 Q-10,0 0,-15 Q10,-30 0,-45"
-                stroke="#B08968" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.6" />
+                stroke="#96714F" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.8" />
         </g>
         <g transform="translate(-22, -62)">
           <path className="steam-line-2" d="M0,15 Q8,0 0,-15 Q-8,-30 0,-45"
-                stroke="#D2C5AF" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+                stroke="#B08968" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.75" />
         </g>
 
         {/* Zzz drifting up out of the steam toward the moon */}
         <g transform="translate(30, -85)">
-          <text className="zzz-text-1" x="0" y="0" fontSize="16" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
-          <text className="zzz-text-2" x="12" y="-20" fontSize="22" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
-          <text className="zzz-text-3" x="28" y="-46" fontSize="30" fill="#B08968" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">Z</text>
+          <text className="zzz-text-1" x="0" y="0" fontSize="16" fill="#96714F" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
+          <text className="zzz-text-2" x="12" y="-20" fontSize="22" fill="#96714F" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">z</text>
+          <text className="zzz-text-3" x="28" y="-46" fontSize="30" fill="#96714F" opacity="0" fontFamily="'Georgia', serif" fontStyle="italic" fontWeight="300">Z</text>
         </g>
       </g>
     </svg>

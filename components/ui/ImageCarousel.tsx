@@ -5,7 +5,7 @@ import { MediaSlot } from '@/components/ui/MediaSlot';
 
 type ImageCarouselProps = {
   images: { src: string; alt: string }[];
-  aspect?: '16/9' | '1/1' | '4/3';
+  aspect?: '16/9' | '1/1' | '4/3' | '3/4';
   intervalMs?: number;
   className?: string;
 };

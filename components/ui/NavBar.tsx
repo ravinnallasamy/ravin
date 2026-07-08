@@ -12,7 +12,7 @@ const NAV_GROUPS = [
   { label: 'Work', href: '/work' },
   { label: 'Skills & Services', href: '/skills-services' },
   { label: 'Experience & Education', href: '/experience-education' },
-  { label: 'Coding', href: '/coding' },
+  { label: 'Git & Solves', href: '/coding' },
   { label: 'Blog', href: '/blog' },
 ];
 

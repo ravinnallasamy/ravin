@@ -43,14 +43,21 @@ export function HeroSection({
   className?: string;
 }) {
   const maxWidthClass = maxWidth === '6xl' ? 'max-w-6xl' : 'max-w-5xl';
-  const paddingClass = padding === 'flat' ? 'py-64' : 'py-48 md:py-96';
+  const topPad = padding === 'flat' ? 'pt-48 md:pt-64' : 'pt-48 md:pt-96';
+  // When a scroll-down indicator is present, reserve extra clearance at the
+  // bottom so tall hero content never overlaps it; otherwise mirror the top.
+  const bottomPad = scrollTo
+    ? 'pb-96 md:pb-128'
+    : padding === 'flat'
+      ? 'pb-48 md:pb-64'
+      : 'pb-48 md:pb-96';
 
   return (
     <section
       className={`flex min-h-[calc(100svh-64px)] ${scrollTo ? 'relative' : ''} ${centered ? 'items-center' : 'flex-col justify-center'} ${gradient ? 'bg-hero-warm' : ''} ${className}`}
     >
       <div
-        className={`mx-auto w-full ${maxWidthClass} px-16 ${paddingClass} md:px-24 ${innerClassName}`}
+        className={`mx-auto w-full ${maxWidthClass} px-16 ${topPad} ${bottomPad} md:px-24 ${innerClassName}`}
       >
         {children}
       </div>

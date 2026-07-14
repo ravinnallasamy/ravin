@@ -12,7 +12,7 @@ const NAV_GROUPS = [
   { label: 'Work', href: '/work' },
   { label: 'Skills & Services', href: '/skills-services' },
   { label: 'Experience & Education', href: '/experience-education' },
-  { label: 'Git & Solves', href: '/coding' },
+  { label: 'Coding', href: '/coding' },
   { label: 'Blog', href: '/blog' },
 ];
 
@@ -20,7 +20,10 @@ export function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,9 +39,10 @@ export function NavBar() {
   return (
     <header className="sticky top-0 z-50 px-16 pt-16 md:px-24">
       <motion.div
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/40 bg-paper/60 px-16 backdrop-blur-glass transition-shadow ${
-          scrolled ? 'shadow-glass' : 'shadow-none'
-        }`}
+        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/40 bg-paper/60 px-16 backdrop-blur-glass transform-gpu [backface-visibility:hidden] ${
+          mounted ? 'transition-shadow' : ''
+        } ${scrolled ? 'shadow-glass' : 'shadow-none'}`}
+        style={{ willChange: 'transform' }}
         animate={{ paddingTop: scrolled ? 8 : 16, paddingBottom: scrolled ? 8 : 16 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
@@ -59,9 +63,15 @@ export function NavBar() {
               >
                 {active && (
                   <motion.span
+                    layout={mounted ? 'position' : false}
                     layoutId="nav-active-pill"
-                    className="absolute inset-0 rounded-full bg-accent-subtle"
-                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    className="absolute inset-0 rounded-full bg-accent-subtle transform-gpu"
+                    style={{ willChange: 'transform' }}
+                    transition={
+                      mounted && !shouldReduceMotion
+                        ? { type: 'spring', stiffness: 380, damping: 32 }
+                        : { duration: 0 }
+                    }
                   />
                 )}
                 <span className="relative">{item.label}</span>

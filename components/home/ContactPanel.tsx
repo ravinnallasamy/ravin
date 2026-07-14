@@ -5,7 +5,7 @@ import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
 export function ContactPanel() {
   return (
     <section
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-16 py-48 md:min-h-[100svh] md:py-64"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-16 py-48 sm:px-20 md:px-24 md:py-64"
       style={{ background: 'linear-gradient(135deg, #1E2A3A 0%, #223247 55%, #16202D 100%)' }}
     >
       {/* decorative warm glow blobs */}
@@ -31,7 +31,7 @@ export function ContactPanel() {
 
         <RevealList className="grid gap-24 md:grid-cols-2">
           <RevealItem>
-            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-32 shadow-glass backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
+            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
               <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="flex h-48 w-48 items-center justify-center rounded-2xl bg-accent/20 text-[#E8CFA8]">
                 <Briefcase size={22} />
@@ -53,7 +53,7 @@ export function ContactPanel() {
           </RevealItem>
 
           <RevealItem>
-            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-32 shadow-glass backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
+            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
               <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="flex h-48 w-48 items-center justify-center rounded-2xl bg-accent/20 text-[#E8CFA8]">
                 <FileDown size={22} />

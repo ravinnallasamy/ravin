@@ -5,7 +5,13 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Eye, Maximize2, MessageCircle, Minimize2, Send, X } from 'lucide-react';
 import siteJson from '@/content/site.json';
 import socialJson from '@/content/social.json';
-import { askResumeChatStream, RESUME_CHAT_OPEN_EVENT } from '@/lib/resumeChat';
+import { askResumeChatStream, RESUME_CHAT_OPEN_EVENT } from '@/lib/server/resumeChat';
+import {
+  trackChatOpen,
+  trackChatQuestion,
+  trackResumeView,
+  trackContactChannel,
+} from '@/lib/analytics/gtag';
 
 const SESSION_KEY = 'resume-chat-popup-shown';
 const POPUP_DELAY_MS = 11_000;
@@ -113,16 +119,18 @@ export function ResumeChatWidget() {
     };
   }, [fullscreen]);
 
-  const openChat = useCallback(() => {
+  const openChat = useCallback((source: string = 'fab') => {
     setShowPopup(false);
     setMinimized(false);
     setOpen(true);
+    trackChatOpen(source);
   }, []);
 
   // Lets the header nav button (or any other trigger) open the chat
   useEffect(() => {
-    window.addEventListener(RESUME_CHAT_OPEN_EVENT, openChat);
-    return () => window.removeEventListener(RESUME_CHAT_OPEN_EVENT, openChat);
+    const handler = () => openChat('nav');
+    window.addEventListener(RESUME_CHAT_OPEN_EVENT, handler);
+    return () => window.removeEventListener(RESUME_CHAT_OPEN_EVENT, handler);
   }, [openChat]);
 
   const closeChat = useCallback(() => {
@@ -144,6 +152,8 @@ export function ResumeChatWidget() {
   const handleSend = useCallback(async () => {
     const question = input.trim();
     if (!question || loading) return;
+
+    trackChatQuestion(question.length);
 
     const userMsg: ChatMessage = { id: `u-${Date.now()}`, role: 'user', text: question };
     const assistantId = `a-${Date.now()}`;
@@ -241,7 +251,7 @@ export function ResumeChatWidget() {
               </p>
               <button
                 type="button"
-                onClick={openChat}
+                onClick={() => openChat('popup')}
                 className="mt-12 rounded-full bg-accent px-16 py-8 text-body text-paper transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 Ask a question
@@ -328,6 +338,7 @@ export function ResumeChatWidget() {
                   href={RESUME_PATH}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackResumeView('chat_widget')}
                   className="inline-flex shrink-0 items-center gap-4 whitespace-nowrap rounded-full border border-border bg-surface px-8 py-4 text-[11px] font-mono leading-none text-ink-muted transition-colors hover:border-border-strong hover:text-ink sm:px-10 sm:py-[6px] sm:text-mono-label"
                 >
                   <Eye className="h-[11px] w-[11px] shrink-0" />
@@ -456,7 +467,7 @@ export function ResumeChatWidget() {
 
             <motion.button
               type="button"
-              onClick={openChat}
+              onClick={() => openChat('fab')}
               aria-label="Open resume chat — ask Ravin's AI about his resume"
               className="relative flex h-[24px] w-[24px] items-center justify-center rounded-full text-accent transition-colors hover:text-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[30px] sm:w-[30px] md:h-[36px] md:w-[36px]"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
@@ -473,6 +484,7 @@ export function ResumeChatWidget() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackContactChannel('whatsapp', 'floating_widget')}
             aria-label={`Message ${firstName} on WhatsApp at ${socialJson.phone}`}
             className="relative flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-glass transition-colors hover:bg-[#1ebe5a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
             whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}

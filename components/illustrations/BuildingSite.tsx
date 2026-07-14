@@ -74,15 +74,14 @@ export function BuildingSite() {
 
   return (
     <svg
-      viewBox="0 0 320 340"
+      viewBox="0 0 372 340"
       aria-label="Cartoon civil engineer directing a crane that stacks floors onto a building under construction"
-      className="w-full max-w-sm"
-      style={{ overflow: 'visible' }}
+      className="w-full max-w-md"
     >
       {/* ── Sky + ground ── */}
-      <rect x="0" y="0" width="320" height="260" fill={SKY} />
-      <rect x="0" y="260" width="320" height="80" fill={GROUND} />
-      <rect x="0" y="256" width="320" height="6" fill={BUILDING_BASE} />
+      <rect x="0" y="0" width="372" height="260" fill={SKY} />
+      <rect x="0" y="260" width="372" height="80" fill={GROUND} />
+      <rect x="0" y="256" width="372" height="6" fill={BUILDING_BASE} />
 
       {/* ── Crane ── */}
       <g>

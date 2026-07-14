@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
-import { getSkills, getServices } from '@/lib/content';
+import { getSkills, getServices } from '@/lib/content/content';
 import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
 import { Hero } from '@/components/skills-services/Hero';
-import * as LucideIcons from 'lucide-react';
-import Link from 'next/link';
+import { ContentSection } from '@/components/ui/ContentSection';
+import { CtaSection } from '@/components/ui/CtaSection';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Check } from 'lucide-react';
+import { getContentIcon } from '@/lib/utils/icons';
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Skills & Services',
@@ -20,22 +25,16 @@ export default function SkillsServicesPage() {
       <Hero />
 
       {/* ── Services Section ── */}
-      <section id="services" className="bg-paper border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+      <ContentSection id="services" tone="paper" borderTop>
           <div className="flex flex-col gap-32">
             <Reveal>
-              <div className="flex flex-col gap-8">
-                <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
-                  What I Do
-                </span>
-                <h2 className="text-h2 md:text-h2-lg text-ink font-display">Services</h2>
-              </div>
+              <SectionHeading eyebrow="What I Do" title="Services" />
             </Reveal>
 
             <RevealList className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => {
-                // Get Lucide Icon dynamically
-                const IconComponent = (LucideIcons as any)[service.icon] || LucideIcons.Cpu;
+                // Resolve the icon by name from the tree-shakeable content map.
+                const IconComponent = getContentIcon(service.icon);
 
                 return (
                   <RevealItem key={service.id}>
@@ -54,7 +53,7 @@ export default function SkillsServicesPage() {
                       <ul className="mt-auto flex flex-col gap-8 border-t border-border/40 pt-12">
                         {service.features.map((feature, idx) => (
                           <li key={idx} className="flex items-center gap-8 text-mono-label text-ink-muted">
-                            <LucideIcons.Check size={14} className="shrink-0 text-accent" strokeWidth={2.5} />
+                            <Check size={14} className="shrink-0 text-accent" strokeWidth={2.5} />
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -65,25 +64,18 @@ export default function SkillsServicesPage() {
               })}
             </RevealList>
           </div>
-        </div>
-      </section>
+      </ContentSection>
 
       {/* ── Skills & Tech Stack Section ── */}
-      <section className="bg-surface border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+      <ContentSection tone="surface" borderTop>
           <div className="flex flex-col gap-32">
             <Reveal>
-              <div className="flex flex-col gap-8">
-                <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
-                  Stack
-                </span>
-                <h2 className="text-h2 md:text-h2-lg text-ink font-display">Technical Toolkit</h2>
-              </div>
+              <SectionHeading eyebrow="Stack" title="Technical Toolkit" />
             </Reveal>
 
             <RevealList className="grid gap-16 sm:grid-cols-2 lg:grid-cols-3">
               {categories.map((category) => {
-                const IconComponent = (LucideIcons as any)[category.icon] || LucideIcons.Cpu;
+                const IconComponent = getContentIcon(category.icon);
 
                 return (
                   <RevealItem key={category.key}>
@@ -111,26 +103,13 @@ export default function SkillsServicesPage() {
               })}
             </RevealList>
           </div>
-        </div>
-      </section>
+      </ContentSection>
 
       {/* ── CTA Section ── */}
-      <section className="bg-paper border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-64 text-center md:px-24 md:py-96">
-          <Reveal className="flex flex-col items-center gap-24">
-            <h2 className="text-h2 md:text-h2-lg text-ink font-display">Have a project in mind?</h2>
-            <p className="max-w-md text-body text-ink-muted">
-              Whether you need a custom AI integration, an automated workflow, or a polished full-stack application, let&apos;s build something exceptional together.
-            </p>
-            <Link
-              href="/contact"
-              className="group relative inline-flex overflow-hidden rounded-full bg-accent px-24 py-12 text-body text-paper transition-all hover:bg-accent-hover"
-            >
-              <span className="relative font-medium">Get in touch →</span>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
+      <CtaSection
+        title="Have a project in mind?"
+        description="Whether you need a custom AI integration, an automated workflow, or a polished full-stack application, let's build something exceptional together."
+      />
     </div>
   );
 }

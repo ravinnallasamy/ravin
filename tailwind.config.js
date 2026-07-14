@@ -29,6 +29,7 @@ module.exports = {
       },
       fontSize: {
         h1: ['2rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        'h1-md': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
         'h1-lg': ['3.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
         h2: ['1.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
         'h2-lg': ['2.25rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],

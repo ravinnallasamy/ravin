@@ -10,7 +10,7 @@ export function SectionHeading({
   as?: 'h1' | 'h2';
 }) {
   const Heading = as;
-  const sizeClass = as === 'h1' ? 'text-h1 md:text-h1-lg' : 'text-h2 md:text-h2-lg';
+  const sizeClass = as === 'h1' ? 'text-h1 sm:text-h1-md lg:text-h1-lg' : 'text-h2 md:text-h2-lg';
 
   return (
     <div className="flex flex-col gap-8">
@@ -20,7 +20,7 @@ export function SectionHeading({
         </span>
       )}
       <Heading className={`${sizeClass} text-ink`}>{title}</Heading>
-      {description && <p className="max-w-2xl text-body text-ink-muted">{description}</p>}
+      {description && <p className="max-w-2xl text-body text-ink-muted [.text-center_&]:mx-auto">{description}</p>}
     </div>
   );
 }

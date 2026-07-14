@@ -1,15 +1,39 @@
 import type { Metadata } from 'next';
-import { getExperience, getEducation, getCertifications } from '@/lib/content';
+import { getExperience, getEducation, getCertifications } from '@/lib/content/content';
 import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
 import { Hero } from '@/components/experience-education/Hero';
 import { CertificationsGrid } from '@/components/experience-education/CertificationsGrid';
+import { ContentSection } from '@/components/ui/ContentSection';
+import { CtaSection } from '@/components/ui/CtaSection';
 import { Briefcase, GraduationCap, Award } from 'lucide-react';
-import Link from 'next/link';
+import type { LucideIcon } from 'lucide-react';
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Experience & Education',
   description: 'Work history, education timeline, and verified certifications of Ravin Nallasamy.',
 };
+
+function SectionIcon({ icon: Icon }: { icon: LucideIcon }) {
+  return (
+    <div className="flex h-40 w-40 items-center justify-center rounded-xl bg-accent/10 text-accent">
+      <Icon size={20} />
+    </div>
+  );
+}
+
+function TimelineNode({ tone }: { tone: 'paper' | 'surface' }) {
+  return (
+    <span
+      className={`absolute -left-[33px] md:-left-[41px] top-6 flex h-16 w-16 items-center justify-center rounded-full border border-border text-accent shadow-sm transition-transform hover:scale-110 ${
+        tone === 'surface' ? 'bg-surface' : 'bg-paper'
+      }`}
+    >
+      <span className="h-8 w-8 rounded-full bg-accent" />
+    </span>
+  );
+}
 
 export default function ExperienceEducationPage() {
   const experiences = getExperience();
@@ -21,14 +45,11 @@ export default function ExperienceEducationPage() {
       <Hero />
 
       {/* ── Experience Timeline Section ── */}
-      <section id="experience" className="bg-paper border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
-          <div className="grid gap-48 md:grid-cols-[200px_1fr]">
+      <ContentSection id="experience" tone="paper" borderTop>
+          <div className="grid gap-32 md:grid-cols-[180px_1fr] md:gap-48 lg:grid-cols-[200px_1fr]">
             <Reveal>
               <div className="flex items-center gap-12 md:flex-col md:items-start md:gap-8">
-                <div className="flex h-40 w-40 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                  <Briefcase size={20} />
-                </div>
+                <SectionIcon icon={Briefcase} />
                 <h2 className="text-h2 text-ink font-display font-bold">Experience</h2>
               </div>
             </Reveal>
@@ -38,10 +59,7 @@ export default function ExperienceEducationPage() {
                 {experiences.map((exp, idx) => (
                   <RevealItem key={idx}>
                     <div className="relative">
-                      {/* Timeline Node */}
-                      <span className="absolute -left-[33px] md:-left-[41px] top-6 flex h-16 w-16 items-center justify-center rounded-full border border-border bg-paper text-accent shadow-sm transition-transform hover:scale-110">
-                        <span className="h-8 w-8 rounded-full bg-accent" />
-                      </span>
+                      <TimelineNode tone="paper" />
 
                       <div className="flex flex-col gap-16 rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-skeu md:p-32">
                         <div className="flex flex-col gap-12">
@@ -90,18 +108,14 @@ export default function ExperienceEducationPage() {
               </RevealList>
             </div>
           </div>
-        </div>
-      </section>
+      </ContentSection>
 
       {/* ── Education Timeline Section ── */}
-      <section className="bg-surface border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
-          <div className="grid gap-48 md:grid-cols-[200px_1fr]">
+      <ContentSection tone="surface" borderTop>
+          <div className="grid gap-32 md:grid-cols-[180px_1fr] md:gap-48 lg:grid-cols-[200px_1fr]">
             <Reveal>
               <div className="flex items-center gap-12 md:flex-col md:items-start md:gap-8">
-                <div className="flex h-40 w-40 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                  <GraduationCap size={20} />
-                </div>
+                <SectionIcon icon={GraduationCap} />
                 <h2 className="text-h2 text-ink font-display font-bold">Education</h2>
               </div>
             </Reveal>
@@ -111,10 +125,7 @@ export default function ExperienceEducationPage() {
                 {educations.map((edu, idx) => (
                   <RevealItem key={idx}>
                     <div className="relative">
-                      {/* Timeline Node */}
-                      <span className="absolute -left-[33px] md:-left-[41px] top-6 flex h-16 w-16 items-center justify-center rounded-full border border-border bg-surface text-accent shadow-sm transition-transform hover:scale-110">
-                        <span className="h-8 w-8 rounded-full bg-accent" />
-                      </span>
+                      <TimelineNode tone="surface" />
 
                       <div className="flex flex-col gap-16 rounded-3xl border border-border/40 bg-paper p-24 shadow-neu md:p-32">
                         <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-start">
@@ -149,46 +160,30 @@ export default function ExperienceEducationPage() {
               </RevealList>
             </div>
           </div>
-        </div>
-      </section>
+      </ContentSection>
 
       {/* ── Certifications Section ── */}
       {certifications && certifications.length > 0 && (
-        <section className="bg-paper border-t border-border/50">
-          <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+        <ContentSection tone="paper" borderTop>
             <div className="flex flex-col gap-32">
               <Reveal>
                 <div className="flex flex-col gap-8">
-                  <div className="flex h-40 w-40 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                    <Award size={20} />
-                  </div>
+                  <SectionIcon icon={Award} />
                   <h2 className="text-h2 md:text-h2-lg text-ink font-display font-bold">Certifications</h2>
                 </div>
               </Reveal>
 
               <CertificationsGrid certifications={certifications} />
             </div>
-          </div>
-        </section>
+        </ContentSection>
       )}
 
       {/* ── Contact CTA Section ── */}
-      <section className="bg-surface border-t border-border/50">
-        <div className="mx-auto max-w-5xl px-16 py-64 text-center md:px-24 md:py-96">
-          <Reveal className="flex flex-col items-center gap-24">
-            <h2 className="text-h2 md:text-h2-lg text-ink font-display">Let&apos;s work together</h2>
-            <p className="max-w-md text-body text-ink-muted">
-              Interested in how my experience can help your project succeed? Let&apos;s connect and discuss your requirements.
-            </p>
-            <Link
-              href="/contact"
-              className="group relative inline-flex overflow-hidden rounded-full bg-accent px-24 py-12 text-body text-paper transition-all hover:bg-accent-hover"
-            >
-              <span className="relative font-medium">Get in touch →</span>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
+      <CtaSection
+        tone="surface"
+        title="Let's work together"
+        description="Interested in how my experience can help your project succeed? Let's connect and discuss your requirements."
+      />
     </div>
   );
 }

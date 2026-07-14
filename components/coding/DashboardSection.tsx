@@ -31,14 +31,14 @@ export function DashboardSection({
 }) {
   if (!configured) {
     return (
-      <div id={id} className="mx-auto w-full max-w-5xl px-16 py-48 md:px-24 md:py-64 scroll-mt-24">
+      <div id={id} className="mx-auto w-full max-w-5xl px-16 py-48 sm:px-20 md:px-24 md:py-64 scroll-mt-24">
         {unconfigured}
       </div>
     );
   }
 
   return (
-    <div id={id} className="mx-auto w-full max-w-6xl px-16 py-48 md:px-24 md:py-64 scroll-mt-24">
+    <div id={id} className="mx-auto w-full max-w-6xl px-16 py-48 sm:px-20 md:px-24 md:py-64 scroll-mt-24">
       <Suspense fallback={skeleton}>{content}</Suspense>
     </div>
   );

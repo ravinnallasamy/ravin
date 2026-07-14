@@ -1,4 +1,4 @@
-import type { ProjectStatus } from '@/lib/content';
+import type { ProjectStatus } from '@/lib/content/content';
 
 const STYLES: Record<ProjectStatus, string> = {
   shipped: 'bg-accent-subtle text-accent',

@@ -1,0 +1,52 @@
+{
+  "slug": "multi-agent-systems-when-worth-it",
+  "title": "Multi-agent systems: when they're worth it, and when one prompt is enough",
+  "date": "2026-07-04",
+  "summary": "Agent frameworks are powerful and easy to over-apply. A grounded take on when splitting work across agents earns its complexity — and when a single well-structured call wins.",
+  "sections": [
+    {
+      "title": "1. Complexity has to pay for itself",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Multi-agent architectures — a supervisor routing work to specialized workers — are genuinely useful, but they are not free. Every additional agent adds latency, cost, more places to fail, and a harder debugging story. Before reaching for an orchestration graph, the honest question is whether a single, well-designed prompt with good context would do the same job."
+        },
+        {
+          "type": "paragraph",
+          "text": "A good heuristic: if the task is one coherent transformation, keep it in one call. If it genuinely decomposes into steps that need different instructions, tools, or review — drafting versus critiquing, retrieving versus reasoning — then separate agents start to earn their keep."
+        }
+      ]
+    },
+    {
+      "title": "2. Where multiple agents genuinely help",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Separation of concerns: a drafting agent and a reviewing agent hold different goals, and the tension between them improves output.",
+            "Tool specialization: one agent that only queries data, another that only writes, keeps each prompt small and reliable.",
+            "Human-in-the-loop checkpoints: a supervisor can pause the graph and wait for approval before anything irreversible happens.",
+            "Bounded loops: a critic agent can send work back for revision a fixed number of times, then stop."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Design for observability from day one",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The moment you have more than one agent, you have a distributed system, and the hardest part becomes understanding why it did what it did. State that flows explicitly between nodes — rather than hidden in conversation history — is far easier to inspect, replay, and test."
+        },
+        {
+          "type": "code",
+          "text": "# Explicit, inspectable state beats implicit chat history\nclass PipelineState(TypedDict):\n    intent: str\n    draft: str | None\n    review_notes: list[str]\n    approved: bool\n\n# Each node reads and returns a partial state update,\n# so every transition is loggable and replayable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Always add a hard stop condition. Autonomous loops without an iteration cap are the single most common way an agent system runs up cost or spins forever in production. A bounded loop with a clear halt is the difference between a controllable tool and an unpredictable one."
+        }
+      ]
+    }
+  ]
+}

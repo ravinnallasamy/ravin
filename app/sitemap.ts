@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { getProjects } from '@/lib/content';
-import { getAllPosts } from '@/lib/blog';
+import { getProjects } from '@/lib/content/content';
+import { getAllPosts } from '@/lib/content/blog';
 
 const BASE_URL = 'https://ravinnallasamy.com';
 

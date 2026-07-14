@@ -1,0 +1,52 @@
+{
+  "slug": "server-components-mental-model",
+  "title": "The mental model that makes React Server Components click",
+  "date": "2026-07-07",
+  "summary": "Server Components confuse teams because they break an old assumption: that every component runs in the browser. Here's the shift in thinking that makes the App Router feel obvious.",
+  "sections": [
+    {
+      "title": "1. Default to the server, opt in to the client",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The friction most developers feel with the Next.js App Router isn't syntax — it's an inverted default. For years, every component ran in the browser. Now the default is the reverse: components run on the server, render to HTML, and ship no JavaScript unless you explicitly ask for interactivity. Once that flip settles in, most of the confusion disappears."
+        },
+        {
+          "type": "paragraph",
+          "text": "A server component can read from a database, use secrets, and fetch data directly — because that code never reaches the browser. You only reach for the client boundary when you need state, effects, or browser APIs. Interactivity is the exception you opt into, not the baseline you fight against."
+        }
+      ]
+    },
+    {
+      "title": "2. The client boundary is a wire, not a wall",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The 'use client' directive doesn't mean a component is isolated — it marks the boundary where server-rendered output hands off to interactive code. A useful pattern is to keep that boundary as small and as low in the tree as possible: fetch and compose on the server, and pass finished data down into a small interactive leaf."
+        },
+        {
+          "type": "code",
+          "text": "// Server component: does the data work\nexport default async function Page() {\n  const posts = await getPosts(); // runs on the server only\n  return <PostList posts={posts} />;\n}\n\n// Client leaf: only the interactive bit opts in\n'use client';\nexport function LikeButton() {\n  const [liked, setLiked] = useState(false);\n  return <button onClick={() => setLiked(!liked)}>♥</button>;\n}"
+        }
+      ]
+    },
+    {
+      "title": "3. What this buys a real product",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Less JavaScript shipped to the browser, so pages are interactive faster on real devices.",
+            "Data fetching lives next to the component that needs it, instead of a separate API round-trip.",
+            "Secrets and heavy dependencies stay on the server and never bloat the client bundle.",
+            "SEO and AI answer engines see fully-rendered HTML, not an empty shell waiting on JavaScript."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The payoff isn't architectural purity — it's a faster, more discoverable product with a smaller client footprint. The mental model is the whole game: server by default, client on purpose."
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { openResumeChat } from '@/lib/resumeChat';
+import { openResumeChat } from '@/lib/server/resumeChat';
 
 // A teddy bear hides behind the hero's stat card — only its head and the
 // top half of its paws poke up above the card's top edge, as if gripping

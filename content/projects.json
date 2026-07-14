@@ -24,12 +24,12 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/ai-backend" }
     ],
     "demo": null,
-    "cover": "/images/projects/ai-hr-system/screenshot-1.png",
+    "cover": "/images/projects/ai-hr-system/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/ai-hr-system/screenshot-1.png",
-      "/images/projects/ai-hr-system/screenshot-2.png",
-      "/images/projects/ai-hr-system/screenshot-3.png",
-      "/images/projects/ai-hr-system/screenshot-4.png"
+      "/images/projects/ai-hr-system/screenshot-1.webp",
+      "/images/projects/ai-hr-system/screenshot-2.webp",
+      "/images/projects/ai-hr-system/screenshot-3.webp",
+      "/images/projects/ai-hr-system/screenshot-4.webp"
     ]
   },
   {
@@ -56,12 +56,12 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/ravin_assistant_backend" }
     ],
     "demo": null,
-    "cover": "/images/projects/ravin-assistant/screenshot-1.png",
+    "cover": "/images/projects/ravin-assistant/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/ravin-assistant/screenshot-1.png",
-      "/images/projects/ravin-assistant/screenshot-2.png",
-      "/images/projects/ravin-assistant/screenshot-3.png",
-      "/images/projects/ravin-assistant/screenshot-4.png"
+      "/images/projects/ravin-assistant/screenshot-1.webp",
+      "/images/projects/ravin-assistant/screenshot-2.webp",
+      "/images/projects/ravin-assistant/screenshot-3.webp",
+      "/images/projects/ravin-assistant/screenshot-4.webp"
     ]
   },
   {
@@ -88,12 +88,12 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/backend_new" }
     ],
     "demo": null,
-    "cover": "/images/projects/uzhavan-rentals/screenshot-1.png",
+    "cover": "/images/projects/uzhavan-rentals/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/uzhavan-rentals/screenshot-1.png",
-      "/images/projects/uzhavan-rentals/screenshot-2.png",
-      "/images/projects/uzhavan-rentals/screenshot-3.png",
-      "/images/projects/uzhavan-rentals/screenshot-4.png"
+      "/images/projects/uzhavan-rentals/screenshot-1.webp",
+      "/images/projects/uzhavan-rentals/screenshot-2.webp",
+      "/images/projects/uzhavan-rentals/screenshot-3.webp",
+      "/images/projects/uzhavan-rentals/screenshot-4.webp"
     ]
   },
   {
@@ -117,12 +117,12 @@
     "year": "2025",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/cerina-project" }],
     "demo": null,
-    "cover": "/images/projects/cerina-protocol-foundry/screenshot-1.png",
+    "cover": "/images/projects/cerina-protocol-foundry/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/cerina-protocol-foundry/screenshot-1.png",
-      "/images/projects/cerina-protocol-foundry/screenshot-2.png",
-      "/images/projects/cerina-protocol-foundry/screenshot-3.png",
-      "/images/projects/cerina-protocol-foundry/screenshot-4.png"
+      "/images/projects/cerina-protocol-foundry/screenshot-1.webp",
+      "/images/projects/cerina-protocol-foundry/screenshot-2.webp",
+      "/images/projects/cerina-protocol-foundry/screenshot-3.webp",
+      "/images/projects/cerina-protocol-foundry/screenshot-4.webp"
     ]
   },
   {
@@ -146,12 +146,12 @@
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/Heart_patient_management_app" }],
     "demo": null,
-    "cover": "/images/projects/heart-patient-management/screenshot-1.png",
+    "cover": "/images/projects/heart-patient-management/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/heart-patient-management/screenshot-1.png",
-      "/images/projects/heart-patient-management/screenshot-2.png",
-      "/images/projects/heart-patient-management/screenshot-3.png",
-      "/images/projects/heart-patient-management/screenshot-4.png"
+      "/images/projects/heart-patient-management/screenshot-1.webp",
+      "/images/projects/heart-patient-management/screenshot-2.webp",
+      "/images/projects/heart-patient-management/screenshot-3.webp",
+      "/images/projects/heart-patient-management/screenshot-4.webp"
     ]
   },
   {
@@ -175,12 +175,12 @@
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/brain_patient_management_app" }],
     "demo": null,
-    "cover": "/images/projects/tumocare/screenshot-1.png",
+    "cover": "/images/projects/tumocare/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/tumocare/screenshot-1.png",
-      "/images/projects/tumocare/screenshot-2.png",
-      "/images/projects/tumocare/screenshot-3.png",
-      "/images/projects/tumocare/screenshot-4.png"
+      "/images/projects/tumocare/screenshot-1.webp",
+      "/images/projects/tumocare/screenshot-2.webp",
+      "/images/projects/tumocare/screenshot-3.webp",
+      "/images/projects/tumocare/screenshot-4.webp"
     ]
   },
   {
@@ -204,12 +204,12 @@
     "year": "2026",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/whatsapp_automate" }],
     "demo": null,
-    "cover": "/images/projects/whatsapp-automation/screenshot-1.png",
+    "cover": "/images/projects/whatsapp-automation/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/whatsapp-automation/screenshot-1.png",
-      "/images/projects/whatsapp-automation/screenshot-2.png",
-      "/images/projects/whatsapp-automation/screenshot-3.png",
-      "/images/projects/whatsapp-automation/screenshot-4.png"
+      "/images/projects/whatsapp-automation/screenshot-1.webp",
+      "/images/projects/whatsapp-automation/screenshot-2.webp",
+      "/images/projects/whatsapp-automation/screenshot-3.webp",
+      "/images/projects/whatsapp-automation/screenshot-4.webp"
     ]
   },
   {
@@ -232,12 +232,12 @@
     "repos": [],
     "_notes": "TODO: no public repo found — add one if this bot's code is pushed somewhere",
     "demo": "REPLACE_ME",
-    "cover": "/images/projects/ravins-kaipulla/screenshot-1.png",
+    "cover": "/images/projects/ravins-kaipulla/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/ravins-kaipulla/screenshot-1.png",
-      "/images/projects/ravins-kaipulla/screenshot-2.png",
-      "/images/projects/ravins-kaipulla/screenshot-3.png",
-      "/images/projects/ravins-kaipulla/screenshot-4.png"
+      "/images/projects/ravins-kaipulla/screenshot-1.webp",
+      "/images/projects/ravins-kaipulla/screenshot-2.webp",
+      "/images/projects/ravins-kaipulla/screenshot-3.webp",
+      "/images/projects/ravins-kaipulla/screenshot-4.webp"
     ]
   },
   {
@@ -260,12 +260,12 @@
     "year": "2025",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/codegenerator" }],
     "demo": null,
-    "cover": "/images/projects/codegenerator/screenshot-1.png",
+    "cover": "/images/projects/codegenerator/screenshot-1.webp",
     "screenshots": [
-      "/images/projects/codegenerator/screenshot-1.png",
-      "/images/projects/codegenerator/screenshot-2.png",
-      "/images/projects/codegenerator/screenshot-3.png",
-      "/images/projects/codegenerator/screenshot-4.png"
+      "/images/projects/codegenerator/screenshot-1.webp",
+      "/images/projects/codegenerator/screenshot-2.webp",
+      "/images/projects/codegenerator/screenshot-3.webp",
+      "/images/projects/codegenerator/screenshot-4.webp"
     ]
   }
 ]

@@ -19,12 +19,12 @@ export function PostHero({
             {date}
           </span>
           <h1
-            className="text-h1 md:text-h1-lg text-ink font-bold tracking-tight max-w-4xl"
+            className="text-h1 sm:text-h1-md lg:text-h1-lg text-ink font-bold tracking-tight max-w-4xl"
             style={{ textShadow: '0 1px 0 rgba(255,255,255,0.6)' }}
           >
             {title}
           </h1>
-          <p className="text-h3 text-ink-muted max-w-2xl leading-relaxed mt-8">
+          <p className="text-h3 sm:text-h3-lg text-ink-muted max-w-2xl leading-relaxed mt-8">
             {summary}
           </p>
         </div>

@@ -1,6 +1,7 @@
-import { getProjects } from '@/lib/content';
+import { getProjects } from '@/lib/content/content';
 import { BuildLogEntry } from '@/components/ui/BuildLogEntry';
 import { RevealList, RevealItem } from '@/components/ui/Reveal';
+import { ContentSection } from '@/components/ui/ContentSection';
 
 export function List() {
   const projects = getProjects();
@@ -18,8 +19,7 @@ export function List() {
   const renderedCollections = new Set<string>();
 
   return (
-    <section id="projects" className="scroll-mt-24 bg-surface">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+    <ContentSection id="projects" tone="surface" className="scroll-mt-24">
         <RevealList className="flex flex-col gap-32">
           {projects.map((project) => {
             if (project.collection) {
@@ -58,7 +58,6 @@ export function List() {
             );
           })}
         </RevealList>
-      </div>
-    </section>
+    </ContentSection>
   );
 }

@@ -1,16 +1,21 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { getProjectBySlug, getProjects } from '@/lib/content';
+import { getProjectBySlug, getProjects } from '@/lib/content/content';
 import { MediaSlot } from '@/components/ui/MediaSlot';
 import { ImageCarousel } from '@/components/ui/ImageCarousel';
 import { StatusPill } from '@/components/ui/StatusPill';
 import { BackLink } from '@/components/ui/BackLink';
-import { projectJsonLd } from '@/lib/seo';
+import { TrackedLink } from '@/components/analytics/TrackedLink';
+import { projectJsonLd } from '@/lib/utils/seo';
 
 export function generateStaticParams() {
   return getProjects().map((project) => ({ slug: project.slug }));
 }
+
+// Prerender all known projects at build; only these slugs are served (unknown
+// slugs 404 immediately). Revalidate hourly to pick up content edits.
+export const dynamicParams = false;
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -114,25 +119,29 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {(project.repos.length > 0 || project.demo) && (
           <div className="flex flex-wrap gap-12">
             {project.repos.map((repo) => (
-              <Link
+              <TrackedLink
                 key={repo.url}
                 href={repo.url}
+                eventLabel={`${project.title} — ${repo.label}`}
+                location="project_detail_repo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-sm transition-shadow hover:shadow-neu-inset"
               >
                 {repo.label} →
-              </Link>
+              </TrackedLink>
             ))}
             {project.demo && project.demo !== 'REPLACE_ME' && (
-              <Link
+              <TrackedLink
                 href={project.demo}
+                eventLabel={`${project.title} — demo`}
+                location="project_detail_demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-accent px-16 py-8 text-body text-paper shadow-glass hover:bg-accent-hover"
               >
                 View demo →
-              </Link>
+              </TrackedLink>
             )}
           </div>
         )}

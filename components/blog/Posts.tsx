@@ -1,14 +1,14 @@
-import { getAllPosts } from '@/lib/blog';
+import { getAllPosts } from '@/lib/content/blog';
 import { BuildLogEntry } from '@/components/ui/BuildLogEntry';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
+import { ContentSection } from '@/components/ui/ContentSection';
 
 export function Posts() {
   const posts = getAllPosts();
 
   return (
-    <section id="posts">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+    <ContentSection id="posts">
         <div className="flex flex-col gap-32">
           <Reveal>
             <SectionHeading eyebrow="Writing" title="Posts" />
@@ -23,7 +23,6 @@ export function Posts() {
             ))}
           </RevealList>
         </div>
-      </div>
-    </section>
+    </ContentSection>
   );
 }

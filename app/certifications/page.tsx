@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/certifications/Hero';
 import { List } from '@/components/certifications/List';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Certifications',
   description: 'Certifications and credentials.',

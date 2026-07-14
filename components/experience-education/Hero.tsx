@@ -1,4 +1,4 @@
-import { getExperience, getEducation, getCertifications, getSite } from '@/lib/content';
+import { getExperience, getEducation, getCertifications, getSite } from '@/lib/content/content';
 import { HeroSection } from '@/components/ui/HeroSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
@@ -22,7 +22,7 @@ export function Hero() {
       padding="flat"
       scrollTo="experience"
       className="overflow-hidden"
-      innerClassName="grid gap-48 md:grid-cols-2 md:items-center md:gap-64"
+      innerClassName="grid gap-32 sm:gap-48 md:grid-cols-2 md:items-center md:gap-48 lg:gap-64"
     >
         {/* ── Left: content ── */}
         <Reveal className="flex flex-col items-start gap-24">
@@ -36,7 +36,7 @@ export function Hero() {
         </Reveal>
 
         {/* ── Right: stat readout panel, with teddy peeking over the top edge ── */}
-        <Reveal className="relative rounded-2xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-skeu md:p-32">
+        <Reveal className="relative rounded-2xl border border-border/60 bg-gradient-to-b from-paper to-surface p-20 shadow-skeu sm:p-24 md:p-32">
           <TeddyPeek name={firstName} />
 
           {currentRole && (
@@ -51,7 +51,7 @@ export function Hero() {
               </div>
             </div>
           )}
-          <div className="grid grid-cols-2 gap-32">
+          <div className="grid grid-cols-2 gap-x-24 gap-y-20 sm:gap-32">
             <StatReadout label="internships" value={String(internships)} />
             <StatReadout label="degrees" value={String(degrees)} />
             <StatReadout label="certifications" value={String(certifications.length)} />

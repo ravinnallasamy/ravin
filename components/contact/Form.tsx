@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { trackContactSubmit } from '@/lib/analytics/gtag';
 
 export function Form() {
   const [form, setForm] = useState({ name: '', email: '', mobile: '', message: '', utmSource: 'direct' });
@@ -43,10 +44,12 @@ export function Form() {
       }
 
       setSuccess(true);
+      trackContactSubmit({ status: 'success', utmSource: form.utmSource });
       // Reset input fields but preserve the UTM source
       setForm({ name: '', email: '', mobile: '', message: '', utmSource: form.utmSource });
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
+      trackContactSubmit({ status: 'error', utmSource: form.utmSource });
     } finally {
       setLoading(false);
     }

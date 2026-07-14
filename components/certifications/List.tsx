@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getCertifications } from '@/lib/content';
+import { getCertifications } from '@/lib/content/content';
 import { BuildLogEntry } from '@/components/ui/BuildLogEntry';
 import { MediaSlot } from '@/components/ui/MediaSlot';
 import { RevealList, RevealItem } from '@/components/ui/Reveal';

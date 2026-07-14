@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[calc(100svh-64px)] items-center overflow-hidden">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-32 px-16 py-48 md:grid-cols-2 md:gap-48 md:px-24">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-32 px-16 py-48 sm:px-20 md:grid-cols-2 md:gap-48 md:px-24 lg:gap-64">
 
         {/* Animation — left column, clearly visible. Capped to the section's available height so a wide-but-short
             viewport can't force the square wider (and thus taller) than the section, which would get clipped. */}
@@ -26,8 +26,8 @@ export function Hero() {
             Work
           </span>
 
-          {/* Fixed-height quote box — reserves max quote height (longest quote wraps to 4 lines at this type scale) so typing never shifts layout below it */}
-          <div className="flex h-[14rem] w-full items-center md:h-[18rem]">
+          {/* Fixed-height quote box — reserves max quote height (longest quote wraps to 4 lines at this type scale) so typing never shifts layout below it. Heights track the quote type scale at each breakpoint. */}
+          <div className="flex h-[13rem] w-full items-center sm:h-[15rem] md:h-[16rem] lg:h-[18rem]">
             <GlitchQuotes onIndexChange={(i) => setIndex(i)} />
           </div>
 

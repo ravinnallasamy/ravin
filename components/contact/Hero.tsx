@@ -4,11 +4,11 @@ import { CoffeeTable } from '@/components/illustrations/CoffeeTable';
 
 export function Hero() {
   return (
-    <section className="flex h-[calc(100svh-64px)] items-center overflow-hidden bg-hero-warm">
-      <div className="mx-auto grid w-full max-w-5xl gap-24 px-16 py-16 md:grid-cols-2 md:items-center md:gap-64 md:px-24">
+    <section className="flex min-h-[calc(100svh-64px)] items-center overflow-hidden bg-hero-warm">
+      <div className="mx-auto grid w-full max-w-5xl gap-24 px-16 py-32 sm:px-20 md:grid-cols-2 md:items-center md:gap-48 md:px-24 md:py-16 lg:gap-64">
 
         {/* ── Left: illustration ── */}
-        <div className="flex items-center justify-center self-end md:-translate-x-[120px]">
+        <div className="flex items-center justify-center self-center md:self-end lg:-translate-x-[120px]">
           <CoffeeTable />
         </div>
 

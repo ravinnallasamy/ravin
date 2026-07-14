@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/coding/Hero';
 import { MonthlyActivitySplit } from '@/components/coding/MonthlyActivitySplit';
 import { DashboardSection } from '@/components/coding/DashboardSection';
+import { CtaSection } from '@/components/ui/CtaSection';
 import { loadDashboard as loadGithubDashboard } from '@/github-dashboard/api';
 import { isDashboardConfigured } from '@/github-dashboard/constants/env';
 import {
@@ -35,7 +36,7 @@ import {
 } from '@/leetcode-dashboard/components';
 
 export const metadata: Metadata = {
-  title: 'Git & Solves',
+  title: 'Coding',
   description: 'Live GitHub and LeetCode stats.',
 };
 
@@ -58,6 +59,11 @@ export default function CodingPage() {
         content={<LeetcodeDashboardContent />}
         skeleton={<LeetcodeDashboardSkeleton />}
         unconfigured={<LeetcodeDashboardUnconfiguredState />}
+      />
+
+      <CtaSection
+        title="Like what you see?"
+        description="These numbers come from real projects and daily problem-solving. If you want that same consistency on your team, let's talk."
       />
     </div>
   );

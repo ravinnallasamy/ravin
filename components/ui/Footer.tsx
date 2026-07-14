@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Mail, Phone, Rss } from 'lucide-react';
 import siteJson from '@/content/site.json';
 import socialJson from '@/content/social.json';
-import { getServices } from '@/lib/content';
+import { getServices } from '@/lib/content/content';
 
 const QUOTES = [
   'Build the thing that would have made your last project easier.',

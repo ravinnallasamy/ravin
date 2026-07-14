@@ -1,4 +1,4 @@
-import type { ContentBlock } from '@/lib/blog';
+import type { ContentBlock } from '@/lib/content/blog';
 
 export function PostContent({ content }: { content: ContentBlock[] }) {
   return (

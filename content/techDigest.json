@@ -1,8 +1,38 @@
 [
   {
-    "title": "REPLACE_ME",
-    "url": "REPLACE_ME",
-    "source": "REPLACE_ME",
-    "date": "REPLACE_ME"
+    "title": "Building effective agents",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "source": "Anthropic Engineering",
+    "date": "2024-12-19"
+  },
+  {
+    "title": "LangGraph: multi-agent workflows",
+    "url": "https://blog.langchain.dev/langgraph-multi-agent-workflows/",
+    "source": "LangChain Blog",
+    "date": "2024-01-23"
+  },
+  {
+    "title": "Retrieval-Augmented Generation for knowledge-intensive NLP tasks",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "source": "arXiv",
+    "date": "2020-05-22"
+  },
+  {
+    "title": "Next.js 15 — App Router, caching, and React 19",
+    "url": "https://nextjs.org/blog/next-15",
+    "source": "Next.js Blog",
+    "date": "2024-10-21"
+  },
+  {
+    "title": "FastAPI — async, dependency injection, and typed APIs",
+    "url": "https://fastapi.tiangolo.com/tutorial/",
+    "source": "FastAPI Docs",
+    "date": "2024-01-01"
+  },
+  {
+    "title": "Model Context Protocol — an open standard for tool-using agents",
+    "url": "https://modelcontextprotocol.io/introduction",
+    "source": "Model Context Protocol",
+    "date": "2024-11-25"
   }
 ]

@@ -10,10 +10,14 @@ export function BackLink({ href, label }: BackLinkProps) {
   return (
     <Link
       href={href}
-      className="group -mt-[50px] mb-[25px] inline-flex w-fit items-center gap-8 rounded-full bg-surface px-16 py-8 font-mono text-mono-label text-ink-muted shadow-neu-sm transition-shadow hover:text-ink hover:shadow-neu-inset"
+      className="group inline-flex w-fit items-center gap-6 font-mono text-mono-label font-semibold tracking-wider text-ink-muted transition-colors hover:text-ink"
     >
-      <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-2" aria-hidden />
-      {label}
+      <ArrowLeft
+        size={16}
+        className="shrink-0 transition-transform duration-300 group-hover:-translate-x-1"
+        aria-hidden
+      />
+      <span>{label}</span>
     </Link>
   );
 }

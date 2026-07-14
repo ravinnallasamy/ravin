@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
-import { hashSlug } from '@/lib/hash';
+import { hashSlug } from '@/lib/utils/hash';
 import { StatusPill } from './StatusPill';
-import type { ProjectStatus } from '@/lib/content';
+import type { ProjectStatus } from '@/lib/content/content';
 
 type BuildLogEntryProps = {
   slug: string;

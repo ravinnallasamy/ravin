@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import { getProjects } from '@/lib/content';
+import { getProjects } from '@/lib/content/content';
 import { BuildLogEntry } from '@/components/ui/BuildLogEntry';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal, RevealList, RevealItem } from '@/components/ui/Reveal';
+import { ContentSection } from '@/components/ui/ContentSection';
 
 export function WorkPreview() {
   const topProjects = getProjects().slice(0, 3);
 
   return (
-    <section className="flex min-h-screen flex-col justify-center bg-paper border-t border-border/40 md:min-h-[100svh]">
-      <div className="mx-auto w-full max-w-5xl px-16 py-48 md:px-24 md:py-64">
+    <ContentSection tone="paper" fullHeight padding="compact" className="border-t border-border/40">
         <div className="flex flex-col gap-32">
           <Reveal>
             <SectionHeading
@@ -40,7 +40,6 @@ export function WorkPreview() {
             See all work →
           </Link>
         </div>
-      </div>
-    </section>
+    </ContentSection>
   );
 }

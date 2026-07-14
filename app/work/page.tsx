@@ -3,6 +3,8 @@ import { Hero } from '@/components/work/Hero';
 import { List } from '@/components/work/List';
 import { Cta } from '@/components/work/Cta';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Work',
   description: 'Projects I have designed, built, and shipped — full-stack products and the AI systems inside them.',

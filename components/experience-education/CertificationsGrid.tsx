@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ExternalLink, X } from 'lucide-react';
 import { RevealList, RevealItem } from '@/components/ui/Reveal';
-import type { Certification } from '@/lib/content';
+import type { Certification } from '@/lib/content/content';
 
 export function CertificationsGrid({ certifications }: { certifications: Certification[] }) {
   const [activeCert, setActiveCert] = useState<Certification | null>(null);

@@ -2,33 +2,26 @@ import { HeroSection } from '@/components/ui/HeroSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { BuildingSite } from '@/components/illustrations/BuildingSite';
+import { GlassButton } from '@/components/ui/GlassButton';
 import { Github, Code2 } from 'lucide-react';
 
 export function Hero() {
   return (
-    <HeroSection innerClassName="grid items-center gap-48 md:grid-cols-2 md:gap-64">
+    <HeroSection scrollTo="github-dashboard" innerClassName="grid items-center gap-32 sm:gap-48 md:grid-cols-2 md:gap-48 lg:gap-64">
       {/* ── Left: content ── */}
-      <Reveal className="order-2 flex flex-col gap-24 md:order-1">
-        <SectionHeading as="h1" eyebrow="Git & Solves" title="GitHub & LeetCode activity" />
+      <Reveal className="order-2 flex flex-col items-center text-center gap-24 md:order-1 md:items-start md:text-left">
+        <SectionHeading as="h1" eyebrow="Coding" title="GitHub & LeetCode activity" />
 
-        <div className="flex flex-wrap gap-16">
-          <a
-            href="#github-dashboard"
-            className="group relative isolate flex items-center gap-8 overflow-hidden rounded-2xl border border-white/50 bg-white/30 px-20 py-12 text-body text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_2px_rgba(30,42,58,0.08),0_8px_24px_rgba(30,42,58,0.12)] backdrop-blur-glass transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_2px_rgba(30,42,58,0.1),0_12px_32px_rgba(30,42,58,0.18)] active:translate-y-0 active:shadow-[inset_0_2px_4px_rgba(30,42,58,0.15)]"
-          >
-            <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/40 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="flex flex-wrap justify-center gap-16 md:justify-start">
+          <GlassButton href="#github-dashboard" variant="light">
             <Github size={18} className="relative" />
             <span className="relative font-medium">GitHub Dashboard</span>
-          </a>
+          </GlassButton>
 
-          <a
-            href="#leetcode-dashboard"
-            className="group relative isolate flex items-center gap-8 overflow-hidden rounded-2xl border border-white/50 bg-gradient-to-b from-accent to-accent-hover px-20 py-12 text-body text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-2px_4px_rgba(30,42,58,0.2),0_8px_24px_rgba(150,113,79,0.35)] backdrop-blur-glass transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(30,42,58,0.22),0_12px_32px_rgba(150,113,79,0.45)] active:translate-y-0 active:shadow-[inset_0_2px_6px_rgba(30,42,58,0.3)]"
-          >
-            <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/25 via-transparent to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
+          <GlassButton href="#leetcode-dashboard" variant="accent">
             <Code2 size={18} className="relative" />
             <span className="relative font-medium">LeetCode Dashboard</span>
-          </a>
+          </GlassButton>
         </div>
       </Reveal>
 

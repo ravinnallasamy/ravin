@@ -1,0 +1,52 @@
+{
+  "slug": "building-for-ai-answer-engines",
+  "title": "Building for AI answer engines, not just search results",
+  "date": "2026-07-13",
+  "summary": "People increasingly get answers from AI engines that never show a list of links. What that shift means for how you structure content, and why AEO and GEO now sit next to SEO.",
+  "sections": [
+    {
+      "title": "1. The blue-links era is ending",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For two decades, being discoverable meant ranking in a list of ten blue links. That assumption is quietly breaking. A growing share of questions are now answered directly by AI assistants and generative search — the user reads a synthesized answer and never sees, let alone clicks, a ranked list. If your content only exists to win a position in that list, it can be invisible in the interface where the answer actually happens."
+        },
+        {
+          "type": "paragraph",
+          "text": "This is why Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) now sit alongside traditional SEO. The goal shifts from 'rank for this keyword' to 'be the source an AI engine quotes when it answers this question.' The underlying craft overlaps, but the target moved."
+        }
+      ]
+    },
+    {
+      "title": "2. What answer engines actually reward",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Clear, self-contained answers near the top of a page — a model extracting a fact shouldn't have to reconstruct it from scattered sentences.",
+            "Structured data and clean semantic HTML, so machines can parse entities, dates, and relationships without guessing.",
+            "Fully server-rendered content — if the answer only appears after JavaScript runs, some crawlers never see it.",
+            "Genuine, specific expertise, since generic filler is exactly what a generative engine can already produce itself."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Structure the meaning, not just the markup",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Structured data is the most direct way to tell a machine what a page means rather than making it infer. Marking up a person, an article, or a product with explicit schema turns ambiguous prose into facts an engine can lift with confidence."
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Article\",\n  \"headline\": \"Building for AI answer engines\",\n  \"author\": { \"@type\": \"Person\", \"name\": \"Ravin Nallasamy\" },\n  \"datePublished\": \"2026-07-13\",\n  \"about\": [\"AEO\", \"GEO\", \"SEO\", \"generative search\"]\n}"
+        },
+        {
+          "type": "paragraph",
+          "text": "None of this replaces good SEO — it extends it. The sites that stay discoverable through this shift are the ones that write answers a human wants to read and structure them so a machine can quote them accurately. Optimize for the answer, and the ranking tends to follow."
+        }
+      ]
+    }
+  ]
+}

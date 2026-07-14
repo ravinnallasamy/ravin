@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { SpotlightBees } from '@/components/work/animation-svg/spotlight-bees';
-import { SleepyMug } from '@/components/work/animation-svg/sleepy-mug';
-import { RocketCommit } from '@/components/work/animation-svg/rocket-commit';
-import { GradBugs } from '@/components/work/animation-svg/grad-bugs';
+import { SpotlightBees } from '@/components/illustrations/SpotlightBees';
+import { SleepyMug } from '@/components/illustrations/SleepyMug';
+import { RocketCommit } from '@/components/illustrations/RocketCommit';
+import { GradBugs } from '@/components/illustrations/GradBugs';
 
 type Quote = {
   text: string;
@@ -90,7 +90,7 @@ export function GlitchQuotes({
 
   if (shouldReduceMotion) {
     return (
-      <p className="text-h2 md:text-h1-lg font-display text-ink text-left">
+      <p className="text-h2 sm:text-h2-lg md:text-h1-md lg:text-h1-lg font-display text-ink text-left">
         {QUOTES[index].text}
       </p>
     );
@@ -100,7 +100,7 @@ export function GlitchQuotes({
     <div className="relative w-full">
       <p
         data-glitch-text={text}
-        className={`text-h2 md:text-h1-lg font-display text-ink text-left ${phase === 'glitching' ? 'glitch-text glitch-scanlines' : ''}`}
+        className={`text-h2 sm:text-h2-lg md:text-h1-md lg:text-h1-lg font-display text-ink text-left ${phase === 'glitching' ? 'glitch-text glitch-scanlines' : ''}`}
       >
         {text}
         <span

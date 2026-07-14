@@ -1,29 +1,29 @@
-import Link from 'next/link';
 import { CalendarClock } from 'lucide-react';
 import socialJson from '@/content/social.json';
+import { ContentSection } from '@/components/ui/ContentSection';
+import { TrackedLink } from '@/components/analytics/TrackedLink';
 
 export function Elsewhere() {
   const hasBooking = socialJson.calBookingUrl && socialJson.calBookingUrl !== 'REPLACE_ME';
 
   return (
-    <section className="bg-surface">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
-        <div className="grid gap-48 md:grid-cols-2">
+    <ContentSection tone="surface">
+        <div className="grid gap-32 md:grid-cols-2 md:gap-48">
           <div className="flex flex-col gap-12">
             <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Elsewhere</h3>
             <div className="flex flex-col gap-8">
-              <Link href={socialJson.github} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              <TrackedLink href={socialJson.github} eventLabel="GitHub" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
                 GitHub
-              </Link>
-              <Link href={`https://${socialJson.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              </TrackedLink>
+              <TrackedLink href={`https://${socialJson.linkedin}`} eventLabel="LinkedIn" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
                 LinkedIn
-              </Link>
-              <Link href={socialJson.leetcodeUsername} target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              </TrackedLink>
+              <TrackedLink href={socialJson.leetcodeUsername} eventLabel="LeetCode" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
                 LeetCode
-              </Link>
-              <Link href={`mailto:${socialJson.email}`} className="text-body text-ink hover:text-accent">
+              </TrackedLink>
+              <TrackedLink href={`mailto:${socialJson.email}`} eventLabel="Email" channel="email" location="contact_elsewhere" className="text-body text-ink hover:text-accent">
                 {socialJson.email}
-              </Link>
+              </TrackedLink>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export function Elsewhere() {
             {hasBooking ? (
               <iframe
                 src={socialJson.calBookingUrl}
-                className="h-[600px] w-full rounded-xl border border-white/40 shadow-glass backdrop-blur-glass"
+                className="h-[480px] w-full rounded-xl border border-white/40 shadow-glass backdrop-blur-glass sm:h-[600px]"
                 title="Book a meeting"
               />
             ) : (
@@ -43,7 +43,6 @@ export function Elsewhere() {
             )}
           </div>
         </div>
-      </div>
-    </section>
+    </ContentSection>
   );
 }

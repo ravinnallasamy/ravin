@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import { getTechDigest } from '@/lib/blog';
+import { getTechDigest } from '@/lib/content/blog';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { ContentSection } from '@/components/ui/ContentSection';
 
 export function Digest() {
   const digest = getTechDigest();
 
   return (
-    <section className="bg-surface">
-      <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
+    <ContentSection tone="surface">
         <div className="flex flex-col gap-32">
           <SectionHeading eyebrow="Reading" title="Tech digest" />
           {digest.length > 0 ? (
@@ -29,7 +29,6 @@ export function Digest() {
             </p>
           )}
         </div>
-      </div>
-    </section>
+    </ContentSection>
   );
 }

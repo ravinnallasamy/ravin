@@ -1,0 +1,56 @@
+{
+  "slug": "rag-in-production-real-world",
+  "title": "RAG in the real world: why retrieval quality beats a bigger model",
+  "date": "2026-07-01",
+  "summary": "In most production RAG systems the failure isn't the LLM — it's what you feed it. A practical look at chunking, retrieval, and grounding for teams shipping AI features.",
+  "sections": [
+    {
+      "title": "1. The model is rarely the bottleneck",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When a Retrieval-Augmented Generation feature gives a wrong or vague answer, the instinct is to reach for a bigger model. In practice, the model is usually the least broken part of the pipeline. The answer is only ever as good as the chunks that get retrieved and placed into context — if the right passage never makes it into the prompt, no amount of model capability will recover it."
+        },
+        {
+          "type": "paragraph",
+          "text": "The useful mental model for any real-world deployment is a funnel: raw documents, then chunks, then embeddings, then the top-k retrieved passages, and only then the model. A defect at any early stage silently caps the quality of everything downstream. Debugging RAG means walking that funnel from the top, not tuning generation parameters at the bottom."
+        }
+      ]
+    },
+    {
+      "title": "2. Chunking is a product decision, not a config value",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chunk size is often treated as a magic number copied from a tutorial. But the right chunk boundary depends entirely on the shape of your content. Support docs, legal contracts, and codebases each want different splits — a contract clause cut in half retrieves as noise, while an over-large chunk dilutes the embedding and buries the relevant sentence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Split on semantic boundaries (headings, clauses, functions), not fixed character counts alone.",
+            "Use overlap so a concept spanning two chunks is still retrievable from either side.",
+            "Store metadata (source, section, date) with each chunk so you can filter before you rank.",
+            "Measure retrieval hit-rate directly — sample real queries and check whether the correct chunk appears in the top-k at all."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Grounding is what makes it trustworthy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The difference between a demo and a product is what happens when the answer isn't in the data. A hallucinated response in a customer-facing tool is worse than no response. The fix is strict grounding: instruct the model to answer only from the retrieved context, and give it explicit permission to say it doesn't know."
+        },
+        {
+          "type": "code",
+          "text": "SYSTEM = \"\"\"Answer using ONLY the context below.\nIf the context does not contain the answer, say you don't have that information.\nDo not use outside knowledge.\n\nContext:\n{retrieved_chunks}\n\nQuestion: {user_question}\n\"\"\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Pair that instruction with a similarity threshold: if the best retrieved chunk scores below a cutoff, short-circuit and return a graceful fallback instead of forcing the model to improvise. That single guardrail eliminates most of the confident-but-wrong answers that erode user trust."
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import './globals.css';
 import { NavBar } from '@/components/ui/NavBar';
 import { Footer } from '@/components/ui/Footer';
 import { ResumeChatWidget } from '@/components/ui/ResumeChatWidget';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import siteJson from '@/content/site.json';
 
 const display = Poppins({
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <GoogleAnalytics />
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />

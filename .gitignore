@@ -71,6 +71,5 @@ storybook-static/
 *.bak
 
 # Optional lockfiles (if you're only using one manager)
-package-lock.json
 yarn.lock
 pnpm-lock.yaml

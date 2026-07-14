@@ -1,26 +1,47 @@
 [
   {
-    "role": "Freelance Full-Stack & AI Engineer",
-    "company": "Self-Employed / Remote",
+    "role": "Software Developer & AI Developer (Forward Deployed Engineer)",
+    "company": "Fuzionest Pvt Ltd — Tidel Park, Coimbatore",
     "period": "Nov 2025 — Present",
+    "current": true,
     "description": [
-      "Architect and ship production-ready applications including Uzhavan Rentals (a two-sided farming equipment rental marketplace) and Cerina Protocol Foundry.",
-      "Design and deploy multi-agent LLM architectures using LangGraph and LangChain to automate clinical protocol writing with human-in-the-loop validation.",
-      "Develop cross-platform healthcare apps tracking patient vitals and medications using Flutter and Dart.",
-      "Construct performant, responsive web apps using Next.js, React, and Tailwind CSS."
+      "Working as a Forward Deployed Engineer, embedding directly with client teams to design and ship full-stack and AI-driven solutions.",
+      "Architect and build production-ready applications spanning web, backend, and multi-agent LLM systems.",
+      "Design and deploy multi-agent LLM architectures using LangGraph and LangChain to automate workflows with human-in-the-loop validation.",
+      "Construct performant, responsive web apps using Next.js, React, and Tailwind CSS, backed by FastAPI/Node services.",
+      "Apply SEO, AEO, and GEO practices to ensure products are discoverable across traditional search, AI answer engines, and generative search experiences."
     ],
-    "skills": ["Next.js", "React", "TypeScript", "Flutter", "LangGraph", "FastAPI", "MongoDB", "PostgreSQL", "n8n"]
+    "skills": ["Next.js", "React", "TypeScript", "LangGraph", "FastAPI", "MongoDB", "PostgreSQL", "n8n", "SEO", "AEO", "GEO"]
   },
   {
     "role": "Full-Stack Development Intern",
     "company": "Tech Startup / Coimbatore",
-    "period": "Jun 2025 — Oct 2025",
+    "period": "2024 — 2025",
     "description": [
-      "Contributed to building full-stack web products using the MERN stack.",
-      "Developed web scrapers and automation scripts using Playwright and Node.js.",
-      "Integrated third-party services including the WhatsApp Business API and Telegram Bot API.",
-      "Designed database schemas in PostgreSQL and implemented user authentication workflows."
+      "Led a four-member team as the team lead to build a heart patient management application for KMCH Hospital, helping patients manage care and follow-ups after their treatment.",
+      "Took ownership of architecture decisions, task delegation, and delivery timelines for the project.",
+      "Gained first hands-on experience leading a team during college, learning how to coordinate work, review code, and keep a small team aligned toward a shared deadline."
     ],
-    "skills": ["Node.js", "Express", "PostgreSQL", "Playwright", "WhatsApp API", "Telegram API", "Git"]
+    "skills": ["MERN Stack", "Team Leadership", "Healthcare Tech"]
+  },
+  {
+    "role": "IoT Protocols Intern",
+    "company": "Innovate Engineering Products",
+    "period": "2024",
+    "description": [
+      "Worked on IoT communication protocols and embedded device integration.",
+      "Assisted in developing and testing protocol-level firmware for connected devices."
+    ],
+    "skills": ["IoT", "Embedded Systems", "Communication Protocols"]
+  },
+  {
+    "role": "IoT Intern",
+    "company": "Krish-Tec, Coimbatore",
+    "period": "2023",
+    "description": [
+      "Gained hands-on experience with IoT hardware, sensors, and microcontroller-based systems.",
+      "Supported prototyping and testing of IoT device deployments."
+    ],
+    "skills": ["IoT", "Microcontrollers", "Sensors"]
   }
 ]

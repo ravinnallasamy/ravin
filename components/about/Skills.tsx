@@ -3,16 +3,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import Link from 'next/link';
 
-const CATEGORY_LABELS: Record<string, string> = {
-  frontend: 'Frontend',
-  backend: 'Backend',
-  ai: 'AI & ML',
-  automation: 'Automation',
-};
-
 export function Skills({ compact = false, tinted = false }: { compact?: boolean; tinted?: boolean }) {
-  const skills = getSkills();
-  const categories = Object.entries(skills) as [keyof typeof skills, string[]][];
+  const { highlights } = getSkills();
 
   return (
     <section className={`flex min-h-screen flex-col justify-center md:min-h-[100svh] ${
@@ -26,30 +18,16 @@ export function Skills({ compact = false, tinted = false }: { compact?: boolean;
             </Reveal>
           )}
           <Reveal>
-            <div className="grid gap-24 md:grid-cols-2">
-              {categories.map(([key, tools]) => (
-                <div
-                  key={key}
-                  className={`flex flex-col gap-12 rounded-2xl p-24 shadow-neu ${
+            <div className="flex flex-wrap gap-16">
+              {highlights.map((skill) => (
+                <span
+                  key={skill.label}
+                  className={`rounded-full px-24 py-12 text-h3 font-medium text-ink shadow-neu-sm ${
                     tinted ? 'bg-paper' : 'bg-surface'
                   }`}
                 >
-                  <span className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">
-                    {CATEGORY_LABELS[key] ?? key}
-                  </span>
-                  <div className="flex flex-wrap gap-8">
-                    {tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className={`rounded-full px-12 py-4 text-mono-label font-mono text-ink-muted shadow-neu-sm ${
-                          tinted ? 'bg-surface' : 'bg-paper'
-                        }`}
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                  {skill.label}
+                </span>
               ))}
             </div>
           </Reveal>

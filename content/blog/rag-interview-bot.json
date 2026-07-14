@@ -1,0 +1,64 @@
+{
+  "slug": "rag-interview-bot",
+  "title": "Building a RAG bot that answers interview questions about me",
+  "date": "2025-09-01",
+  "summary": "How Ravin-Assistant scrapes my own resume and GitHub, embeds it locally, and answers recruiter questions in first person.",
+  "sections": [
+    {
+      "title": "1. The Local Vector Pipeline",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first step in building a personal RAG (Retrieval-Augmented Generation) assistant is gathering and structuring data. I designed a pipeline that programmatically extracts text from my updated resume and pulls activity data directly from my GitHub API. Rather than relying on cloud-based embedding services which add latency and API cost, I opted to compute embeddings locally on the device."
+        },
+        {
+          "type": "paragraph",
+          "text": "Using Transformers.js (Xenova), I load a lightweight semantic similarity model on startup. Text documents are chunked dynamically into 500-character blocks with 100-character overlaps and vectorized on-device. This local setup allows the assistant to run efficiently with zero ongoing infrastructure costs, serving semantic search requests immediately."
+        },
+        {
+          "type": "code",
+          "text": "import { pipeline } from '@xenova/node';\n\n// Load semantic embedding model locally\nconst embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');\nconst output = await embedder('Full-stack & AI Engineer based in Coimbatore', {\n  pooling: 'mean',\n  normalize: true\n});"
+        }
+      ]
+    },
+    {
+      "title": "2. Llama 3.1 & First-Person System Prompts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For the response generation layer, speed is critical to maintain user engagement. I integrated Groq's high-speed API utilizing the Llama 3.1 8B model. To make the recruiter experience feel personalized and direct, the assistant must speak in the first person as Ravin rather than answering as a generic chatbot."
+        },
+        {
+          "type": "paragraph",
+          "text": "Achieving an authentic tone required a carefully crafted system prompt. Here are the core guidelines fed to the LLM agent during conversations:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Always speak in the first person (use 'I', 'my', 'me').",
+            "Be professional, friendly, and concise in explaining technical concepts.",
+            "Reference specific projects (like Uzhavan Rentals or AI systems) when asked about experience.",
+            "Politely refuse to answer questions unrelated to Ravin's background or general software engineering."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Strict Context Grounding",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An AI assistant representing a developer must be extremely reliable. Hallucinated skills or fake projects could damage credibility. To eliminate hallucinations, I implemented strict context grounding. The system calculates a similarity threshold on vector query matches: if the score is below a certain margin, the assistant states it doesn't have that information."
+        },
+        {
+          "type": "paragraph",
+          "text": "The prompt template injects only high-similarity text chunks directly into the model context, instruction-tuning the assistant to reject questions not covered by the source files."
+        },
+        {
+          "type": "code",
+          "text": "const prompt = `\nContext from Ravin's Resume/GitHub:\n\"\"\"\n${retrievedContextChunks.join('\\n')}\n\"\"\"\n\nUser Question: ${userQuery}\n\nAnswer the question using ONLY the context provided above. Speak in first person.`"
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { Poppins, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '@/components/ui/NavBar';
 import { Footer } from '@/components/ui/Footer';
+import { ResumeChatWidget } from '@/components/ui/ResumeChatWidget';
 import siteJson from '@/content/site.json';
 
 const display = Poppins({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ResumeChatWidget />
       </body>
     </html>
   );

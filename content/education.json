@@ -1,8 +1,10 @@
 [
   {
-    "degree": "Bachelor of Engineering in Computer Science & Engineering",
-    "school": "Anna University Affiliated College / Coimbatore",
-    "period": "2023 — 2027",
+    "degree": "B.Tech in Information Technology",
+    "school": "Dr. N.G.P. Institute of Technology, Coimbatore",
+    "period": "2022 — 2026",
+    "score": "CGPA: 8.3",
+    "level": "degree",
     "details": [
       "Focused on Core Computer Science principles: Data Structures & Algorithms, DBMS, Operating Systems, and Software Engineering.",
       "Maintained a strong academic record with practical expertise in web and mobile technologies.",
@@ -11,12 +13,26 @@
     ]
   },
   {
-    "degree": "Higher Secondary School Certificate (Computer Science)",
-    "school": "Coimbatore, Tamil Nadu",
-    "period": "Completed 2023",
+    "degree": "Higher Secondary Certificate (HSC) — Bio-Maths",
+    "school": "K.R.P. Matric Higher Secondary School, Sankari",
+    "period": "2020",
+    "score": "Percentage: 89.16%",
+    "level": "schooling",
     "details": [
-      "Specialized in Computer Science, Mathematics, Physics, and Chemistry.",
-      "First introduced to programming concepts through C++ and Python."
+      "Studied the Bio-Maths group, covering Biology, Mathematics, Physics, and Chemistry.",
+      "Studying how neurons work sparked an early fascination that later connected directly to CNNs, RNNs, and machine learning models — the same principles of interconnected signal processing, just translated from biology to engineering.",
+      "That bio-to-engineering bridge is what continues to shape how I approach building and reasoning about AI systems today."
+    ]
+  },
+  {
+    "degree": "SSLC",
+    "school": "K.R.P. Matric Higher Secondary School, Sankari",
+    "period": "2019",
+    "score": "Percentage: 95.8%",
+    "level": "schooling",
+    "details": [
+      "Built a strong foundation across core subjects with a focus on mathematics and science.",
+      "Achieved a top academic record, ranking among the highest scorers of the batch."
     ]
   }
 ]

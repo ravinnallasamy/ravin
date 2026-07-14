@@ -7,7 +7,7 @@ export function Posts() {
   const posts = getAllPosts();
 
   return (
-    <section>
+    <section id="posts">
       <div className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
         <div className="flex flex-col gap-32">
           <Reveal>

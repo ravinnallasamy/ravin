@@ -11,7 +11,7 @@ const aboutPhotos = [
 
 export function AboutSection() {
   return (
-    <section className="flex min-h-screen flex-col justify-center md:min-h-[100svh]">
+    <section id="about" className="flex min-h-screen flex-col justify-center md:min-h-[100svh]">
       <div className="mx-auto w-full max-w-5xl px-16 py-48 md:px-24 md:py-64">
         <div className="grid gap-32 md:grid-cols-[1fr_320px] md:items-start">
           <div className="flex flex-col gap-24">
@@ -22,7 +22,7 @@ export function AboutSection() {
             </p>
             <div className="flex flex-wrap items-center gap-16">
               <Link
-                href="/Ravin-Resume.pdf"
+                href="/resume/Ravin-resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-24 py-12 text-body font-semibold text-paper shadow-skeu-sm hover:bg-accent-hover transition-colors"
@@ -37,7 +37,7 @@ export function AboutSection() {
               </Link>
             </div>
           </div>
-          <ImageCarousel images={aboutPhotos} aspect="3/4" />
+          <ImageCarousel images={aboutPhotos} aspect="3/4" showArrows={false} />
         </div>
       </div>
     </section>

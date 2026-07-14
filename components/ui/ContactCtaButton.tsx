@@ -1,14 +1,31 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const MotionLink = motion(Link);
 
 export function ContactCtaButton() {
+  const pathname = usePathname();
+  
+  // Determine UTM source based on route path
+  let utmSource = 'unknown';
+  if (pathname === '/') {
+    utmSource = 'home';
+  } else if (pathname) {
+    if (pathname.startsWith('/blog/')) {
+      utmSource = pathname.replace('/blog/', 'blog:');
+    } else {
+      utmSource = pathname.replace(/^\//, '');
+    }
+  }
+
+  const href = `/contact?utm_source=${utmSource}`;
+
   return (
     <MotionLink
-      href="/contact"
+      href={href}
       className="inline-flex items-center gap-12 rounded-full bg-accent px-24 py-12 text-body font-medium text-paper shadow-glass transition-colors hover:bg-accent-hover hover:text-paper cursor-pointer"
       whileHover="hover"
       initial="rest"

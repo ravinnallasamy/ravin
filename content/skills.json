@@ -1,6 +1,95 @@
 {
-  "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter", "Dart"],
-  "backend": ["Node.js", "Express", "FastAPI", "MongoDB", "PostgreSQL", "Supabase", "JWT", "Google OAuth"],
-  "ai": ["Groq (Llama 3.1)", "OpenAI GPT-4o-mini", "LangGraph", "Xenova Transformers", "pgvector", "RAG pipelines"],
-  "automation": ["n8n", "Playwright", "WhatsApp Business API", "Telegram Bot API"]
+  "highlights": [
+    { "label": "Frontend Development", "category": "web" },
+    { "label": "Backend Development", "category": "backend" },
+    { "label": "AI Integration", "category": "ai" },
+    { "label": "RAG Pipelines & Agentic AI", "category": "ai" },
+    { "label": "LangChain / LangGraph", "category": "ai" },
+    { "label": "Claude, GPT-4 & Gemini Pro", "category": "ai" },
+    { "label": "Next.js (App Router)", "category": "web" },
+    { "label": "TypeScript", "category": "languages" },
+    { "label": "FastAPI", "category": "backend" },
+    { "label": "Vector Databases", "category": "databases" },
+    { "label": "Conversational AI & Voice", "category": "conversational" },
+    { "label": "App Development", "category": "mobile" },
+    { "label": "SEO / AEO / GEO", "category": "search" },
+    { "label": "Agile & Scrum", "category": "methodologies" },
+    { "label": "Git & CI Tooling", "category": "methodologies" }
+  ],
+  "categories": [
+    {
+      "key": "ai",
+      "label": "AI / ML & Automation",
+      "icon": "BrainCircuit",
+      "description": "Building and orchestrating intelligent systems — from retrieval pipelines to autonomous agent workflows.",
+      "items": [
+        "RAG pipelines",
+        "LangChain",
+        "LangGraph",
+        "Agentic AI",
+        "Prompt engineering"
+      ]
+    },
+    {
+      "key": "conversational",
+      "label": "Conversational AI & Chatbots",
+      "icon": "MessageSquare",
+      "description": "Designing chat and voice experiences that feel natural across text and speech.",
+      "items": [
+        "Chatbot design",
+        "Voice interfaces",
+        "Multimodal search",
+        "WhatsApp bots"
+      ]
+    },
+    {
+      "key": "languages",
+      "label": "Programming Languages",
+      "icon": "Code2",
+      "description": "Core languages used across web, backend, and mobile projects.",
+      "items": ["Python", "TypeScript", "Java", "Dart"]
+    },
+    {
+      "key": "web",
+      "label": "Web Development",
+      "icon": "Globe",
+      "description": "Modern, accessible front-end interfaces built for speed and clarity.",
+      "items": ["React.js", "Next.js", "Tailwind CSS", "TypeScript"]
+    },
+    {
+      "key": "backend",
+      "label": "Backend & APIs",
+      "icon": "Server",
+      "description": "Reliable services and APIs powering both web and AI-driven products.",
+      "items": ["Node.js", "FastAPI", "REST API design"]
+    },
+    {
+      "key": "databases",
+      "label": "Databases",
+      "icon": "Database",
+      "description": "Structured and unstructured data storage, including vector search for AI retrieval.",
+      "items": ["PostgreSQL", "MongoDB", "Supabase", "pgvector"]
+    },
+    {
+      "key": "mobile",
+      "label": "Mobile Development",
+      "icon": "Smartphone",
+      "description": "Cross-platform apps shipped to production on both major app stores.",
+      "items": ["Flutter", "Android & iOS", "Play Store"]
+    },
+    {
+      "key": "methodologies",
+      "label": "Methodologies & Tools",
+      "icon": "Workflow",
+      "description": "Practices and tooling for shipping reliable software as part of a team.",
+      "items": ["Agile", "Scrum", "Git", "TDD"]
+    },
+    {
+      "key": "search",
+      "label": "Digital & Search",
+      "icon": "Search",
+      "description": "Making content discoverable across traditional search and AI answer engines.",
+      "items": ["SEO", "AEO", "GEO"]
+    }
+  ]
 }

@@ -69,7 +69,7 @@ export function NavBar() {
             );
           })}
           <Link
-            href="/contact"
+            href="/contact?utm_source=header"
             className="group relative ml-8 overflow-hidden rounded-full bg-accent px-16 py-8 text-body text-paper transition-colors hover:bg-accent-hover"
           >
             <span className="relative">Get in touch</span>
@@ -124,7 +124,7 @@ export function NavBar() {
               );
             })}
             <Link
-              href="/contact"
+              href="/contact?utm_source=header"
               onClick={() => setOpen(false)}
               className="mt-8 rounded-full bg-accent px-16 py-8 text-center text-body text-paper"
             >

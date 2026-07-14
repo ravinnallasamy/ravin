@@ -49,6 +49,9 @@ module.exports = {
       backdropBlur: {
         glass: '16px',
       },
+      backgroundImage: {
+        'hero-warm': 'linear-gradient(180deg, #FBF8F3 0%, #F3EEE6 55%, #ECE4D8 100%)',
+      },
       spacing: {
         '4': '4px',
         '8': '8px',

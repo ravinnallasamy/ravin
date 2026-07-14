@@ -1,0 +1,16 @@
+# Netlify Configuration File
+# This file directs Netlify's native CI/CD Git integration on how to build and deploy your Next.js project.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Optional redirects for single page routing or custom endpoints if needed
+[[redirects]]
+  from = "/*"
+  status = 200
+  to = "/:splat"

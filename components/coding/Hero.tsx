@@ -1,14 +1,12 @@
+import { HeroSection } from '@/components/ui/HeroSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { BuildingSite } from '@/components/illustrations/BuildingSite';
-import { getSocial } from '@/lib/content';
 import { Github, Code2 } from 'lucide-react';
 
 export function Hero() {
-  const social = getSocial();
-
   return (
-    <section className="mx-auto grid min-h-[calc(100svh-64px)] max-w-5xl items-center gap-48 px-16 py-48 md:grid-cols-2 md:gap-64 md:px-24 md:py-96">
+    <HeroSection innerClassName="grid items-center gap-48 md:grid-cols-2 md:gap-64">
       {/* ── Left: content ── */}
       <Reveal className="order-2 flex flex-col gap-24 md:order-1">
         <SectionHeading as="h1" eyebrow="Git & Solves" title="GitHub & LeetCode activity" />
@@ -38,6 +36,6 @@ export function Hero() {
       <div className="order-1 flex items-center justify-center md:order-2">
         <BuildingSite />
       </div>
-    </section>
+    </HeroSection>
   );
 }

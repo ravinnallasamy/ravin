@@ -1,5 +1,6 @@
 import siteJson from '@/content/site.json';
 import { getProjects } from '@/lib/content';
+import { HeroSection } from '@/components/ui/HeroSection';
 import { StatReadout } from '@/components/ui/StatReadout';
 import { WelcomeChef } from '@/components/illustrations/WelcomeChef';
 import { ContactCtaButton } from '@/components/ui/ContactCtaButton';
@@ -15,12 +16,14 @@ export function Hero() {
   ];
 
   return (
-    <section
-      className="flex min-h-[calc(100svh-64px)] items-center"
-      style={{ background: 'linear-gradient(180deg, #FBF8F3 0%, #F3EEE6 55%, #ECE4D8 100%)' }}
+    <HeroSection
+      gradient
+      centered
+      padding="flat"
+      scrollTo="about"
+      scrollOffsetClassName="-translate-x-[calc(50%+100px)]"
+      innerClassName="grid gap-48 md:grid-cols-2 md:items-center md:gap-64"
     >
-      <div className="mx-auto grid w-full max-w-5xl gap-48 px-16 py-64 md:grid-cols-2 md:items-center md:gap-64 md:px-24">
-
         {/* ── Left: illustration & CTA ── */}
         <div className="flex flex-col items-center justify-center gap-24 text-center">
           <WelcomeChef />
@@ -31,14 +34,19 @@ export function Hero() {
         </div>
 
         {/* ── Right: content ── */}
-        <div className="flex flex-col gap-24">
-          <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4">
+            <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+              {siteJson.statusLine}
+            </span>
             <h1 className="text-h1 md:text-h1-lg text-ink" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.6)' }}>
               {siteJson.name}
             </h1>
             <p className="text-h3 text-ink-muted">{siteJson.role}</p>
           </div>
-          <p className="max-w-md text-body text-ink-muted">{siteJson.mission}</p>
+          <p className="max-w-md text-body text-ink-muted">
+            {siteJson.mission} {shippedCount} live builds so far, and counting — real products, real users.
+          </p>
           <div className="flex flex-wrap gap-8">
             {badges.map((badge) => (
               <span
@@ -60,7 +68,6 @@ export function Hero() {
           </div>
         </div>
 
-      </div>
-    </section>
+    </HeroSection>
   );
 }

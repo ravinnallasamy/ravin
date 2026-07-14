@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProjectBySlug, getProjects } from '@/lib/content';
 import { MediaSlot } from '@/components/ui/MediaSlot';
+import { ImageCarousel } from '@/components/ui/ImageCarousel';
 import { StatusPill } from '@/components/ui/StatusPill';
+import { BackLink } from '@/components/ui/BackLink';
 import { projectJsonLd } from '@/lib/seo';
 
 export function generateStaticParams() {
@@ -38,9 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       />
       <div className="flex flex-col gap-32">
         <div className="flex flex-col gap-16">
-          <Link href="/work" className="text-mono-label font-mono text-ink-faint hover:text-ink-muted">
-            ← all work
-          </Link>
+          <BackLink href="/work" label="All work" />
           <div className="flex flex-wrap items-center gap-12">
             <StatusPill status={project.status} />
             <span className="font-mono text-mono-label text-ink-faint">{project.year}</span>
@@ -49,8 +49,37 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <p className="max-w-2xl text-h3 text-ink-muted">{project.tagline}</p>
         </div>
 
+        {(project.problem || project.solution) && (
+          <div className="grid gap-32 md:grid-cols-2">
+            {project.problem && (
+              <div className="flex flex-col gap-12">
+                <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Problem</h2>
+                <p className="text-body text-ink-muted">{project.problem}</p>
+              </div>
+            )}
+            {project.solution && (
+              <div className="flex flex-col gap-12">
+                <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Solution</h2>
+                <p className="text-body text-ink-muted">{project.solution}</p>
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="rounded-xl border border-white/40 bg-surface-raised/60 shadow-glass backdrop-blur-glass">
-          <MediaSlot src={project.cover} alt={`Screenshot of ${project.title}`} aspect="16/9" fit="contain" className="p-32" />
+          {project.screenshots && project.screenshots.length > 0 ? (
+            <ImageCarousel
+              images={project.screenshots.map((src, index) => ({
+                src,
+                alt: `${project.title} — screenshot ${index + 1}`,
+              }))}
+              aspect="16/9"
+              fit="contain"
+              className="p-32"
+            />
+          ) : (
+            <MediaSlot src={project.cover} alt={`Screenshot of ${project.title}`} aspect="16/9" fit="contain" className="p-32" />
+          )}
         </div>
 
         <p className="max-w-2xl text-body text-ink-muted">{project.summary}</p>

@@ -5,7 +5,16 @@
     "title": "AI HR System",
     "tagline": "Lets HR ask follow-up questions an AI generates on the spot, then scores the answer",
     "summary": "Two linked portals — one where candidates upload a resume and profile links, one where HR reviews it, asks questions by text or voice, and gets an AI-generated answer plus a fit score. Built on Supabase auth and a JWT-protected review workflow.",
-    "highlights": ["Separate candidate and HR portals", "Voice input via the Web Speech API", "Approve or reject in one click", "JWT-secured review pipeline"],
+    "problem": "Early-stage screening burns hours of HR time on generic, one-size-fits-all questions that don't actually probe what's on a candidate's resume — and switching between a resume, a GitHub profile, and a portfolio link to write a good follow-up question is slow and inconsistent across reviewers.",
+    "solution": "A candidate portal collects the resume plus social/portfolio links and lets the backend scrape and structure that profile data; a linked HR portal surfaces it all in one dashboard, generates context-aware interview questions on demand, accepts a spoken or typed answer, scores it against the candidate's actual background, and lets HR approve or reject in one click — all behind Supabase auth and a JWT-protected review pipeline.",
+    "highlights": [
+      "Separate candidate and HR portals sharing one review pipeline",
+      "AI-generated, resume-aware follow-up questions with instant scoring",
+      "Voice input via the Web Speech API, hands-free on both sides",
+      "Automatic resume and profile-link scraping into structured candidate data",
+      "Real-time search, status filters, and server-side pagination on the HR dashboard",
+      "Approve or reject a candidate in one click, with full interview history retained"
+    ],
     "stack": ["React", "TypeScript", "Supabase", "JWT", "RAG"],
     "status": "shipped",
     "year": "2025",
@@ -15,7 +24,13 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/ai-backend" }
     ],
     "demo": null,
-    "cover": "/images/projects/ai-hr-system/cover.jpg"
+    "cover": "/images/projects/ai-hr-system/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/ai-hr-system/screenshot-1.png",
+      "/images/projects/ai-hr-system/screenshot-2.png",
+      "/images/projects/ai-hr-system/screenshot-3.png",
+      "/images/projects/ai-hr-system/screenshot-4.png"
+    ]
   },
   {
     "slug": "ravin-assistant",
@@ -23,7 +38,16 @@
     "title": "Ravin-Assistant",
     "tagline": "Answers interview questions about me, sourced from my own resume and GitHub",
     "summary": "Upload a resume and a GitHub/LinkedIn link once; the backend scrapes and embeds them, then answers recruiter questions in first person with a text or synthesized voice reply, grounded only in what's actually in the source material.",
-    "highlights": ["Playwright-based GitHub & portfolio scraping", "Local embeddings with Xenova transformers, stored in pgvector", "Groq-hosted Llama 3.1 for responses", "Google Cloud TTS voice replies"],
+    "problem": "Recruiters and hiring managers often want a quick answer about a candidate's background outside a live interview — but a static resume can't take follow-up questions, and a generic chatbot has no real grounding in the candidate's actual work, so it either stays silent on specifics or hallucinates them.",
+    "solution": "Ravin-Assistant turns a resume plus GitHub/LinkedIn/portfolio links into a first-person Q&A agent grounded only in what's actually in those sources. A Playwright scraper pulls the GitHub and portfolio content once, local Xenova embeddings index it in pgvector, and Groq-hosted Llama 3.1 answers recruiter questions in first person — by text or by voice, using the browser's mic for input and Google Cloud TTS for a spoken reply. A password-protected admin dashboard lets the profile owner upload a new resume or photo, edit bio and links, and review the full Q&A history, with the site's favicon updating to match the current profile photo.",
+    "highlights": [
+      "Playwright-based GitHub & portfolio scraping",
+      "Local embeddings with Xenova transformers, stored in pgvector",
+      "Groq-hosted Llama 3.1 for grounded, first-person answers",
+      "Voice input and Google Cloud TTS voice replies",
+      "Password-protected admin dashboard for resume, photo, and profile edits",
+      "Full Q&A history tracked for every question asked"
+    ],
     "stack": ["Node.js", "Express 5", "Supabase", "pgvector", "Groq", "React", "Vite"],
     "status": "shipped",
     "year": "2025",
@@ -32,7 +56,13 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/ravin_assistant_backend" }
     ],
     "demo": null,
-    "cover": "/images/projects/ravin-assistant/cover.jpg"
+    "cover": "/images/projects/ravin-assistant/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/ravin-assistant/screenshot-1.png",
+      "/images/projects/ravin-assistant/screenshot-2.png",
+      "/images/projects/ravin-assistant/screenshot-3.png",
+      "/images/projects/ravin-assistant/screenshot-4.png"
+    ]
   },
   {
     "slug": "uzhavan-rentals",
@@ -40,7 +70,16 @@
     "title": "Uzhavan Rentals",
     "tagline": "Lets farmers rent equipment from owners nearby, with no middleman",
     "summary": "A two-sided marketplace connecting equipment owners and farmers. Owners list machinery, farmers request rentals, and Google OAuth plus role-based JWT auth keeps each side's actions scoped to what they're allowed to do.",
-    "highlights": ["Separate owner and renter roles", "Google OAuth + JWT authorization", "Full rental request lifecycle", "Rate limiting and Helmet security headers"],
+    "problem": "Modern farm machinery — tractors, rotavators, harvesters, seed drills, power tillers — costs lakhs of rupees, putting it out of reach for most small and medium farmers, while the owners who can afford it only run it for a few months a season and let it sit idle the rest of the year. What rental activity does happen today goes through phone calls and local brokers, with no visibility into real availability, no transparent pricing, and no way to book online — a real problem when sowing, irrigation, and harvesting only have a narrow window before yield suffers.",
+    "solution": "Uzhavan Rentals turns that informal, broker-driven process into an online marketplace with two dedicated roles. Equipment providers list machinery with pricing and availability and manage every request from a provider dashboard; farmers search and filter nearby equipment, compare prices, and send a booking request that the owner can accept or reject. A structured booking workflow (pending → approved/rejected → completed) tracks the full rental lifecycle for both sides, backed by role-based Google OAuth + JWT auth so each account can only act within its own role, and rental history keeps a record of every completed transaction.",
+    "highlights": [
+      "Separate Farmer and Provider roles with dedicated dashboards",
+      "Searchable, filterable equipment catalog with real-time availability",
+      "End-to-end booking workflow: request, approve/reject, complete, track",
+      "Rental history for both farmers and equipment providers",
+      "Google OAuth + role-based JWT authorization",
+      "Rate limiting and Helmet security headers on the API"
+    ],
     "stack": ["React", "Node.js", "Express", "MongoDB", "Google OAuth"],
     "status": "shipped",
     "year": "2025",
@@ -49,7 +88,13 @@
       { "label": "Backend", "url": "https://github.com/ravinnallasamy/backend_new" }
     ],
     "demo": null,
-    "cover": "/images/Uzhavan.png"
+    "cover": "/images/projects/uzhavan-rentals/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/uzhavan-rentals/screenshot-1.png",
+      "/images/projects/uzhavan-rentals/screenshot-2.png",
+      "/images/projects/uzhavan-rentals/screenshot-3.png",
+      "/images/projects/uzhavan-rentals/screenshot-4.png"
+    ]
   },
   {
     "slug": "cerina-protocol-foundry",
@@ -57,13 +102,28 @@
     "title": "Cerina Protocol Foundry",
     "tagline": "A team of AI agents drafts and reviews clinical protocols, with a human holding final approval",
     "summary": "Five specialized agents — drafting, safety, clinical, empathy, and a supervisor — collaborate through LangGraph to turn a plain-language clinical intent into a reviewed CBT protocol, with a real-time React dashboard and an MCP server for outside tools to call into the pipeline.",
-    "highlights": ["Multi-agent orchestration with LangGraph", "Human-in-the-loop approval step", "FastAPI backend, Supabase state storage", "Exposes an MCP-compatible tool"],
-    "stack": ["Python", "FastAPI", "LangGraph", "React", "Supabase", "MCP"],
+    "problem": "Writing a clinical CBT protocol from scratch is slow and easy to get subtly wrong: a single author has to balance clinical accuracy, safety/compliance, and tone all at once, and there's no structured checkpoint before a draft reaches a human reviewer — so mistakes surface late, after the real effort has already gone in.",
+    "solution": "A 'foundry' pipeline where a plain-language clinical intent (e.g. 'CBT for Insomnia') is handed to a team of specialized LangGraph agents — drafting, safety, clinical critic, and empathy — orchestrated by a supervisor agent that loops the draft through each check automatically. The process halts once the agents finish, surfacing the reviewed draft in a real-time React dashboard where a human can edit and give final approval, with an MCP server exposing the whole pipeline as a callable tool for outside systems.",
+    "highlights": [
+      "Five-agent pipeline: drafting, safety, clinical, empathy, and a supervisor",
+      "Multi-agent orchestration with LangGraph, looping drafts through review automatically",
+      "Human-in-the-loop approval step — agents halt for edit and sign-off before anything ships",
+      "Real-time React dashboard streaming agent progress as it happens",
+      "FastAPI backend with Supabase (Postgres) for state persistence",
+      "Exposes an MCP-compatible `generate_protocol` tool for external integration"
+    ],
+    "stack": ["Python", "FastAPI", "LangGraph", "React", "Supabase", "MCP", "Google Gemini"],
     "status": "in-progress",
     "year": "2025",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/cerina-project" }],
     "demo": null,
-    "cover": "/images/projects/cerina-protocol-foundry/cover.jpg"
+    "cover": "/images/projects/cerina-protocol-foundry/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/cerina-protocol-foundry/screenshot-1.png",
+      "/images/projects/cerina-protocol-foundry/screenshot-2.png",
+      "/images/projects/cerina-protocol-foundry/screenshot-3.png",
+      "/images/projects/cerina-protocol-foundry/screenshot-4.png"
+    ]
   },
   {
     "slug": "heart-patient-management",
@@ -71,14 +131,28 @@
     "title": "Heart Patient Management App",
     "tagline": "Tracks daily vitals and medication for someone managing heart disease",
     "summary": "A Flutter app patients use to log symptoms, vitals, and medication schedules, with an emergency alert path and a channel for direct doctor communication.",
-    "highlights": ["Daily symptom & vitals log", "Medication reminders", "One-tap emergency alert", "Doctor communication"],
+    "problem": "Managing a chronic heart condition means keeping track of daily symptoms, vitals, and medication timing — details that are easy to lose in a paper notebook or forget entirely, and a missed dose or an unnoticed symptom spike can turn into a genuine emergency before a doctor ever finds out.",
+    "solution": "A Flutter app built around the day-to-day reality of managing heart disease: patients log symptoms, vitals, and medication on a simple daily screen, get reminded when a dose is due, and can trigger a one-tap emergency alert if something feels wrong. A direct doctor communication channel keeps the care team in the loop without waiting for the next scheduled visit.",
+    "highlights": [
+      "Daily symptom & vitals log for ongoing heart condition tracking",
+      "Medication reminders so doses aren't missed",
+      "One-tap emergency alert for urgent situations",
+      "Direct doctor communication channel",
+      "Clean, focused UI built for easy day-to-day health monitoring"
+    ],
     "stack": ["Flutter", "Dart"],
     "status": "shipped",
     "year": "2025",
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/Heart_patient_management_app" }],
     "demo": null,
-    "cover": "/images/IND.jpg"
+    "cover": "/images/projects/heart-patient-management/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/heart-patient-management/screenshot-1.png",
+      "/images/projects/heart-patient-management/screenshot-2.png",
+      "/images/projects/heart-patient-management/screenshot-3.png",
+      "/images/projects/heart-patient-management/screenshot-4.png"
+    ]
   },
   {
     "slug": "tumocare",
@@ -86,14 +160,28 @@
     "title": "TumoCare",
     "tagline": "The same day-to-day tracking, built for brain tumor patients",
     "summary": "A companion Flutter app for brain tumor patients and their caregivers, tracking health metrics and symptoms alongside medication reminders and emergency alerts.",
-    "highlights": ["Symptom & health metric tracking", "Medication reminders", "Caregiver emergency alerts", "Doctor communication"],
+    "problem": "Brain tumor patients and their caregivers need to stay on top of shifting symptoms and medication schedules, but the people best placed to notice a dangerous change — caregivers, not just the patient — are often left out of the loop until something is already wrong, since most health-tracking tools are built for a single user rather than a patient-caregiver pair.",
+    "solution": "A Flutter companion app built specifically around brain tumor care: patients and caregivers log health metrics and symptoms together, medication reminders keep dosing on schedule, and a dedicated caregiver-facing emergency alert makes sure the person providing day-to-day support is notified immediately if something needs attention — alongside a direct channel to communicate with the treating doctor.",
+    "highlights": [
+      "Symptom & health metric tracking built for brain tumor care",
+      "Medication reminders to keep dosing on schedule",
+      "Caregiver-facing emergency alerts, not just patient-facing",
+      "Direct doctor communication channel",
+      "Shares its day-to-day tracking model with the Heart Patient Management App"
+    ],
     "stack": ["Flutter", "Dart"],
     "status": "shipped",
     "year": "2025",
     "collection": "health-tech-suite",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/brain_patient_management_app" }],
     "demo": null,
-    "cover": "/images/tumo.jpg"
+    "cover": "/images/projects/tumocare/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/tumocare/screenshot-1.png",
+      "/images/projects/tumocare/screenshot-2.png",
+      "/images/projects/tumocare/screenshot-3.png",
+      "/images/projects/tumocare/screenshot-4.png"
+    ]
   },
   {
     "slug": "whatsapp-automation",
@@ -101,13 +189,28 @@
     "title": "WhatsApp Automation",
     "tagline": "Answers customer messages on WhatsApp before a human has to",
     "summary": "A WhatsApp bot backed by a proper data layer, so replies are fast and every conversation is logged and queryable rather than disappearing into a chat thread.",
-    "highlights": ["Automated first-response replies", "Structured conversation logging", "Built for handoff to a human when needed"],
-    "stack": ["Node.js", "WhatsApp Business API"],
+    "problem": "Businesses and creators fielding WhatsApp messages face a tradeoff: customers expect an instant, 24/7 reply, but staffing humans around the clock is expensive, and a simple rule-based bot (\"if user says X, reply Y\") breaks the moment a message doesn't match an exact pattern — leading to the exact frustrating, robotic experience it was meant to avoid.",
+    "solution": "An Express/Node.js webhook service, structured MVC-style (controllers, models, services), sits behind Twilio's WhatsApp API so it can send not just text but interactive buttons (\"Press 1 for Support, Press 2 for Sales\") to guide the conversation. Incoming messages are handed to an AI service for intent understanding and response generation, with a built-in mock mode so the bot can be developed and tested without burning real API calls. MongoDB (Atlas in production) persists conversation history so replies stay contextual across a thread, and the whole service is containerized with Docker and deployed to Render for reproducible, cloud-native hosting.",
+    "highlights": [
+      "Twilio-powered WhatsApp messaging, including interactive reply buttons",
+      "AI-generated responses with context from prior conversation history",
+      "Mock AI mode for local development without live API calls",
+      "MongoDB Atlas-backed conversation logging and lead storage",
+      "Dockerized service deployed to Render",
+      "MVC-structured Express backend for maintainable webhook handling"
+    ],
+    "stack": ["Node.js", "Express", "Twilio", "MongoDB", "Docker"],
     "status": "shipped",
     "year": "2026",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/whatsapp_automate" }],
     "demo": null,
-    "cover": "/images/projects/whatsapp-automation/cover.jpg"
+    "cover": "/images/projects/whatsapp-automation/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/whatsapp-automation/screenshot-1.png",
+      "/images/projects/whatsapp-automation/screenshot-2.png",
+      "/images/projects/whatsapp-automation/screenshot-3.png",
+      "/images/projects/whatsapp-automation/screenshot-4.png"
+    ]
   },
   {
     "slug": "ravins-kaipulla",
@@ -115,14 +218,27 @@
     "title": "Ravin's Kaipulla",
     "tagline": "A Telegram bot that roasts your stress away in Vadivelu-style Tanglish",
     "summary": "A comedy bot that replies to whatever you send with sarcastic, Tanglish one-liners in the voice of Vadivelu's film comedy — built purely to make people laugh on a bad day.",
-    "highlights": ["Tanglish comedic reply generation", "Sarcastic, persona-driven tone", "Telegram Bot API integration"],
-    "stack": ["Node.js", "Telegram Bot API"],
+    "problem": "Placement season pressure can hit harder than any coding bug — an inbox full of rejections and silence doesn't exactly help morale, and there's no app built for the very specific job of talking you down with a joke instead of a productivity tip.",
+    "solution": "Kaipulla Bot is named after Kaipulla, a lovable, over-the-top Tamil comedian character — funny, chaotic, and full of expression. Every message sent to the bot on Telegram gets a dramatic, sarcastic reply in Tanglish, in that exact voice, powered by Groq-hosted LLM inference behind a persona-driven prompt. It doesn't fix the problem in your inbox, but it reliably turns a bad moment into a laugh.",
+    "highlights": [
+      "Tanglish comedic replies in a persona-driven, Tamil-movie-comedy voice",
+      "Groq-hosted LLM inference behind a hand-tuned character prompt",
+      "Responds to any message sent on Telegram, no fixed command set",
+      "Built as a stress-relief side project during placement season"
+    ],
+    "stack": ["Node.js", "Telegram Bot API", "Groq"],
     "status": "shipped",
     "year": "2026",
     "repos": [],
     "_notes": "TODO: no public repo found — add one if this bot's code is pushed somewhere",
     "demo": "REPLACE_ME",
-    "cover": "/images/projects/ravins-kaipulla/cover.jpg"
+    "cover": "/images/projects/ravins-kaipulla/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/ravins-kaipulla/screenshot-1.png",
+      "/images/projects/ravins-kaipulla/screenshot-2.png",
+      "/images/projects/ravins-kaipulla/screenshot-3.png",
+      "/images/projects/ravins-kaipulla/screenshot-4.png"
+    ]
   },
   {
     "slug": "codegenerator",
@@ -130,12 +246,26 @@
     "title": "CodeGenerator",
     "tagline": "Turns a plain-English description into IEC 61131-3 industrial automation code",
     "summary": "A web tool for automation engineers: describe a control sequence in plain English, pick ST, FBD, SFC, or IL, and GPT-4o-mini generates compliant industrial code ready to drop into a PLC project.",
-    "highlights": ["Supports 4 IEC 61131-3 code formats", "Natural-language-to-code via GPT-4o-mini", "One-click copy to clipboard"],
+    "problem": "Writing PLC control logic normally means translating a process requirement into IEC 61131-3 syntax by hand — a slow step even for experienced engineers, and a real barrier for anyone still learning the standard. Common patterns like motor start/stop circuits, timers, interlocks, alarms, and PID loops end up rewritten from scratch project after project.",
+    "solution": "CodeGenerator takes a plain-English description of the control logic, lets the user pick the target IEC 61131-3 language — ST, FBD, SFC, or IL — and sends the requirement to GPT-4o-mini, which returns structured, PLC-style code ready to copy into an automation project. A focused, code-first UI keeps the loop to: describe the logic, pick a format, generate, copy.",
+    "highlights": [
+      "Natural-language input for industrial control logic",
+      "Generates code in 4 IEC 61131-3 formats: ST, FBD, SFC, and IL",
+      "GPT-4o-mini-powered code generation from plain English",
+      "One-click copy of generated code into the clipboard",
+      "Responsive, code-focused interface for desktop and mobile"
+    ],
     "stack": ["React", "OpenAI GPT-4o-mini"],
     "status": "shipped",
     "year": "2025",
     "repos": [{ "label": "Repo", "url": "https://github.com/ravinnallasamy/codegenerator" }],
     "demo": null,
-    "cover": "/images/projects/codegenerator/cover.jpg"
+    "cover": "/images/projects/codegenerator/screenshot-1.png",
+    "screenshots": [
+      "/images/projects/codegenerator/screenshot-1.png",
+      "/images/projects/codegenerator/screenshot-2.png",
+      "/images/projects/codegenerator/screenshot-3.png",
+      "/images/projects/codegenerator/screenshot-4.png"
+    ]
   }
 ]

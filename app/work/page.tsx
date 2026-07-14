@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/work/Hero';
 import { List } from '@/components/work/List';
+import { Cta } from '@/components/work/Cta';
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -12,6 +13,7 @@ export default function WorkPage() {
     <div className="flex flex-col">
       <Hero />
       <List />
+      <Cta />
     </div>
   );
 }

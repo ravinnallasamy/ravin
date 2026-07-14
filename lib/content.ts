@@ -22,14 +22,26 @@ export interface Social {
   linkedin: string;
   leetcodeUsername: string;
   email: string;
+  phone: string;
   calBookingUrl: string;
 }
 
+export interface SkillHighlight {
+  label: string;
+  category: string;
+}
+
+export interface SkillCategory {
+  key: string;
+  label: string;
+  icon: string;
+  description: string;
+  items: string[];
+}
+
 export interface Skills {
-  frontend: string[];
-  backend: string[];
-  ai: string[];
-  automation: string[];
+  highlights: SkillHighlight[];
+  categories: SkillCategory[];
 }
 
 export type ProjectStatus = 'shipped' | 'in-progress' | 'archived';
@@ -45,6 +57,8 @@ export interface Project {
   title: string;
   tagline: string;
   summary: string;
+  problem?: string;
+  solution?: string;
   highlights: string[];
   stack: string[];
   status: ProjectStatus;
@@ -53,6 +67,7 @@ export interface Project {
   repos: ProjectRepo[];
   demo: string | null;
   cover: string;
+  screenshots?: string[];
   _notes?: string;
 }
 
@@ -77,6 +92,7 @@ export interface ExperienceEntry {
   role: string;
   company: string;
   period: string;
+  current?: boolean;
   description: string[];
   skills: string[];
 }
@@ -85,6 +101,8 @@ export interface EducationEntry {
   degree: string;
   school: string;
   period: string;
+  score?: string;
+  level?: 'degree' | 'schooling';
   details: string[];
 }
 

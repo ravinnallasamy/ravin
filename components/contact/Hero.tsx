@@ -4,10 +4,7 @@ import { CoffeeTable } from '@/components/illustrations/CoffeeTable';
 
 export function Hero() {
   return (
-    <section
-      className="flex h-[calc(100svh-64px)] items-center overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #FBF8F3 0%, #F3EEE6 55%, #ECE4D8 100%)' }}
-    >
+    <section className="flex h-[calc(100svh-64px)] items-center overflow-hidden bg-hero-warm">
       <div className="mx-auto grid w-full max-w-5xl gap-24 px-16 py-16 md:grid-cols-2 md:items-center md:gap-64 md:px-24">
 
         {/* ── Left: illustration ── */}

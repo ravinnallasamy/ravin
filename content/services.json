@@ -1,38 +1,68 @@
 [
   {
     "id": "full-stack",
-    "title": "Full-Stack Development",
-    "description": "Building performant web and mobile applications from scratch, leveraging robust backends and premium, interactive user interfaces.",
+    "title": "Full-Stack Product Builds",
+    "description": "From idea to production — fast, scalable web and mobile apps built to launch and grow.",
     "features": [
-      "Modern Single Page Applications (SPAs) and SSR sites with Next.js, React, and TypeScript",
-      "Cross-platform mobile applications built with Flutter and Dart",
-      "Robust RESTful and GraphQL APIs using Node.js, Express, and FastAPI",
-      "Scalable database management with PostgreSQL, MongoDB, and Supabase integration"
+      "Next.js, React & TypeScript frontends",
+      "Node.js / FastAPI backends & APIs",
+      "PostgreSQL, MongoDB & Supabase"
     ],
     "icon": "Cpu"
   },
   {
     "id": "ai-rag",
     "title": "AI & RAG Engineering",
-    "description": "Designing and deploying intelligent systems, autonomous agents, and grounded Retrieval-Augmented Generation (RAG) pipelines.",
+    "description": "Ship intelligent features fast — retrieval, agents, and LLMs grounded in your own data.",
     "features": [
-      "Multi-agent LLM systems and custom workflows using LangGraph and LangChain",
-      "Semantic search and context retrieval using pgvector, embeddings, and vector databases",
-      "Cost-efficient LLM integrations utilizing Groq (Llama 3.1) and OpenAI GPT-4o-mini",
-      "In-browser AI capabilities utilizing Xenova Transformers for local model inference"
+      "RAG pipelines & vector search",
+      "Agentic workflows with LangGraph",
+      "Claude, GPT-4 & Gemini integrations"
     ],
     "icon": "Brain"
   },
   {
+    "id": "conversational-ai",
+    "title": "Conversational AI & Chatbots",
+    "description": "Turn support and sales into always-on conversations across chat and voice.",
+    "features": [
+      "LLM-powered chat & voice interfaces",
+      "WhatsApp & Telegram bot integrations",
+      "Multimodal query & search experiences"
+    ],
+    "icon": "MessageSquare"
+  },
+  {
     "id": "automation",
     "title": "Workflow Automation",
-    "description": "Connecting systems and automating repetitive tasks through web scraping, API integrations, and custom bots.",
+    "description": "Cut manual work out of the business — systems that run themselves.",
     "features": [
-      "Visual automation workflows and third-party integrations with n8n",
-      "Headless browser scraping, automated testing, and web actions via Playwright",
-      "Custom conversational agents integrated with WhatsApp Business and Telegram Bot APIs",
-      "Scheduled data pipelines and notifications to streamline business processes"
+      "n8n pipelines & scheduled jobs",
+      "Web scraping & browser automation",
+      "API integrations across your stack"
     ],
     "icon": "Workflow"
+  },
+  {
+    "id": "mobile",
+    "title": "Mobile App Development",
+    "description": "One codebase, both app stores — polished cross-platform apps that ship fast.",
+    "features": [
+      "Flutter apps for iOS & Android",
+      "App Store & Play Store deployment",
+      "Native-feel UI, single codebase"
+    ],
+    "icon": "Smartphone"
+  },
+  {
+    "id": "growth",
+    "title": "SEO & AI Discoverability",
+    "description": "Get found — by search engines and the AI answer engines replacing them.",
+    "features": [
+      "Technical SEO & site performance",
+      "AEO / GEO for AI answer engines",
+      "Structured data & content strategy"
+    ],
+    "icon": "Search"
   }
 ]

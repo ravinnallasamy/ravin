@@ -65,8 +65,8 @@ export function ActivityTimelineSection({ events }: { events: ActivityEvent[] })
               <span className="mt-2 flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-accent">
                 <Icon size={14} aria-hidden />
               </span>
-              <div className="flex flex-col">
-                <span className="text-body text-ink">
+              <div className="flex min-w-0 flex-col">
+                <span className="break-words text-body text-ink">
                   {label} <span className="font-medium">{event.repoName}</span>
                 </span>
                 <span className="font-mono text-mono-label text-ink-faint">

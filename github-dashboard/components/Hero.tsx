@@ -14,13 +14,13 @@ function StatChip({
   sublabel?: string;
 }) {
   return (
-    <div className="flex items-center gap-8 rounded-2xl border border-border/50 bg-paper px-16 py-12 shadow-sm">
-      <span className="text-accent">{icon}</span>
-      <div className="flex flex-col">
+    <div className="flex min-w-0 items-center gap-8 rounded-2xl border border-border/50 bg-paper px-16 py-12 shadow-sm">
+      <span className="shrink-0 text-accent">{icon}</span>
+      <div className="flex min-w-0 flex-col">
         <span className="font-display text-h3 text-ink leading-none">{value}</span>
-        <span className="font-mono text-mono-label text-ink-faint">{label}</span>
+        <span className="break-words font-mono text-mono-label text-ink-faint">{label}</span>
         {sublabel && (
-          <span className="font-mono text-mono-label text-ink-faint/70">{sublabel}</span>
+          <span className="break-words font-mono text-mono-label text-ink-faint/70">{sublabel}</span>
         )}
       </div>
     </div>
@@ -39,12 +39,12 @@ export function Hero({ dashboard }: { dashboard: MergedDashboard }) {
   });
 
   return (
-    <section className="flex flex-col gap-32 rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-glass md:p-32">
+    <section className="flex min-w-0 flex-col gap-32 overflow-x-clip rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-glass md:p-32">
       <div className="flex flex-col gap-8">
         <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
           Unified Developer Identity
         </span>
-        <h1 className="font-display text-h1 md:text-h1-lg text-ink">{siteJson.name}</h1>
+        <h1 className="break-words font-display text-h1 md:text-h1-lg text-ink">{siteJson.name}</h1>
         <p className="max-w-xl text-body text-ink-muted">
           {siteJson.role} · {siteJson.location} · Combined stats across {meta.accountsLoaded.length}{' '}
           {meta.accountsLoaded.length === 1 ? 'account' : 'accounts'}

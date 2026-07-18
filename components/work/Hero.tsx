@@ -20,7 +20,7 @@ export function Hero() {
         </div>
 
         {/* Content — right column */}
-        <div className="order-1 flex flex-col items-start gap-32 text-left md:order-2">
+        <div className="order-1 flex flex-col items-center gap-32 text-center md:order-2 md:items-start md:text-left">
 
           <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
             Work
@@ -32,7 +32,7 @@ export function Hero() {
           </div>
 
           {/* Secondary CTA — mirrors the home hero's "want to hire me?" prompt */}
-          <div className="mt-auto flex flex-col items-start gap-12">
+          <div className="mt-auto flex flex-col items-center gap-12 md:items-start">
             <p className="text-body font-medium text-ink-muted">Like what you see? Or want to hire me?</p>
             <ContactCtaButton />
           </div>

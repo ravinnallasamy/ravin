@@ -5,11 +5,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Never allow the page to scroll sideways. The floating chat/WhatsApp
+       widget is portalled to <body> and fixed to the viewport, so clipping
+       here does not trap it. */
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-paper text-ink font-body antialiased;
+    /* Belt-and-suspenders: on mobile Safari overflow-x:hidden on <html> alone
+       can still allow the page to pan sideways when a descendant overflows.
+       Clipping on <body> as well guarantees no horizontal page scroll, so the
+       fixed floating widget stays anchored on screen. */
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   h1, h2, h3 {

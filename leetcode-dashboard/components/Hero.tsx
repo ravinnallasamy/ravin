@@ -21,10 +21,10 @@ interface HeroProps {
 
 function StatChip({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-8 rounded-2xl border border-border/50 bg-paper px-16 py-12 shadow-sm">
-      <div className="flex flex-col">
-        <span className="font-display text-h3 text-ink leading-none">{value}</span>
-        <span className="font-mono text-mono-label text-ink-faint">{label}</span>
+    <div className="flex min-w-0 items-center gap-8 rounded-2xl border border-border/50 bg-paper px-16 py-12 shadow-sm">
+      <div className="flex min-w-0 flex-col">
+        <span className="break-words font-display text-h3 text-ink leading-none">{value}</span>
+        <span className="break-words font-mono text-mono-label text-ink-faint">{label}</span>
       </div>
     </div>
   );
@@ -42,22 +42,22 @@ export function Hero({ username, profile, problemStats, contest, generatedAt }: 
       initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="flex flex-col gap-32 rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-glass md:p-32"
+      className="flex min-w-0 flex-col gap-32 overflow-x-clip rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-glass md:p-32"
     >
-      <div className="flex flex-col gap-24 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-16">
+      <div className="flex min-w-0 flex-col gap-24 md:flex-row md:items-center md:justify-between">
+        <div className="flex min-w-0 items-center gap-16">
           {profile?.avatarUrl && (
             <img
               src={profile.avatarUrl}
               alt=""
               width={72}
               height={72}
-              className="h-72 w-72 shrink-0 rounded-2xl border border-border/60 object-cover shadow-sm"
+              className="h-64 w-64 shrink-0 rounded-2xl border border-border/60 object-cover shadow-sm"
             />
           )}
-          <div className="flex flex-col gap-4">
+          <div className="flex min-w-0 flex-1 flex-col gap-4">
             <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">LeetCode Analytics</span>
-            <h1 className="font-display text-h1 md:text-h1-lg text-ink">
+            <h1 className="break-words font-display text-h1 md:text-h1-lg text-ink">
               {profile?.realName || username}
             </h1>
             <div className="flex flex-wrap items-center gap-12 text-mono-label text-ink-faint">

@@ -26,7 +26,7 @@ export function ContactCtaButton() {
   return (
     <MotionLink
       href={href}
-      className="inline-flex items-center gap-12 rounded-full bg-accent px-24 py-12 text-body font-medium text-paper shadow-glass transition-colors hover:bg-accent-hover hover:text-paper cursor-pointer"
+      className="inline-flex items-center gap-0 sm:gap-12 rounded-full bg-accent px-24 py-12 text-body font-medium text-paper shadow-glass transition-colors hover:bg-accent-hover hover:text-paper cursor-pointer"
       whileHover="hover"
       initial="rest"
       animate="rest"

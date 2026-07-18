@@ -124,7 +124,7 @@ export function Form() {
       <button
         type="submit"
         disabled={loading}
-        className="w-fit rounded-full bg-accent px-24 py-8 text-body text-paper shadow-glass hover:bg-accent-hover disabled:opacity-50"
+        className="w-fit self-center sm:self-start rounded-full bg-accent px-24 py-8 text-body text-paper shadow-glass hover:bg-accent-hover disabled:opacity-50"
       >
         {loading ? 'Sending...' : 'Send message'}
       </button>

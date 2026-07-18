@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <HeroSection scrollTo="services" innerClassName="grid items-center gap-32 sm:gap-48 md:grid-cols-2 md:gap-48 lg:gap-64">
       {/* ── Left: content ── */}
-      <Reveal className="order-2 flex flex-col items-start gap-24 md:order-1">
+      <Reveal className="order-2 flex flex-col items-center gap-24 text-center md:order-1 md:items-start md:text-left">
         <SectionHeading
           as="h1"
           eyebrow="Expertise"

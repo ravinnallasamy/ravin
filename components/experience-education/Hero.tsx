@@ -25,7 +25,7 @@ export function Hero() {
       innerClassName="grid gap-32 sm:gap-48 md:grid-cols-2 md:items-center md:gap-48 lg:gap-64"
     >
         {/* ── Left: content ── */}
-        <Reveal className="flex flex-col items-start gap-24">
+        <Reveal className="flex flex-col items-center gap-24 text-center md:items-start md:text-left">
           <SectionHeading
             as="h1"
             eyebrow="Journey"
@@ -36,7 +36,7 @@ export function Hero() {
         </Reveal>
 
         {/* ── Right: stat readout panel, with teddy peeking over the top edge ── */}
-        <Reveal className="relative rounded-2xl border border-border/60 bg-gradient-to-b from-paper to-surface p-20 shadow-skeu sm:p-24 md:p-32">
+        <Reveal className="relative mt-72 md:mt-0 rounded-2xl border border-border/60 bg-gradient-to-b from-paper to-surface p-20 shadow-skeu sm:p-24 md:p-32">
           <TeddyPeek name={firstName} />
 
           {currentRole && (

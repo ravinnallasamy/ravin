@@ -99,12 +99,12 @@ export function PersonalInsightsSection({ problemStats, calendar }: PersonalInsi
     <DashboardCard eyebrow="Analysis" title="Personal Insights">
       <div className="grid gap-16 sm:grid-cols-2">
         {insights.map((insight) => (
-          <div key={insight.key} className="flex items-start gap-12 rounded-2xl border border-border/50 bg-surface p-16">
-            <span className="mt-2 text-accent">{insight.icon}</span>
-            <div className="flex flex-col gap-4">
+          <div key={insight.key} className="flex min-w-0 items-start gap-12 rounded-2xl border border-border/50 bg-surface p-16">
+            <span className="mt-2 shrink-0 text-accent">{insight.icon}</span>
+            <div className="flex min-w-0 flex-col gap-4">
               <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{insight.label}</span>
-              <span className="text-body font-medium text-ink">{insight.value}</span>
-              <span className="text-mono-label text-ink-faint">{insight.detail}</span>
+              <span className="break-words text-body font-medium text-ink">{insight.value}</span>
+              <span className="break-words text-mono-label text-ink-faint">{insight.detail}</span>
             </div>
           </div>
         ))}

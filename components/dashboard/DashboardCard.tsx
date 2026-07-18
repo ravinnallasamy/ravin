@@ -18,10 +18,10 @@ export function DashboardCard({
   className?: string;
 }) {
   return (
-    <div className={`flex flex-col gap-16 rounded-3xl border border-border/60 bg-paper p-24 shadow-neu md:p-32 ${className}`}>
+    <div className={`flex min-w-0 flex-col gap-16 overflow-x-clip rounded-3xl border border-border/60 bg-paper p-24 shadow-neu md:p-32 ${className}`}>
       {(title || eyebrow || action) && (
-        <div className="flex items-start justify-between gap-16">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between sm:gap-16">
+          <div className="flex min-w-0 flex-col gap-4">
             {eyebrow && (
               <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{eyebrow}</span>
             )}

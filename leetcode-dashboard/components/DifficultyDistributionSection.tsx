@@ -28,7 +28,7 @@ export function DifficultyDistributionSection({ stats }: { stats: ProblemStats }
       </div>
       <ul className="grid grid-cols-3 gap-8">
         {slices.map((s) => (
-          <li key={s.difficulty} className="flex flex-col items-center gap-4 rounded-2xl border border-border/50 bg-surface p-16 text-center">
+          <li key={s.difficulty} className="flex min-w-0 flex-col items-center gap-4 rounded-2xl border border-border/50 bg-surface p-8 text-center sm:p-16">
             <span className="h-8 w-8 rounded-full" style={{ backgroundColor: s.color }} aria-hidden />
             <span className="font-mono text-mono-label text-ink-faint">{s.difficulty}</span>
             <span className="font-display text-h3 text-ink">{s.percentage}%</span>

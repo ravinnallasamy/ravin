@@ -30,12 +30,12 @@ export function RecentActivitySection({ recent }: { recent: RecentSubmission[] |
     <DashboardCard eyebrow="Activity" title="Recent Activity">
       <ul className="flex flex-col gap-4">
         {recent.map((r) => (
-          <li key={r.id} className="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-border/40 bg-surface px-16 py-12">
+          <li key={r.id} className="flex min-w-0 flex-wrap items-center justify-between gap-8 rounded-xl border border-border/40 bg-surface px-16 py-12">
             <a
               href={r.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-ink hover:text-accent"
+              className="min-w-0 break-words font-medium text-ink hover:text-accent"
             >
               {r.title}
             </a>

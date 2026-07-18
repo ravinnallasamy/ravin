@@ -58,7 +58,7 @@ export function CommitAnalyticsSection({
       eyebrow="Trends"
       title="Commit Analytics"
       action={
-        <div role="tablist" aria-label="Commit chart granularity" className="flex gap-4 rounded-full border border-border bg-surface p-4">
+        <div role="tablist" aria-label="Commit chart granularity" className="flex flex-wrap gap-4 rounded-full border border-border bg-surface p-4">
           {TABS.map((tab) => (
             <button
               key={tab.key}

@@ -16,12 +16,12 @@ export function Skills({ compact = false, tinted = false }: { compact?: boolean;
     >
         <div className="flex flex-col gap-32">
           {!compact && (
-            <Reveal>
+            <Reveal className="text-center md:text-left">
               <SectionHeading eyebrow="Stack" title="What I build with" />
             </Reveal>
           )}
           <Reveal>
-            <div className="flex flex-wrap gap-12 sm:gap-16">
+            <div className="flex flex-wrap justify-center gap-12 sm:gap-16 md:justify-start">
               {highlights.map((skill) => (
                 <span
                   key={skill.label}
@@ -35,7 +35,7 @@ export function Skills({ compact = false, tinted = false }: { compact?: boolean;
             </div>
           </Reveal>
           {!compact && (
-            <Reveal>
+            <Reveal className="flex justify-center md:justify-start w-full">
               <Link
                 href="/skills-services"
                 className={`inline-flex w-fit items-center rounded-full px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset ${

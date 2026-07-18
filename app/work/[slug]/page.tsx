@@ -117,7 +117,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         {(project.repos.length > 0 || project.demo) && (
-          <div className="flex flex-wrap gap-12">
+          <div className="flex flex-wrap justify-center gap-12 md:justify-start">
             {project.repos.map((repo) => (
               <TrackedLink
                 key={repo.url}

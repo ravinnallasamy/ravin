@@ -31,7 +31,7 @@ export function ContactPanel() {
 
         <RevealList className="grid gap-24 md:grid-cols-2">
           <RevealItem>
-            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
+            <div className="group relative flex h-full flex-col items-center text-center gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09] md:items-start md:text-left">
               <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="flex h-48 w-48 items-center justify-center rounded-2xl bg-accent/20 text-[#E8CFA8]">
                 <Briefcase size={22} />
@@ -53,7 +53,7 @@ export function ContactPanel() {
           </RevealItem>
 
           <RevealItem>
-            <div className="group relative flex h-full flex-col gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09]">
+            <div className="group relative flex h-full flex-col items-center text-center gap-20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-24 shadow-glass sm:p-32 backdrop-blur-glass transition-all hover:border-accent/40 hover:bg-white/[0.09] md:items-start md:text-left">
               <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="flex h-48 w-48 items-center justify-center rounded-2xl bg-accent/20 text-[#E8CFA8]">
                 <FileDown size={22} />
@@ -64,7 +64,7 @@ export function ContactPanel() {
                   Evaluating me for a full-stack or AI engineering role? Grab my résumé for the full breakdown of experience, stack, and shipped work.
                 </p>
               </div>
-              <div className="mt-auto flex flex-wrap gap-12">
+              <div className="mt-auto flex flex-wrap justify-center gap-12 md:justify-start">
                 <a
                   href="/resume/Ravin-resume.pdf"
                   download

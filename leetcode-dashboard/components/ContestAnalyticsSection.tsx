@@ -48,11 +48,11 @@ export function ContestAnalyticsSection({ contest }: { contest: ContestData | nu
                 key={`${c.title}-${c.startTimestamp}`}
                 className="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-border/40 bg-surface px-16 py-12"
               >
-                <span className="flex items-center gap-8 text-body text-ink">
-                  <Trophy size={14} className="text-accent" aria-hidden />
-                  {c.title}
+                <span className="flex min-w-0 items-center gap-8 text-body text-ink">
+                  <Trophy size={14} className="shrink-0 text-accent" aria-hidden />
+                  <span className="break-words">{c.title}</span>
                 </span>
-                <span className="flex items-center gap-16 font-mono text-mono-label text-ink-faint">
+                <span className="flex flex-wrap items-center gap-x-12 gap-y-2 font-mono text-mono-label text-ink-faint">
                   <span>Rank #{c.ranking.toLocaleString()}</span>
                   <span>{Math.round(c.rating)} rating</span>
                   <span>{formatContestDate(c.startTime)}</span>

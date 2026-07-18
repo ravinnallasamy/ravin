@@ -65,8 +65,8 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
         </label>
       }
     >
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-body">
+      <div className="-mx-24 overflow-x-auto px-24 md:-mx-32 md:px-32">
+        <table className="w-full min-w-[640px] border-collapse text-body">
           <caption className="sr-only">Public repositories across both GitHub accounts</caption>
           <thead>
             <tr className="border-b border-border text-left font-mono text-mono-label uppercase tracking-wide text-ink-faint">

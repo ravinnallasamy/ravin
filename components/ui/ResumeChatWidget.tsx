@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Eye, Maximize2, MessageCircle, Minimize2, Send, X } from 'lucide-react';
 import siteJson from '@/content/site.json';
@@ -58,6 +59,7 @@ function initialMessages(): ChatMessage[] {
 
 export function ResumeChatWidget() {
   const shouldReduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [open, setOpen] = useState(false);
   const [minimized, setMinimized] = useState(true);
@@ -75,6 +77,7 @@ export function ResumeChatWidget() {
 
   // 11s after load, show the popup once per session
   useEffect(() => {
+    setMounted(true);
     if (sessionStorage.getItem(SESSION_KEY)) return;
 
     const timer = setTimeout(() => {
@@ -220,12 +223,18 @@ export function ResumeChatWidget() {
     }
   };
 
-  return (
+  // Render nothing until mounted on the client. The widget is then portalled
+  // directly into <body> so it never participates in sibling reconciliation
+  // with the SSR tree (avoids hydration mismatches against GA <script> tags)
+  // and is always anchored to the viewport regardless of page overflow.
+  if (!mounted) return null;
+
+  return createPortal(
     <>
       {/* Invisible full-viewport bounds so the panel can be dragged anywhere on screen */}
       <div ref={dragConstraintsRef} className="pointer-events-none fixed inset-4 z-40" />
 
-      <div className="fixed bottom-16 right-16 z-50 flex flex-col items-end gap-12 md:bottom-24 md:right-24">
+      <div className="fixed bottom-16 right-16 z-[90] flex flex-col items-end gap-12 md:bottom-24 md:right-24">
         {/* Toast popup */}
         <AnimatePresence>
           {showPopup && !open && (
@@ -469,11 +478,11 @@ export function ResumeChatWidget() {
               type="button"
               onClick={() => openChat('fab')}
               aria-label="Open resume chat — ask Ravin's AI about his resume"
-              className="relative flex h-[24px] w-[24px] items-center justify-center rounded-full text-accent transition-colors hover:text-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[30px] sm:w-[30px] md:h-[36px] md:w-[36px]"
+              className="relative flex h-[38px] w-[38px] items-center justify-center rounded-full border border-white/40 bg-paper/90 text-accent shadow-glass backdrop-blur-glass transition-colors hover:bg-accent hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.94 }}
             >
-              <MessageCircle className="h-[19px] w-[19px] drop-shadow-sm sm:h-[23px] sm:w-[23px] md:h-[26px] md:w-[26px]" />
+              <MessageCircle className="h-[18px] w-[18px] drop-shadow-sm sm:h-[20px] sm:w-[20px] md:h-[22px] md:w-[22px]" />
             </motion.button>
           </div>
         )}
@@ -494,6 +503,7 @@ export function ResumeChatWidget() {
           </motion.a>
         )}
       </div>
-    </>
+    </>,
+    document.body,
   );
 }

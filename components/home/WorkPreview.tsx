@@ -11,7 +11,7 @@ export function WorkPreview() {
   return (
     <ContentSection tone="paper" fullHeight padding="compact" className="border-t border-border/40">
         <div className="flex flex-col gap-32">
-          <Reveal>
+          <Reveal className="text-center md:text-left">
             <SectionHeading
               eyebrow="Selected work"
               title="What I've shipped"
@@ -33,12 +33,14 @@ export function WorkPreview() {
             ))}
           </RevealList>
 
-          <Link
-            href="/work"
-            className="inline-flex w-fit items-center rounded-full bg-surface px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
-          >
-            See all work →
-          </Link>
+          <div className="flex justify-center md:justify-start w-full">
+            <Link
+              href="/work"
+              className="inline-flex w-fit items-center rounded-full bg-surface px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
+            >
+              See all work →
+            </Link>
+          </div>
         </div>
     </ContentSection>
   );

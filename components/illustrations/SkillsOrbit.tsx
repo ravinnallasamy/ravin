@@ -77,9 +77,9 @@ export function SkillsOrbit() {
         return (
           <g key={icon}>
             <circle cx={x} cy={y} r="19" fill="#FAF7F2" stroke={RING_BORDER} strokeWidth="1.5" />
-            <foreignObject x={x - 11} y={y - 11} width="22" height="22">
+            <g transform={`translate(${x - 11}, ${y - 11})`}>
               <Icon size={22} color={HUB_ACCENT} strokeWidth={1.75} />
-            </foreignObject>
+            </g>
           </g>
         );
       })}
@@ -91,9 +91,9 @@ export function SkillsOrbit() {
         return (
           <g key={icon}>
             <circle cx={x} cy={y} r="16" fill="#FAF7F2" stroke={RING_BORDER} strokeWidth="1.5" />
-            <foreignObject x={x - 9} y={y - 9} width="18" height="18">
+            <g transform={`translate(${x - 9}, ${y - 9})`}>
               <Icon size={18} color="#7A6A57" strokeWidth={1.75} />
-            </foreignObject>
+            </g>
           </g>
         );
       })}
@@ -106,9 +106,9 @@ export function SkillsOrbit() {
       >
         <circle cx={cx} cy={cy} r="34" fill={HUB_BG} />
         <circle cx={cx} cy={cy} r="34" fill="none" stroke={HUB_ACCENT} strokeWidth="1.5" />
-        <foreignObject x={cx - 16} y={cy - 16} width="32" height="32">
+        <g transform={`translate(${cx - 16}, ${cy - 16})`}>
           <LucideIcons.Sparkles size={32} color="#FAF7F2" strokeWidth={1.5} />
-        </foreignObject>
+        </g>
       </motion.g>
     </svg>
   );

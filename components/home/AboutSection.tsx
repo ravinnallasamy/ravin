@@ -14,13 +14,13 @@ export function AboutSection() {
   return (
     <ContentSection id="about" fullHeight padding="compact">
         <div className="grid gap-32 md:grid-cols-[1fr_minmax(0,280px)] md:items-start lg:grid-cols-[1fr_320px]">
-          <div className="flex flex-col gap-24">
+          <div className="flex flex-col items-center text-center gap-24 md:items-start md:text-left">
             <SectionHeading as="h1" eyebrow="About" title={siteJson.name} />
-            <p className="max-w-2xl text-body text-ink-muted">{siteJson.mission}</p>
-            <p className="max-w-2xl text-body text-ink-muted">
+            <p className="max-w-2xl text-body text-ink-muted mx-auto md:mx-0">{siteJson.mission}</p>
+            <p className="max-w-2xl text-body text-ink-muted mx-auto md:mx-0">
               {siteJson.experienceMonths} months in, based in {siteJson.location}, {siteJson.statusLine.toLowerCase()}.
             </p>
-            <div className="flex flex-wrap items-center gap-16">
+            <div className="flex flex-wrap items-center justify-center gap-16 md:justify-start">
               <Link
                 href="/resume/Ravin-resume.pdf"
                 target="_blank"

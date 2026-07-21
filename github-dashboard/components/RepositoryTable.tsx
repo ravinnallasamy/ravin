@@ -46,7 +46,7 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
       eyebrow="Repositories"
       title={`Public Repositories (${repositories.length})`}
       action={
-        <label className="flex items-center gap-8">
+        <label className="flex items-center gap-8 self-start sm:self-auto">
           <span className="sr-only" id="repo-sort-label">
             Sort repositories
           </span>
@@ -54,7 +54,7 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
             aria-labelledby="repo-sort-label"
             value={sortKey}
             onChange={(e) => setSortKey(e.target.value as RepoSortKey)}
-            className="rounded-full border border-border bg-paper px-12 py-6 font-mono text-mono-label text-ink-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="rounded-full border border-border bg-paper px-12 py-8 font-mono text-mono-label text-ink-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.key} value={opt.key}>

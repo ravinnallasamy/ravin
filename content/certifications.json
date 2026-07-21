@@ -5,7 +5,7 @@
     "issuer": "NPTEL (IIT)",
     "year": "2024",
     "credentialUrl": "",
-    "image": "/images/certifications/Introduction to Industry 4.0 and Industrial Internet of Things.webp"
+    "image": "/images/certifications/introduction-to-industry-4-0-and-industrial-internet-of-things.webp"
   },
   {
     "id": "nptel-java",
@@ -13,7 +13,7 @@
     "issuer": "NPTEL (IIT)",
     "year": "2023",
     "credentialUrl": "",
-    "image": "/images/certifications/Programming In Java.webp"
+    "image": "/images/certifications/programming-in-java.webp"
   },
   {
     "id": "nptel-c",
@@ -21,6 +21,6 @@
     "issuer": "NPTEL (IIT)",
     "year": "2023",
     "credentialUrl": "",
-    "image": "/images/certifications/Problem Solving Through Programming In C.webp"
+    "image": "/images/certifications/problem-solving-through-programming-in-c.webp"
   }
 ]

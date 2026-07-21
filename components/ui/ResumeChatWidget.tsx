@@ -126,6 +126,7 @@ export function ResumeChatWidget() {
     setShowPopup(false);
     setMinimized(false);
     setOpen(true);
+    setFullscreen(false);
     trackChatOpen(source);
   }, []);
 
@@ -139,7 +140,6 @@ export function ResumeChatWidget() {
   const closeChat = useCallback(() => {
     setOpen(false);
     setMinimized(true);
-    setFullscreen(false);
     setDragOffset({ x: 0, y: 0 });
   }, []);
 
@@ -234,7 +234,13 @@ export function ResumeChatWidget() {
       {/* Invisible full-viewport bounds so the panel can be dragged anywhere on screen */}
       <div ref={dragConstraintsRef} className="pointer-events-none fixed inset-4 z-40" />
 
-      <div className="fixed bottom-16 right-16 z-[90] flex flex-col items-end gap-12 md:bottom-24 md:right-24">
+      <div
+        className={
+          fullscreen
+            ? 'fixed inset-0 pointer-events-none z-[100] flex flex-col items-end justify-end p-16 md:p-24 gap-12'
+            : 'fixed inset-0 pointer-events-none z-[90] flex flex-col items-end justify-end p-16 md:p-24 gap-12'
+        }
+      >
         {/* Toast popup */}
         <AnimatePresence>
           {showPopup && !open && (
@@ -245,7 +251,7 @@ export function ResumeChatWidget() {
               animate={{ opacity: 1, y: 0, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.96 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
-              className="relative max-w-[240px] rounded-3xl border border-white/40 bg-paper/95 p-12 shadow-glass backdrop-blur-glass sm:max-w-[280px] sm:p-16"
+              className="pointer-events-auto relative max-w-[240px] rounded-3xl border border-white/40 bg-paper/95 p-12 shadow-glass backdrop-blur-glass sm:max-w-[280px] sm:p-16"
             >
               <button
                 type="button"
@@ -292,8 +298,8 @@ export function ResumeChatWidget() {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className={
                 fullscreen
-                  ? 'fixed inset-0 z-[100] flex h-full w-full flex-col overflow-hidden rounded-none border-0 bg-paper shadow-glass'
-                  : 'flex h-[75vh] max-h-[520px] w-[88vw] max-w-[360px] flex-col overflow-hidden rounded-3xl border border-white/40 bg-paper shadow-glass backdrop-blur-glass'
+                  ? 'pointer-events-auto fixed inset-0 z-[100] flex h-full w-full flex-col overflow-hidden rounded-none border-0 bg-paper shadow-glass'
+                  : 'pointer-events-auto flex h-[75vh] max-h-[520px] w-[88vw] max-w-[360px] flex-col overflow-hidden rounded-3xl border border-white/40 bg-paper shadow-glass backdrop-blur-glass'
               }
             >
               {/* Header — drag handle */}
@@ -450,7 +456,7 @@ export function ResumeChatWidget() {
 
         {/* Floating action button (minimized state) — chat FAB sits on top */}
         {minimized && !open && (
-          <div className="group relative flex items-center justify-center">
+          <div className="pointer-events-auto group relative flex items-center justify-center">
             {/* Hover tooltip */}
             <span
               role="tooltip"
@@ -495,7 +501,7 @@ export function ResumeChatWidget() {
             rel="noopener noreferrer"
             onClick={() => trackContactChannel('whatsapp', 'floating_widget')}
             aria-label={`Message ${firstName} on WhatsApp at ${socialJson.phone}`}
-            className="relative flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-glass transition-colors hover:bg-[#1ebe5a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
+            className="pointer-events-auto relative flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-glass transition-colors hover:bg-[#1ebe5a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
             whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.94 }}
           >

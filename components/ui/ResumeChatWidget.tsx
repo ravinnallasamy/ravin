@@ -240,6 +240,9 @@ export function ResumeChatWidget() {
             ? 'fixed inset-0 pointer-events-none z-[100] flex flex-col items-end justify-end p-16 md:p-24 gap-12'
             : 'fixed inset-0 pointer-events-none z-[90] flex flex-col items-end justify-end p-16 md:p-24 gap-12'
         }
+        style={{
+          paddingBottom: 'calc(16px + env(safe-area-inset-bottom))',
+        }}
       >
         {/* Toast popup */}
         <AnimatePresence>
@@ -298,8 +301,8 @@ export function ResumeChatWidget() {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className={
                 fullscreen
-                  ? 'pointer-events-auto fixed inset-0 z-[100] flex h-full w-full flex-col overflow-hidden rounded-none border-0 bg-paper shadow-glass'
-                  : 'pointer-events-auto flex h-[75vh] max-h-[520px] w-[88vw] max-w-[360px] flex-col overflow-hidden rounded-3xl border border-white/40 bg-paper shadow-glass backdrop-blur-glass'
+                  ? 'pointer-events-auto fixed inset-0 z-[100] flex h-dvh w-full flex-col overflow-hidden rounded-none border-0 bg-paper shadow-glass'
+                  : 'pointer-events-auto flex h-[75dvh] max-h-[520px] w-[88vw] max-w-[360px] flex-col overflow-hidden rounded-3xl border border-white/40 bg-paper shadow-glass backdrop-blur-glass'
               }
             >
               {/* Header — drag handle */}
@@ -425,9 +428,14 @@ export function ResumeChatWidget() {
 
             {/* Input */}
             <div
-              className={`flex items-center gap-[6px] border-t border-border p-8 sm:gap-8 sm:p-12 ${
+              className={`flex items-center gap-8 border-t border-border p-8 sm:gap-8 sm:p-12 ${
                 fullscreen ? 'mx-auto w-full max-w-2xl' : ''
               }`}
+              style={
+                fullscreen
+                  ? { paddingBottom: 'calc(8px + env(safe-area-inset-bottom))' }
+                  : undefined
+              }
             >
               <input
                 ref={inputRef}
@@ -438,16 +446,16 @@ export function ResumeChatWidget() {
                 placeholder="Ask about experience, skills…"
                 aria-label="Type your question about the resume"
                 disabled={loading}
-                className="h-[32px] min-w-0 flex-1 rounded-full border border-border bg-paper px-12 text-body text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent disabled:opacity-60 sm:h-[36px] sm:px-[14px] md:h-[40px] md:px-16"
+                className="h-[40px] min-w-0 flex-1 rounded-full border border-border bg-paper px-12 text-body text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent disabled:opacity-60 sm:px-[14px] md:px-16"
               />
               <button
                 type="button"
                 onClick={handleSend}
                 disabled={loading || !input.trim()}
                 aria-label="Send question"
-                className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-accent text-paper transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-40 sm:h-[36px] sm:w-[36px] md:h-[40px] md:w-[40px]"
+                className="flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-accent text-paper transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-40"
               >
-                <Send className="h-[14px] w-[14px] sm:h-[16px] sm:w-[16px]" />
+                <Send className="h-[16px] w-[16px]" />
               </button>
             </div>
           </motion.div>

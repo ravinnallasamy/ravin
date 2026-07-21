@@ -31,7 +31,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ravinnallasamy.com'),
+  metadataBase: new URL('https://ravinnallasamy.netlify.app'),
   title: {
     default: `${siteJson.name} — ${siteJson.role}`,
     template: `%s — ${siteJson.name}`,

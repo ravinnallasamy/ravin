@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://ravinnallasamy.com/sitemap.xml',
+    sitemap: 'https://ravinnallasamy.netlify.app/sitemap.xml',
   };
 }

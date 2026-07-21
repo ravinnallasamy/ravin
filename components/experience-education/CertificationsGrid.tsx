@@ -90,7 +90,7 @@ export function CertificationsGrid({ certifications }: { certifications: Certifi
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-              className="relative flex max-h-full max-w-3xl flex-col items-center gap-16"
+              className="relative flex w-full max-w-3xl flex-col items-center gap-16"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -102,14 +102,14 @@ export function CertificationsGrid({ certifications }: { certifications: Certifi
                 <X size={18} />
               </button>
 
-              <div className="relative max-h-[80svh] w-full overflow-hidden rounded-2xl border border-white/20 bg-paper shadow-glass">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-white/20 bg-paper shadow-glass">
                 <Image
                   src={activeCert.image}
                   alt={activeCert.title}
                   width={1200}
                   height={900}
                   sizes="90vw"
-                  className="h-full max-h-[80svh] w-full object-contain"
+                  className="w-full h-auto max-h-[75svh] object-contain"
                   priority
                 />
               </div>

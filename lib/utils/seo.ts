@@ -12,7 +12,7 @@ export function personJsonLd() {
       '@type': 'PostalAddress',
       addressLocality: siteJson.location,
     },
-    url: 'https://ravinnallasamy.com',
+    url: 'https://ravinnallasamy.netlify.app',
     sameAs: [socialJson.github, `https://${socialJson.linkedin}`],
     email: `mailto:${socialJson.email}`,
   };

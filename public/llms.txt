@@ -6,12 +6,12 @@ RAG pipelines that actually ship. Open to freelance work, working globally.
 
 ## Key pages
 
-- Home (incl. about): https://ravinnallasamy.com/
-- Work (all projects): https://ravinnallasamy.com/work
-- Certifications: https://ravinnallasamy.com/certifications
-- Coding activity (GitHub + LeetCode): https://ravinnallasamy.com/coding
-- Blog: https://ravinnallasamy.com/blog
-- Contact: https://ravinnallasamy.com/contact
+- Home (incl. about): https://ravinnallasamy.netlify.app/
+- Work (all projects): https://ravinnallasamy.netlify.app/work
+- Certifications: https://ravinnallasamy.netlify.app/certifications
+- Coding activity (GitHub + LeetCode): https://ravinnallasamy.netlify.app/coding
+- Blog: https://ravinnallasamy.netlify.app/blog
+- Contact: https://ravinnallasamy.netlify.app/contact
 
 ## Notable projects
 

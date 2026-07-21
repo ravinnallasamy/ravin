@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getProjects } from '@/lib/content/content';
 import { getAllPosts } from '@/lib/content/blog';
 
-const BASE_URL = 'https://ravinnallasamy.com';
+const BASE_URL = 'https://ravinnallasamy.netlify.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/work', '/certifications', '/coding', '/blog', '/contact'].map((path) => ({

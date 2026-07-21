@@ -32,22 +32,8 @@ export function GoogleAnalytics() {
   if (!isGaEnabled) return null;
 
   return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="beforeInteractive"
-      />
-      <Script id="ga4-init" strategy="beforeInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
-        `}
-      </Script>
-      <Suspense fallback={null}>
-        <RouteChangeTracker />
-      </Suspense>
-    </>
+    <Suspense fallback={null}>
+      <RouteChangeTracker />
+    </Suspense>
   );
 }

@@ -1,0 +1,19 @@
+{
+  "title": "Certifications & Credentials",
+  "description": "Verified certifications and credentials held by Ravin Nallasamy, including NPTEL (IIT) courses — the credentials backing a reliable freelance full-stack and AI engineer.",
+  "path": "/certifications",
+  "keywords": {
+    "primary": "verified developer certifications and credentials",
+    "secondary": [
+      "NPTEL IIT certifications",
+      "AI engineer credentials",
+      "full-stack developer certificates",
+      "verified freelance developer"
+    ]
+  },
+  "openGraph": {
+    "title": "Certifications & Credentials — Ravin Nallasamy",
+    "description": "Verified certifications and credentials, including NPTEL (IIT) courses.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Certifications — Ravin Nallasamy" }]
+  }
+}

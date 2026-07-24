@@ -4,6 +4,9 @@ import { getAllPosts, getPostBySlug } from '@/lib/content/blog';
 import { PostHero } from '@/components/blog/PostHero';
 import { PostSection } from '@/components/blog/PostSection';
 import { PostCta } from '@/components/blog/PostCta';
+import { jsonLdForRoute } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { routeKeywords, canonical } from '@/lib/seo/seo';
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -21,6 +24,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.summary,
+    keywords: routeKeywords('blog-detail', [post.title]),
+    alternates: { canonical: canonical(`/blog/${post.slug}`) },
+    openGraph: {
+      type: 'article',
+      url: canonical(`/blog/${post.slug}`),
+      title: post.title,
+      description: post.summary,
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+    },
   };
 }
 
@@ -31,6 +48,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="flex flex-col min-h-[100svh] bg-paper">
+      <JsonLd data={jsonLdForRoute('blog-detail', { post })} />
       {/* ── Blog Post Hero Section ── */}
       <PostHero title={post.title} date={post.date} summary={post.summary} />
 

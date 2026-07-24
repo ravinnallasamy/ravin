@@ -1,0 +1,10 @@
+{
+  "route": "work",
+  "path": "/work",
+  "description": "JSON-LD for the work listing. projectList is built from content/projects.json.",
+  "include": ["projectList", "breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Work", "path": "/work" }
+  ]
+}

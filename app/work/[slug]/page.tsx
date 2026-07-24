@@ -6,7 +6,9 @@ import { ImageCarousel } from '@/components/ui/ImageCarousel';
 import { StatusPill } from '@/components/ui/StatusPill';
 import { BackLink } from '@/components/ui/BackLink';
 import { TrackedLink } from '@/components/analytics/TrackedLink';
-import { projectJsonLd } from '@/lib/utils/seo';
+import { jsonLdForRoute } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { routeKeywords, canonical } from '@/lib/seo/seo';
 
 export function generateStaticParams() {
   return getProjects().map((project) => ({ slug: project.slug }));
@@ -24,7 +26,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: project.title,
     description: project.tagline,
+    keywords: routeKeywords('work-detail', [project.title, ...(project.stack ?? [])]),
+    alternates: { canonical: canonical(`/work/${project.slug}`) },
     openGraph: {
+      type: 'website',
+      url: canonical(`/work/${project.slug}`),
+      title: project.title,
+      description: project.tagline,
+      images: [project.cover],
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: project.title,
       description: project.tagline,
       images: [project.cover],
@@ -39,10 +51,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <article className="mx-auto max-w-5xl px-16 py-48 md:px-24 md:py-96">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project)) }}
-      />
+      <JsonLd data={jsonLdForRoute('work-detail', { project })} />
       <div className="flex flex-col gap-32">
         <div className="flex flex-col gap-16">
           <BackLink href="/work" label="All work" />

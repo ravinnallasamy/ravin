@@ -1,0 +1,19 @@
+{
+  "title": "Coding — GitHub & LeetCode",
+  "description": "Live GitHub contributions and LeetCode problem-solving stats for Ravin Nallasamy — proof of consistent full-stack shipping and data-structures depth behind the freelance work.",
+  "path": "/coding",
+  "keywords": {
+    "primary": "full-stack developer GitHub and LeetCode profile",
+    "secondary": [
+      "developer coding activity",
+      "LeetCode problem solving stats",
+      "open source contributions",
+      "data structures and algorithms proof"
+    ]
+  },
+  "openGraph": {
+    "title": "Coding — GitHub & LeetCode — Ravin Nallasamy",
+    "description": "Live GitHub and LeetCode stats — proof of consistent shipping and DSA depth.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Coding stats — Ravin Nallasamy" }]
+  }
+}

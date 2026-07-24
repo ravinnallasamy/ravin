@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://ravinnallasamy.netlify.app/#service",
+  "name": "Ravin Nallasamy — Freelance Full-Stack & AI Engineering",
+  "description": "Freelance full-stack and AI engineering services: web and mobile product builds, RAG pipelines, conversational AI, workflow automation, and SEO/AEO/GEO.",
+  "url": "https://ravinnallasamy.netlify.app/skills-services",
+  "image": "https://ravinnallasamy.netlify.app/images/og/default.jpg",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "availableLanguage": ["English", "Tamil"],
+  "provider": { "@id": "https://ravinnallasamy.netlify.app/#person" },
+  "founder": { "@id": "https://ravinnallasamy.netlify.app/#person" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": [
+    "Full-stack development",
+    "MERN stack",
+    "Next.js",
+    "RAG pipelines",
+    "LangGraph agents",
+    "Conversational AI",
+    "Flutter mobile apps",
+    "Workflow automation",
+    "SEO",
+    "AEO",
+    "GEO"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://ravinnallasamy.netlify.app/#website",
+  "name": "Ravin Nallasamy",
+  "alternateName": "Ravin Nallasamy — Portfolio",
+  "url": "https://ravinnallasamy.netlify.app",
+  "description": "Portfolio of Ravin Nallasamy, a freelance full-stack & AI engineer building MERN, Flutter, and production RAG systems.",
+  "inLanguage": "en-US",
+  "author": { "@id": "https://ravinnallasamy.netlify.app/#person" },
+  "publisher": { "@id": "https://ravinnallasamy.netlify.app/#person" }
+}

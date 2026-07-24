@@ -1,0 +1,10 @@
+{
+  "route": "skills-services",
+  "path": "/skills-services",
+  "description": "JSON-LD for the skills & services page. servicesCatalog is built from content/services.json.",
+  "include": ["professionalService", "servicesCatalog", "faq", "breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Skills & Services", "path": "/skills-services" }
+  ]
+}

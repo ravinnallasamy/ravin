@@ -1,0 +1,33 @@
+{
+  "baseUrl": "https://ravinnallasamy.netlify.app",
+  "siteName": "Ravin Nallasamy",
+  "titleTemplate": "%s — Ravin Nallasamy",
+  "defaultTitle": "Ravin Nallasamy — Freelance Full-Stack & AI Engineer",
+  "description": "Freelance full-stack & AI engineer building MERN, Flutter, and production RAG pipelines that actually ship. Available for freelance projects worldwide.",
+  "keywords": [
+    "Ravin Nallasamy",
+    "freelance full-stack developer",
+    "freelance AI engineer",
+    "hire MERN developer",
+    "freelance RAG engineer",
+    "Flutter freelancer",
+    "Next.js developer",
+    "freelance developer Coimbatore India"
+  ],
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US",
+    "siteName": "Ravin Nallasamy",
+    "images": [
+      {
+        "url": "/images/og/default.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ravin Nallasamy — Freelance Full-Stack & AI Engineer"
+      }
+    ]
+  },
+  "twitter": {
+    "card": "summary_large_image"
+  }
+}

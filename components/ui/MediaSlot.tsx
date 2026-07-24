@@ -24,10 +24,18 @@ export function MediaSlot({ src, alt, aspect = '16/9', fit = 'cover', className 
   const aspectClass = ASPECT_CLASS[aspect] ?? ASPECT_CLASS['16/9'];
 
   useEffect(() => {
-    // A server-rendered <img> that 404s can fail before React hydrates and
-    // attaches onError, so check whether it already failed on mount too.
+    // New src → clear any prior failure so a valid image isn't stuck on the
+    // fallback from a previous src.
+    setFailed(false);
+
+    // Re-check on mount only for the case where a cached image errored before
+    // React hydrated and could attach onError. `img.complete` is true both for
+    // a finished load AND for a lazy image that hasn't started loading yet, so
+    // `complete && naturalWidth === 0` is NOT enough — that false-positives on
+    // every below-the-fold lazy image. Only trust it once the browser has
+    // actually committed to a source (`currentSrc`) and still has no pixels.
     const img = imgRef.current;
-    if (img && img.complete && img.naturalWidth === 0) {
+    if (img && img.complete && img.currentSrc && img.naturalWidth === 0) {
       setFailed(true);
     }
   }, [src]);

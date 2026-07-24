@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://ravinnallasamy.netlify.app/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Ravin Nallasamy available for freelance work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ravin Nallasamy is a freelance full-stack and AI engineer available for projects worldwide, working remotely from Coimbatore, Tamil Nadu, India."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What freelance services does Ravin Nallasamy offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full-stack product builds (Next.js, React, Node.js, FastAPI), AI and RAG engineering, conversational AI and chatbots, workflow automation, Flutter mobile app development, and SEO/AEO/GEO for AI answer-engine discoverability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tech stack does Ravin Nallasamy work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MERN stack (MongoDB, Express, React, Node.js), Next.js and TypeScript, FastAPI and Python, PostgreSQL and Supabase with pgvector, Flutter for mobile, and LangChain/LangGraph for RAG pipelines and multi-agent LLM systems using Claude, GPT, and Gemini."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Ravin build a production RAG or AI agent system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ravin designs and ships production RAG pipelines with vector search and multi-agent LLM workflows using LangGraph, with human-in-the-loop validation, grounded in your own data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I hire Ravin Nallasamy for a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Get in touch through the contact page to start a freelance project inquiry or book time directly. Ravin takes on work ranging from MVPs to production AI systems for clients worldwide."
+      }
+    }
+  ]
+}

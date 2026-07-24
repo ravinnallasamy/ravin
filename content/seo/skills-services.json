@@ -1,0 +1,22 @@
+{
+  "title": "Skills & Freelance Services",
+  "description": "Freelance services by Ravin Nallasamy: full-stack builds, AI & RAG engineering, conversational AI, workflow automation, Flutter apps, and SEO/AEO/GEO. Hire an engineer who ships.",
+  "path": "/skills-services",
+  "keywords": {
+    "primary": "freelance full-stack and AI development services",
+    "secondary": [
+      "hire freelance RAG engineer",
+      "freelance chatbot developer",
+      "hire Flutter freelancer",
+      "freelance workflow automation developer",
+      "AEO and GEO services",
+      "hire Next.js and FastAPI developer",
+      "freelance LangGraph agent developer"
+    ]
+  },
+  "openGraph": {
+    "title": "Skills & Freelance Services — Ravin Nallasamy",
+    "description": "Full-stack builds, AI & RAG engineering, conversational AI, automation, Flutter apps, and SEO/AEO/GEO — freelance services that ship.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Freelance Services — Ravin Nallasamy" }]
+  }
+}

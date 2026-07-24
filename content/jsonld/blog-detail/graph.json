@@ -1,0 +1,10 @@
+{
+  "route": "blog-detail",
+  "path": "/blog/[slug]",
+  "description": "JSON-LD for a blog post page. blogPosting + breadcrumb are built per-post at render time from the matched post.",
+  "include": ["blogPosting", "breadcrumb"],
+  "breadcrumbBase": [
+    { "name": "Home", "path": "/" },
+    { "name": "Blog", "path": "/blog" }
+  ]
+}

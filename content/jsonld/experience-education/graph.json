@@ -1,0 +1,10 @@
+{
+  "route": "experience-education",
+  "path": "/experience-education",
+  "description": "JSON-LD for the experience & education page.",
+  "include": ["breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Experience & Education", "path": "/experience-education" }
+  ]
+}

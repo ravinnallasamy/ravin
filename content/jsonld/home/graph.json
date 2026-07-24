@@ -1,0 +1,6 @@
+{
+  "route": "home",
+  "path": "/",
+  "description": "JSON-LD rendered on the home page. WebSite + Person come from _shared globally; these are the page-specific additions.",
+  "include": ["professionalService", "faq"]
+}

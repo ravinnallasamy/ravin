@@ -1,0 +1,20 @@
+{
+  "title": "Experience & Education",
+  "description": "Ravin Nallasamy's experience as a Forward Deployed AI & full-stack engineer, education (B.Tech IT, CGPA 8.3), and background — the track record behind the freelance work.",
+  "path": "/experience-education",
+  "keywords": {
+    "primary": "forward deployed AI engineer experience",
+    "secondary": [
+      "full-stack engineer background",
+      "AI developer work history",
+      "B.Tech Information Technology",
+      "LangGraph multi-agent experience",
+      "freelance developer credentials"
+    ]
+  },
+  "openGraph": {
+    "title": "Experience & Education — Ravin Nallasamy",
+    "description": "Forward Deployed AI & full-stack engineer — experience, education, and background.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Experience & Education — Ravin Nallasamy" }]
+  }
+}

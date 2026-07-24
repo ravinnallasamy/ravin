@@ -1,0 +1,13 @@
+{
+  "keywords": {
+    "primary": "full-stack and AI engineering article",
+    "secondary": [
+      "software engineering blog post",
+      "AI development tutorial",
+      "RAG and agents writing"
+    ]
+  },
+  "openGraph": {
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Blog post — Ravin Nallasamy" }]
+  }
+}

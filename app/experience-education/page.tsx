@@ -7,13 +7,13 @@ import { ContentSection } from '@/components/ui/ContentSection';
 import { CtaSection } from '@/components/ui/CtaSection';
 import { Briefcase, GraduationCap, Award } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { metaForRoute } from '@/lib/seo/seo';
+import { jsonLdForRoute } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: 'Experience & Education',
-  description: 'Work history, education timeline, and verified certifications of Ravin Nallasamy.',
-};
+export const metadata: Metadata = metaForRoute('experience-education');
 
 function SectionIcon({ icon: Icon }: { icon: LucideIcon }) {
   return (
@@ -42,6 +42,7 @@ export default function ExperienceEducationPage() {
 
   return (
     <div className="flex flex-col">
+      <JsonLd data={jsonLdForRoute('experience-education')} />
       <Hero />
 
       {/* ── Experience Timeline Section ── */}

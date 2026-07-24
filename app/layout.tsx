@@ -7,7 +7,9 @@ import { Footer } from '@/components/ui/Footer';
 import { ResumeChatWidget } from '@/components/ui/ResumeChatWidget';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { GA_MEASUREMENT_ID, isGaEnabled } from '@/lib/analytics/gtag';
-import siteJson from '@/content/site.json';
+import { buildMetadata } from '@/lib/seo/seo';
+import { rootJsonLd } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 const display = Poppins({
   subsets: ['latin'],
@@ -30,30 +32,13 @@ const mono = IBM_Plex_Mono({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://ravinnallasamy.netlify.app'),
-  title: {
-    default: `${siteJson.name} — ${siteJson.role}`,
-    template: `%s — ${siteJson.name}`,
-  },
-  description: siteJson.mission,
-  openGraph: {
-    title: `${siteJson.name} — ${siteJson.role}`,
-    description: siteJson.mission,
-    images: ['/images/og/default.jpg'],
-  },
-  icons: {
-    icon: '/images/favicon.png',
-  },
-  verification: {
-    google: 'luXW8ymReaj0fOcaI1XBF4SOXz0wNAr9-mM2C8B__r4',
-  },
-};
+export const metadata: Metadata = buildMetadata();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={rootJsonLd()} />
         {isGaEnabled && (
           <>
             <Script

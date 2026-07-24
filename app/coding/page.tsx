@@ -34,15 +34,16 @@ import {
   TopicDistributionSection,
   PersonalInsightsSection,
 } from '@/leetcode-dashboard/components';
+import { metaForRoute } from '@/lib/seo/seo';
+import { jsonLdForRoute } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
 
-export const metadata: Metadata = {
-  title: 'Coding',
-  description: 'Live GitHub and LeetCode stats.',
-};
+export const metadata: Metadata = metaForRoute('coding');
 
 export default function CodingPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={jsonLdForRoute('coding')} />
       <Hero />
 
       <DashboardSection

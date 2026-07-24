@@ -1,0 +1,10 @@
+{
+  "route": "work-detail",
+  "path": "/work/[slug]",
+  "description": "JSON-LD for a project detail page. project schema + breadcrumb are built per-project at render time from the matched project.",
+  "include": ["project", "breadcrumb"],
+  "breadcrumbBase": [
+    { "name": "Home", "path": "/" },
+    { "name": "Work", "path": "/work" }
+  ]
+}

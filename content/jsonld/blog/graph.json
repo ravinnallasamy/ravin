@@ -1,0 +1,10 @@
+{
+  "route": "blog",
+  "path": "/blog",
+  "description": "JSON-LD for the blog listing. blogList is built from content/blog/*.json.",
+  "include": ["blogList", "breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Blog", "path": "/blog" }
+  ]
+}

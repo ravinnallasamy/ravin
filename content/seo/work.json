@@ -1,0 +1,20 @@
+{
+  "title": "Work & Portfolio",
+  "description": "Freelance full-stack and AI projects Ravin Nallasamy has designed, built, and shipped — RAG systems, MERN web apps, Flutter mobile apps, and automation. Real case studies from real deliveries.",
+  "path": "/work",
+  "keywords": {
+    "primary": "freelance full-stack and AI project portfolio",
+    "secondary": [
+      "RAG project examples",
+      "freelance MERN app case studies",
+      "Flutter app portfolio",
+      "AI chatbot project examples",
+      "hire developer with portfolio"
+    ]
+  },
+  "openGraph": {
+    "title": "Work & Portfolio — Ravin Nallasamy",
+    "description": "Freelance full-stack and AI projects — RAG systems, MERN web apps, Flutter mobile apps, and automation.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Ravin Nallasamy — Work & Portfolio" }]
+  }
+}

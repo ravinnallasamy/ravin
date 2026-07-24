@@ -1,0 +1,21 @@
+{
+  "title": "Ravin Nallasamy — Freelance Full-Stack & AI Engineer",
+  "description": "Freelance full-stack & AI engineer building MERN, Flutter, and production RAG pipelines that actually ship. Available for freelance projects worldwide, based in Coimbatore, India.",
+  "path": "/",
+  "keywords": {
+    "primary": "freelance full-stack and AI engineer",
+    "secondary": [
+      "hire freelance MERN developer",
+      "freelance RAG engineer for hire",
+      "freelance AI engineer India",
+      "Next.js freelance developer",
+      "hire AI developer Coimbatore",
+      "freelance LLM developer"
+    ]
+  },
+  "openGraph": {
+    "title": "Ravin Nallasamy — Freelance Full-Stack & AI Engineer",
+    "description": "Freelance full-stack & AI engineer building MERN, Flutter, and production RAG pipelines that actually ship. Available worldwide.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Ravin Nallasamy — Freelance Full-Stack & AI Engineer" }]
+  }
+}

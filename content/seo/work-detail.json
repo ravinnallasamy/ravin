@@ -1,0 +1,20 @@
+{
+  "keywords": {
+    "primary": "freelance project case study",
+    "secondary": [
+      "full-stack project example",
+      "AI project case study",
+      "hire developer for similar project"
+    ]
+  },
+  "openGraph": {
+    "images": [
+      {
+        "url": "/images/og/default.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Project — Ravin Nallasamy"
+      }
+    ]
+  }
+}

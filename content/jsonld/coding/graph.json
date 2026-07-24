@@ -1,0 +1,10 @@
+{
+  "route": "coding",
+  "path": "/coding",
+  "description": "JSON-LD for the coding stats page.",
+  "include": ["breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Coding", "path": "/coding" }
+  ]
+}

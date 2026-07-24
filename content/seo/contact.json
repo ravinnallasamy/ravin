@@ -1,0 +1,20 @@
+{
+  "title": "Contact & Hire",
+  "description": "Hire Ravin Nallasamy for freelance full-stack and AI projects. Get in touch or book time directly — open to freelance work worldwide, from MVPs to production RAG systems.",
+  "path": "/contact",
+  "keywords": {
+    "primary": "hire freelance full-stack and AI engineer",
+    "secondary": [
+      "book freelance developer",
+      "freelance project inquiry",
+      "hire RAG developer",
+      "contact freelance AI engineer",
+      "freelance developer available worldwide"
+    ]
+  },
+  "openGraph": {
+    "title": "Contact & Hire — Ravin Nallasamy",
+    "description": "Hire a freelance full-stack & AI engineer. Get in touch or book time directly.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Contact & Hire — Ravin Nallasamy" }]
+  }
+}

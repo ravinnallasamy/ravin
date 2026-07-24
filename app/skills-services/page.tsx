@@ -7,13 +7,13 @@ import { CtaSection } from '@/components/ui/CtaSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Check } from 'lucide-react';
 import { getContentIcon } from '@/lib/utils/icons';
+import { metaForRoute } from '@/lib/seo/seo';
+import { jsonLdForRoute } from '@/lib/seo/jsonld';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: 'Skills & Services',
-  description: 'Full-stack development, AI & RAG engineering, conversational AI, mobile apps, automation, and SEO/AEO services offered by Ravin Nallasamy.',
-};
+export const metadata: Metadata = metaForRoute('skills-services');
 
 export default function SkillsServicesPage() {
   const { categories } = getSkills();
@@ -21,6 +21,7 @@ export default function SkillsServicesPage() {
 
   return (
     <div className="flex flex-col">
+      <JsonLd data={jsonLdForRoute('skills-services')} />
       {/* ── Hero Section ── */}
       <Hero />
 

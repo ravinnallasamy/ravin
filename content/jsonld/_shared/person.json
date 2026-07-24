@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://ravinnallasamy.netlify.app/#person",
+  "name": "Ravin Nallasamy",
+  "jobTitle": "Freelance Full-Stack & AI Engineer",
+  "description": "Freelance full-stack and AI engineer building MERN, Flutter, and production RAG pipelines. Available for projects worldwide.",
+  "url": "https://ravinnallasamy.netlify.app",
+  "image": "https://ravinnallasamy.netlify.app/images/og/default.jpg",
+  "nationality": "Indian",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Fuzionest Pvt Ltd"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Dr. N.G.P. Institute of Technology, Coimbatore"
+  },
+  "knowsLanguage": ["English", "Tamil"],
+  "knowsAbout": [
+    "Full-stack development",
+    "MERN stack",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "FastAPI",
+    "Retrieval-Augmented Generation",
+    "LangGraph agents",
+    "Conversational AI",
+    "Flutter",
+    "Workflow automation",
+    "SEO",
+    "AEO",
+    "GEO"
+  ]
+}

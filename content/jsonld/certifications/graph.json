@@ -1,0 +1,10 @@
+{
+  "route": "certifications",
+  "path": "/certifications",
+  "description": "JSON-LD for the certifications page. certificationsList is built from content/certifications.json.",
+  "include": ["certificationsList", "breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Certifications", "path": "/certifications" }
+  ]
+}

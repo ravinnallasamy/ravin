@@ -1,0 +1,20 @@
+{
+  "title": "Blog & Tech Digest",
+  "description": "Writing by Ravin Nallasamy on full-stack and AI engineering — RAG in production, multi-agent systems, prompt engineering, server components, and building for AI answer engines.",
+  "path": "/blog",
+  "keywords": {
+    "primary": "full-stack and AI engineering blog",
+    "secondary": [
+      "RAG in production writing",
+      "multi-agent systems blog",
+      "prompt engineering articles",
+      "building for AI answer engines",
+      "AEO and GEO writing"
+    ]
+  },
+  "openGraph": {
+    "title": "Blog & Tech Digest — Ravin Nallasamy",
+    "description": "Writing on full-stack and AI engineering — RAG, agents, prompt engineering, and AEO.",
+    "images": [{ "url": "/images/og/default.jpg", "width": 1200, "height": 630, "alt": "Blog — Ravin Nallasamy" }]
+  }
+}

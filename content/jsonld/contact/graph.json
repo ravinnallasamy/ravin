@@ -1,0 +1,10 @@
+{
+  "route": "contact",
+  "path": "/contact",
+  "description": "JSON-LD for the contact/hire page.",
+  "include": ["professionalService", "faq", "breadcrumb"],
+  "breadcrumb": [
+    { "name": "Home", "path": "/" },
+    { "name": "Contact", "path": "/contact" }
+  ]
+}

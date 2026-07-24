@@ -2,6 +2,17 @@
 const nextConfig = {
   allowedDevOrigins: ['192.168.0.226'],
 
+  // Serve images as-is instead of routing them through Next's on-the-fly
+  // Image Optimization endpoint (/_next/image). That endpoint is a server
+  // function that requires the Netlify Next runtime; this deploy publishes
+  // `.next` directly without it, so the endpoint 502s. All images in this
+  // project are already hand-optimized WebP at fixed sizes, so there is
+  // nothing to gain from runtime optimization — <Image> now emits a plain
+  // <img> pointing at the real file, which works on any host.
+  images: {
+    unoptimized: true,
+  },
+
   // Long-lived HTTP caching for immutable static assets so browsers and CDNs
   // can preload/reuse them without re-downloading on every visit.
   async headers() {

@@ -15,7 +15,7 @@ export function PostHero({
       <div className="flex flex-col gap-24">
         <BackLink href="/blog" label="All posts" />
         <div className="flex flex-col gap-12">
-          <span className="font-mono text-mono-label text-accent font-semibold tracking-wider">
+          <span className="font-mono text-mono-label text-accent font-semibold">
             {date}
           </span>
           <h1

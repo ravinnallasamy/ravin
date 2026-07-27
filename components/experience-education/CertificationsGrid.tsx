@@ -44,13 +44,13 @@ export function CertificationsGrid({ certifications }: { certifications: Certifi
                 </button>
               )}
               <div className="flex-1 flex flex-col gap-4">
-                <span className="font-mono text-[10px] uppercase tracking-wide text-ink-faint">
+                <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
                   {cert.issuer}
                 </span>
                 <button
                   type="button"
                   onClick={() => setActiveCert(cert)}
-                  className="text-left font-display text-body font-semibold text-ink transition-colors group-hover:text-accent"
+                  className="-my-12 flex min-h-44 items-center text-left font-display text-body font-semibold text-ink transition-colors group-hover:text-accent"
                 >
                   {cert.title}
                 </button>

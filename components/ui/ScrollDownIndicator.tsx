@@ -23,7 +23,7 @@ export function ScrollDownIndicator({
   return (
     <a
       href={`#${targetId}`}
-      className={`group flex flex-col items-center gap-4 text-mono-label font-mono uppercase tracking-wide text-ink-faint transition-colors hover:text-accent ${className}`}
+      className={`group flex flex-col items-center gap-4 text-mono-label font-mono uppercase text-ink-faint transition-colors hover:text-accent ${className}`}
     >
       <span>{label}</span>
       <motion.span variants={bounce} animate="animate">

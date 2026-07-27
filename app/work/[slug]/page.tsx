@@ -67,13 +67,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="grid gap-32 md:grid-cols-2">
             {project.problem && (
               <div className="flex flex-col gap-12">
-                <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Problem</h2>
+                <h2 className="text-mono-label font-mono uppercase text-ink-faint">Problem</h2>
                 <p className="text-body text-ink-muted">{project.problem}</p>
               </div>
             )}
             {project.solution && (
               <div className="flex flex-col gap-12">
-                <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Solution</h2>
+                <h2 className="text-mono-label font-mono uppercase text-ink-faint">Solution</h2>
                 <p className="text-body text-ink-muted">{project.solution}</p>
               </div>
             )}
@@ -100,7 +100,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         <div className="grid gap-32 md:grid-cols-2">
           <div className="flex flex-col gap-12">
-            <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Highlights</h2>
+            <h2 className="text-mono-label font-mono uppercase text-ink-faint">Highlights</h2>
             <ul className="flex flex-col gap-8">
               {project.highlights.map((highlight) => (
                 <li key={highlight} className="text-body text-ink">
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="flex flex-col gap-12">
-            <h2 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Stack</h2>
+            <h2 className="text-mono-label font-mono uppercase text-ink-faint">Stack</h2>
             <div className="flex flex-wrap gap-8">
               {project.stack.map((tech) => (
                 <span
@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 location="project_detail_repo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-sm transition-shadow hover:shadow-neu-inset"
+                className="rounded-full border-none bg-surface px-16 py-12 text-body text-ink shadow-neu-sm transition-shadow hover:shadow-neu-inset"
               >
                 {repo.label} →
               </TrackedLink>

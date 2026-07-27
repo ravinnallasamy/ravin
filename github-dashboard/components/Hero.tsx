@@ -41,7 +41,7 @@ export function Hero({ dashboard }: { dashboard: MergedDashboard }) {
   return (
     <section className="flex min-w-0 flex-col gap-32 overflow-x-clip rounded-3xl border border-border/60 bg-gradient-to-b from-paper to-surface p-24 shadow-glass md:p-32">
       <div className="flex flex-col gap-8">
-        <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+        <span className="font-mono text-mono-label uppercase text-ink-faint">
           Unified Developer Identity
         </span>
         <h1 className="break-words font-display text-h1 md:text-h1-lg text-ink">{siteJson.name}</h1>

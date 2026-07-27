@@ -70,7 +70,7 @@ export function Footer() {
 
             {/* Left / lower: rotating quotes */}
             <div className="flex flex-col justify-center px-16 py-24 md:px-32 md:py-32">
-              <p className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">Perspective</p>
+              <p className="font-mono text-mono-label uppercase text-ink-faint">Perspective</p>
               <div className="relative mt-8 min-h-[4.5em] md:min-h-[3.5em]">
                 <AnimatePresence mode="wait">
                   <motion.p
@@ -102,7 +102,7 @@ export function Footer() {
           <div className="flex flex-col divide-y divide-border">
             {/* Right / upper: services */}
             <div className="flex flex-col justify-center px-16 py-24 md:px-32 md:py-32">
-              <p className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">What I do</p>
+              <p className="font-mono text-mono-label uppercase text-ink-faint">What I do</p>
               <ul className="mt-12 flex flex-wrap gap-8">
                 {services.map((service) => (
                   <li
@@ -117,7 +117,7 @@ export function Footer() {
 
             {/* Right / lower: labeled contact icons */}
             <div className="flex flex-col justify-center px-16 py-24 md:px-32 md:py-32">
-              <p className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">Get in touch</p>
+              <p className="font-mono text-mono-label uppercase text-ink-faint">Get in touch</p>
               <div className="mt-12 flex flex-wrap gap-8">
                 {CONTACT_LINKS.map(({ label, href, icon: Icon }) => (
                   <Link

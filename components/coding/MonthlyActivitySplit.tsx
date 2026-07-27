@@ -185,10 +185,12 @@ export function MonthlyActivitySplit({
     <div className="flex flex-col gap-16 rounded-3xl border border-border/60 bg-paper p-24 shadow-neu md:p-32">
       <div className="flex items-start justify-between gap-16">
         <div className="flex flex-col gap-4">
-          <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{eyebrow}</span>
+          <span className="font-mono text-mono-label uppercase text-ink-faint">{eyebrow}</span>
           <h3 className="font-display text-h3 text-ink">{title}</h3>
         </div>
-        <span className="font-mono text-mono-label text-ink-faint">
+        {/* shrink-0 is deliberately absent: on a 280px viewport this count must
+            be allowed to wrap rather than push past the container. */}
+        <span className="min-w-0 break-words text-right font-mono text-mono-label text-ink-faint">
           {grid.total.toLocaleString()} {unitLabel}s
         </span>
       </div>

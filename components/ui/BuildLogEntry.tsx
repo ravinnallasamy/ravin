@@ -36,9 +36,14 @@ export function BuildLogEntry({ slug, href, summary, status, date, children }: B
         </span>
         {status && <StatusPill status={status} />}
         {date && <span className="font-mono text-mono-label text-ink-faint">{date}</span>}
-        <div className="ml-auto flex items-center gap-12">
+        {/* -my-12 on the row keeps the controls optically inline while each
+            child pads out to the 44px minimum tap target. */}
+        <div className="-my-12 ml-auto flex items-center gap-4">
           {href && (
-            <Link href={href} className="text-mono-label font-mono text-accent hover:text-accent-hover">
+            <Link
+              href={href}
+              className="flex min-h-44 items-center px-8 text-mono-label font-mono text-accent hover:text-accent-hover"
+            >
               view
             </Link>
           )}
@@ -47,7 +52,8 @@ export function BuildLogEntry({ slug, href, summary, status, date, children }: B
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
-              className="flex items-center gap-4 text-ink-muted hover:text-ink"
+              aria-label={open ? 'Hide details' : 'Show details'}
+              className="flex h-44 w-44 items-center justify-center text-ink-muted hover:text-ink"
             >
               <ChevronDown
                 size={16}

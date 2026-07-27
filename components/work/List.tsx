@@ -28,7 +28,7 @@ export function List() {
               const items = grouped.get(project.collection)!;
               return (
                 <RevealItem key={project.collection} className="flex flex-col gap-16">
-                  <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">
+                  <h3 className="text-mono-label font-mono uppercase text-ink-faint">
                     {project.collection.replace(/-/g, ' ')}
                   </h3>
                   {items.map((p) => (

@@ -46,7 +46,13 @@ export function NavBar() {
         animate={{ paddingTop: scrolled ? 8 : 16, paddingBottom: scrolled ? 8 : 16 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <Link href="/" className="font-display text-h3 text-ink" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          // -my-12 preserves the pill's visual height while the wordmark's hit
+          // area reaches the 44px minimum.
+          className="-my-12 flex min-h-44 items-center font-display text-h3 text-ink"
+          onClick={() => setOpen(false)}
+        >
           {siteJson.name.split(' ')[0]}
         </Link>
 
@@ -91,7 +97,9 @@ export function NavBar() {
 
         <button
           type="button"
-          className="relative z-10 text-ink md:hidden"
+          // -mr-8 keeps the icon optically aligned with the pill edge while the
+          // hit area grows to the 44px minimum.
+          className="relative z-10 -mr-8 flex h-44 w-44 items-center justify-center text-ink md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}

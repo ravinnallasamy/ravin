@@ -62,12 +62,12 @@ export function ProfileSummarySection({
       <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
           <div key={item.label} className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-surface p-16">
-            <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{item.label}</span>
+            <span className="font-mono text-mono-label uppercase text-ink-faint">{item.label}</span>
             <span className="text-body font-medium text-ink">{item.value}</span>
           </div>
         ))}
         <div className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-surface p-16">
-          <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">Contribution trend</span>
+          <span className="font-mono text-mono-label uppercase text-ink-faint">Contribution trend</span>
           <span className={`inline-flex items-center gap-4 text-body font-medium ${trendColor}`}>
             <TrendIcon size={16} aria-hidden />
             {direction === 'flat' ? 'Steady' : `${Math.abs(deltaPct)}% ${direction === 'up' ? 'up' : 'down'} week over week`}

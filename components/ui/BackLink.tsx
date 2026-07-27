@@ -10,7 +10,9 @@ export function BackLink({ href, label }: BackLinkProps) {
   return (
     <Link
       href={href}
-      className="group inline-flex w-fit items-center gap-6 font-mono text-mono-label font-semibold tracking-wider text-ink-muted transition-colors hover:text-ink"
+      // -my-12 keeps the link optically flush with surrounding text while the
+      // padding lifts the hit area to the 44px minimum.
+      className="group -my-12 inline-flex w-fit items-center gap-6 py-12 font-mono text-mono-label font-semibold text-ink-muted transition-colors hover:text-ink"
     >
       <ArrowLeft
         size={16}

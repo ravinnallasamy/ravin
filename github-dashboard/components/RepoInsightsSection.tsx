@@ -11,8 +11,8 @@ function InsightRow({ label, repo, detail }: { label: string; repo: Repository |
   if (!repo) return null;
   return (
     <div className="flex min-w-0 flex-col gap-4 rounded-2xl border border-border/50 bg-surface p-16">
-      <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{label}</span>
-      <a href={repo.htmlUrl} target="_blank" rel="noopener noreferrer" className="break-words font-display text-h3 text-ink hover:text-accent">
+      <span className="font-mono text-mono-label uppercase text-ink-faint">{label}</span>
+      <a href={repo.htmlUrl} target="_blank" rel="noopener noreferrer" className="-my-12 flex min-h-44 items-center break-words font-display text-h3 text-ink hover:text-accent">
         {repo.name}
       </a>
       <span className="text-mono-label text-ink-faint">{detail}</span>

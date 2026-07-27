@@ -54,7 +54,7 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
             aria-labelledby="repo-sort-label"
             value={sortKey}
             onChange={(e) => setSortKey(e.target.value as RepoSortKey)}
-            className="rounded-full border border-border bg-paper px-12 py-8 font-mono text-mono-label text-ink-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="min-h-44 rounded-full border border-border bg-paper px-12 py-8 font-mono text-body text-ink-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.key} value={opt.key}>
@@ -69,7 +69,7 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
         <table className="w-full min-w-[640px] border-collapse text-body">
           <caption className="sr-only">Public repositories across both GitHub accounts</caption>
           <thead>
-            <tr className="border-b border-border text-left font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+            <tr className="border-b border-border text-left font-mono text-mono-label uppercase text-ink-faint">
               <th scope="col" className="py-8 pr-16">Name</th>
               <th scope="col" className="py-8 pr-16">Language</th>
               <th scope="col" className="py-8 pr-16">Stars</th>
@@ -88,7 +88,7 @@ export function RepositoryTable({ repositories }: { repositories: Repository[] }
                     href={repo.htmlUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-ink hover:text-accent"
+                    className="-my-12 flex min-h-44 items-center font-medium text-ink hover:text-accent"
                   >
                     {repo.name}
                   </a>

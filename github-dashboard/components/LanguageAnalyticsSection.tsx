@@ -41,7 +41,9 @@ export function LanguageAnalyticsSection({ languages }: { languages: LanguageSta
               style={{ backgroundColor: CHART_PALETTE[i % CHART_PALETTE.length] }}
               aria-hidden
             />
-            <span className="truncate">{lang.name}</span>
+            {/* min-w-0 + wrap instead of `truncate`: clipping fails WCAG 1.4.12
+                once a user raises letter/word spacing. */}
+            <span className="min-w-0 break-words">{lang.name}</span>
             <span className="ml-auto text-ink-faint">{lang.percentage}%</span>
           </li>
         ))}

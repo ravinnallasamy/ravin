@@ -492,7 +492,7 @@ export function ResumeChatWidget() {
               type="button"
               onClick={() => openChat('fab')}
               aria-label="Open resume chat — ask Ravin's AI about his resume"
-              className="relative flex h-[38px] w-[38px] items-center justify-center rounded-full border border-white/40 bg-paper/90 text-accent shadow-glass backdrop-blur-glass transition-colors hover:bg-accent hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
+              className="relative flex h-44 w-44 items-center justify-center rounded-full border border-white/40 bg-paper/90 text-accent shadow-glass backdrop-blur-glass transition-colors hover:bg-accent hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:h-48 md:w-48"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.94 }}
             >
@@ -509,7 +509,7 @@ export function ResumeChatWidget() {
             rel="noopener noreferrer"
             onClick={() => trackContactChannel('whatsapp', 'floating_widget')}
             aria-label={`Message ${firstName} on WhatsApp at ${socialJson.phone}`}
-            className="pointer-events-auto relative flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-glass transition-colors hover:bg-[#1ebe5a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:h-[44px] sm:w-[44px] md:h-[48px] md:w-[48px]"
+            className="pointer-events-auto relative flex h-44 w-44 items-center justify-center rounded-full bg-[#25D366] text-white shadow-glass transition-colors hover:bg-[#1ebe5a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:h-48 md:w-48"
             whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.94 }}
           >

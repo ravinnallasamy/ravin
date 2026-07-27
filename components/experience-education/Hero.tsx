@@ -43,7 +43,7 @@ export function Hero() {
             <div className="mb-24 flex items-center gap-8 border-b border-border/40 pb-24">
               <span className="h-8 w-8 shrink-0 rounded-full bg-accent animate-pulse" />
               <div className="flex flex-col">
-                <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+                <span className="font-mono text-mono-label uppercase text-ink-faint">
                   Currently
                 </span>
                 <span className="font-display text-body font-semibold text-ink">{currentRole.role}</span>

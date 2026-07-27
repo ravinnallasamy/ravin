@@ -16,7 +16,7 @@ export function ContactPanel() {
       <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-32">
         <Reveal>
           <div className="flex flex-col items-center gap-12 text-center">
-            <span className="inline-flex items-center gap-8 rounded-full border border-accent/40 bg-accent/10 px-16 py-6 font-mono text-mono-label uppercase tracking-wide text-[#E8CFA8]">
+            <span className="inline-flex items-center gap-8 rounded-full border border-accent/40 bg-accent/10 px-16 py-6 font-mono text-mono-label uppercase text-[#E8CFA8]">
               <Sparkles size={13} />
               Let&apos;s work together
             </span>

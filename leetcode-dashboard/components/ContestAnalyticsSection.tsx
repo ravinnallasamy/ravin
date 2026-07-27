@@ -41,7 +41,7 @@ export function ContestAnalyticsSection({ contest }: { contest: ContestData | nu
 
       {contest.history.length > 0 && (
         <div className="flex flex-col gap-8">
-          <h4 className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">Contest history</h4>
+          <h4 className="font-mono text-mono-label uppercase text-ink-faint">Contest history</h4>
           <ul className="flex flex-col gap-4">
             {[...contest.history].reverse().slice(0, 10).map((c) => (
               <li
@@ -69,7 +69,7 @@ export function ContestAnalyticsSection({ contest }: { contest: ContestData | nu
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-surface p-16">
-      <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{label}</span>
+      <span className="font-mono text-mono-label uppercase text-ink-faint">{label}</span>
       <span className="text-body font-medium text-ink">{value}</span>
     </div>
   );

@@ -22,7 +22,7 @@ export function Hero() {
         {/* Content — right column */}
         <div className="order-1 flex flex-col items-center gap-32 text-center md:order-2 md:items-start md:text-left">
 
-          <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+          <span className="font-mono text-mono-label uppercase text-ink-faint">
             Work
           </span>
 

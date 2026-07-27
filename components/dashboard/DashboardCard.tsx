@@ -23,7 +23,7 @@ export function DashboardCard({
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between sm:gap-16">
           <div className="flex min-w-0 flex-col gap-4">
             {eyebrow && (
-              <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{eyebrow}</span>
+              <span className="font-mono text-mono-label uppercase text-ink-faint">{eyebrow}</span>
             )}
             {title && <h3 className="font-display text-h3 text-ink">{title}</h3>}
           </div>

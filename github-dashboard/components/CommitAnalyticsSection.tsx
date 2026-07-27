@@ -66,7 +66,7 @@ export function CommitAnalyticsSection({
               type="button"
               aria-selected={granularity === tab.key}
               onClick={() => setGranularity(tab.key)}
-              className={`rounded-full px-12 py-4 font-mono text-mono-label transition-colors ${
+              className={`flex min-h-44 items-center rounded-full px-16 font-mono text-mono-label transition-colors ${
                 granularity === tab.key ? 'bg-accent text-paper' : 'text-ink-muted hover:text-ink'
               }`}
             >

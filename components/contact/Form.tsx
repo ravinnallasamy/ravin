@@ -69,7 +69,7 @@ export function Form() {
           disabled={loading}
           value={form.name}
           onChange={handleChange}
-          className="rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
+          className="rounded-lg border-none bg-surface px-16 py-12 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
         />
       </div>
 
@@ -85,7 +85,7 @@ export function Form() {
           disabled={loading}
           value={form.email}
           onChange={handleChange}
-          className="rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
+          className="rounded-lg border-none bg-surface px-16 py-12 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
         />
       </div>
 
@@ -101,7 +101,7 @@ export function Form() {
           disabled={loading}
           value={form.mobile}
           onChange={handleChange}
-          className="rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
+          className="rounded-lg border-none bg-surface px-16 py-12 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
         />
       </div>
 
@@ -117,14 +117,14 @@ export function Form() {
           disabled={loading}
           value={form.message}
           onChange={handleChange}
-          className="resize-none rounded-lg border-none bg-surface px-16 py-8 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
+          className="resize-none rounded-lg border-none bg-surface px-16 py-12 text-body text-ink shadow-neu-inset outline-none transition-shadow focus:shadow-neu-inset focus:ring-1 focus:ring-accent/40 disabled:opacity-50"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-fit self-center sm:self-start rounded-full bg-accent px-24 py-8 text-body text-paper shadow-glass hover:bg-accent-hover disabled:opacity-50"
+        className="w-fit self-center sm:self-start rounded-full bg-accent px-24 py-12 text-body text-paper shadow-glass hover:bg-accent-hover disabled:opacity-50"
       >
         {loading ? 'Sending...' : 'Send message'}
       </button>

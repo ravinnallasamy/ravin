@@ -19,7 +19,7 @@ export function DashboardErrorState({ error }: { error: AccountError }) {
       <div className="flex flex-col gap-8">
         <h2 className="font-display text-h3 text-ink">Couldn&apos;t load the dashboard</h2>
         <p className="max-w-md text-body text-ink-muted">{error.message}</p>
-        <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{error.kind}</span>
+        <span className="font-mono text-mono-label uppercase text-ink-faint">{error.kind}</span>
       </div>
       <button
         type="button"

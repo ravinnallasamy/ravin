@@ -61,7 +61,7 @@ export function SubmissionHeatmapSection({ calendar, unavailable }: SubmissionHe
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-surface p-16">
-      <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">{label}</span>
+      <span className="font-mono text-mono-label uppercase text-ink-faint">{label}</span>
       <span className="text-body font-medium text-ink">{value}</span>
     </div>
   );

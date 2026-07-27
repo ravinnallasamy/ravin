@@ -30,7 +30,7 @@ export function Hero() {
         <div className="flex flex-col items-center gap-24 text-center md:items-start md:text-left">
           {/* Name & role */}
           <div className="flex flex-col gap-8">
-            <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">
+            <span className="font-mono text-mono-label uppercase text-ink-faint">
               {siteJson.statusLine}
             </span>
             <h1 className="text-h1 sm:text-h1-md lg:text-h1-lg text-ink" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.6)' }}>

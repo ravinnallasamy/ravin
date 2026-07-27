@@ -36,7 +36,7 @@ export function WorkPreview() {
           <div className="flex justify-center md:justify-start w-full">
             <Link
               href="/work"
-              className="inline-flex w-fit items-center rounded-full bg-surface px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
+              className="inline-flex w-fit items-center rounded-full bg-surface px-16 py-12 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset"
             >
               See all work →
             </Link>

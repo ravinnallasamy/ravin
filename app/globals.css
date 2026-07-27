@@ -5,6 +5,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* The sticky header is ~74px tall (pill + px-16 pt-16 wrapper, shrinking to
+       ~58px once scrolled). Offsetting scroll here means every in-page anchor
+       clears it, instead of each target needing its own scroll-mt-*. */
+    scroll-padding-top: 88px;
     /* Never allow the page to scroll sideways. The floating chat/WhatsApp
        widget is portalled to <body> and fixed to the viewport, so clipping
        here does not trap it. */

@@ -56,7 +56,7 @@ export function Hero({ username, profile, problemStats, contest, generatedAt }: 
             />
           )}
           <div className="flex min-w-0 flex-1 flex-col gap-4">
-            <span className="font-mono text-mono-label uppercase tracking-wide text-ink-faint">LeetCode Analytics</span>
+            <span className="font-mono text-mono-label uppercase text-ink-faint">LeetCode Analytics</span>
             <h1 className="break-words font-display text-h1 md:text-h1-lg text-ink">
               {profile?.realName || username}
             </h1>

@@ -10,25 +10,25 @@ export function Elsewhere() {
     <ContentSection tone="surface">
         <div className="grid gap-32 md:grid-cols-2 md:gap-48">
           <div className="flex flex-col gap-12">
-            <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Elsewhere</h3>
+            <h3 className="text-mono-label font-mono uppercase text-ink-faint">Elsewhere</h3>
             <div className="flex flex-col gap-8">
-              <TrackedLink href={socialJson.github} eventLabel="GitHub" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              <TrackedLink href={socialJson.github} eventLabel="GitHub" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="-my-12 flex min-h-44 items-center text-body text-ink hover:text-accent">
                 GitHub
               </TrackedLink>
-              <TrackedLink href={`https://${socialJson.linkedin}`} eventLabel="LinkedIn" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              <TrackedLink href={`https://${socialJson.linkedin}`} eventLabel="LinkedIn" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="-my-12 flex min-h-44 items-center text-body text-ink hover:text-accent">
                 LinkedIn
               </TrackedLink>
-              <TrackedLink href={socialJson.leetcodeUsername} eventLabel="LeetCode" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="text-body text-ink hover:text-accent">
+              <TrackedLink href={socialJson.leetcodeUsername} eventLabel="LeetCode" location="contact_elsewhere" target="_blank" rel="noopener noreferrer" className="-my-12 flex min-h-44 items-center text-body text-ink hover:text-accent">
                 LeetCode
               </TrackedLink>
-              <TrackedLink href={`mailto:${socialJson.email}`} eventLabel="Email" channel="email" location="contact_elsewhere" className="text-body text-ink hover:text-accent">
+              <TrackedLink href={`mailto:${socialJson.email}`} eventLabel="Email" channel="email" location="contact_elsewhere" className="-my-12 flex min-h-44 items-center text-body text-ink hover:text-accent">
                 {socialJson.email}
               </TrackedLink>
             </div>
           </div>
 
           <div className="flex flex-col gap-12">
-            <h3 className="text-mono-label font-mono uppercase tracking-wide text-ink-faint">Book time</h3>
+            <h3 className="text-mono-label font-mono uppercase text-ink-faint">Book time</h3>
             {hasBooking ? (
               <iframe
                 src={socialJson.calBookingUrl}

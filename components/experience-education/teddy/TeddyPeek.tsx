@@ -101,7 +101,7 @@ export function TeddyPeek({ name = 'me' }: { name?: string }) {
         whileTap={reduce ? undefined : { scale: 0.96 }}
         className="pointer-events-auto relative z-10 mb-4 flex cursor-pointer items-center gap-4 rounded-full border border-white/50 bg-paper/95 px-10 py-4 shadow-glass backdrop-blur-glass transition-colors hover:border-accent/50 hover:bg-accent-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
-        <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-wide text-ink">
+        <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] text-ink">
           Hire {name}? Try {name} AI →
         </span>
       </motion.button>

@@ -38,7 +38,7 @@ export function Skills({ compact = false, tinted = false }: { compact?: boolean;
             <Reveal className="flex justify-center md:justify-start w-full">
               <Link
                 href="/skills-services"
-                className={`inline-flex w-fit items-center rounded-full px-16 py-8 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset ${
+                className={`inline-flex w-fit items-center rounded-full px-16 py-12 text-body text-accent shadow-neu-sm transition-shadow hover:shadow-neu-inset ${
                   tinted ? 'bg-paper' : 'bg-surface'
                 }`}
               >

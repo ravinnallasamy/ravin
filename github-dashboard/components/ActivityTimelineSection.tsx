@@ -69,7 +69,7 @@ export function ActivityTimelineSection({ events }: { events: ActivityEvent[] })
                 <span className="break-words text-body text-ink">
                   {label} <span className="font-medium">{event.repoName}</span>
                 </span>
-                <span className="font-mono text-mono-label text-ink-faint">
+                <span className="break-words font-mono text-mono-label text-ink-faint">
                   {formatWhen(event.createdAt)} · {event.sourceAccount}
                 </span>
               </div>

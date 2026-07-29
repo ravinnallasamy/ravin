@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import siteJson from '@/content/site.json';
 
@@ -20,16 +19,27 @@ export function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => setMounted(true), []);
-
+  // Throttle to one read per animation frame and only set state when the
+  // boolean actually flips, so scrolling doesn't re-render the nav continuously.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
+    let frame = 0;
+    const read = () => {
+      frame = 0;
+      setScrolled((prev) => {
+        const next = window.scrollY > 8;
+        return prev === next ? prev : next;
+      });
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(read);
+    };
+    read();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -38,13 +48,10 @@ export function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 px-16 pt-16 md:px-24">
-      <motion.div
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/40 bg-paper/60 px-16 backdrop-blur-glass transform-gpu [backface-visibility:hidden] ${
-          mounted ? 'transition-shadow' : ''
-        } ${scrolled ? 'shadow-glass' : 'shadow-none'}`}
-        style={{ willChange: 'transform' }}
-        animate={{ paddingTop: scrolled ? 8 : 16, paddingBottom: scrolled ? 8 : 16 }}
-        transition={{ duration: 0.35, ease: 'easeOut' }}
+      <div
+        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/40 bg-paper/60 px-16 backdrop-blur-glass transition-[padding,box-shadow] duration-300 ease-out motion-reduce:transition-none ${
+          scrolled ? 'py-8 shadow-glass' : 'py-16 shadow-none'
+        }`}
       >
         <Link
           href="/"
@@ -68,17 +75,7 @@ export function NavBar() {
                 }`}
               >
                 {active && (
-                  <motion.span
-                    layout={mounted ? 'position' : false}
-                    layoutId="nav-active-pill"
-                    className="absolute inset-0 rounded-full bg-accent-subtle transform-gpu"
-                    style={{ willChange: 'transform' }}
-                    transition={
-                      mounted && !shouldReduceMotion
-                        ? { type: 'spring', stiffness: 380, damping: 32 }
-                        : { duration: 0 }
-                    }
-                  />
+                  <span className="absolute inset-0 rounded-full bg-accent-subtle" />
                 )}
                 <span className="relative">{item.label}</span>
               </Link>
@@ -89,9 +86,7 @@ export function NavBar() {
             className="group relative ml-8 overflow-hidden rounded-full bg-accent px-16 py-8 text-body text-paper transition-colors hover:bg-accent-hover"
           >
             <span className="relative">Get in touch</span>
-            {!shouldReduceMotion && (
-              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-full" />
-            )}
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-full motion-reduce:hidden" />
           </Link>
         </nav>
 
@@ -104,29 +99,13 @@ export function NavBar() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={open ? 'close' : 'open'}
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="flex"
-            >
-              {open ? <X size={24} /> : <Menu size={24} />}
-            </motion.span>
-          </AnimatePresence>
+          <span className="flex">{open ? <X size={24} /> : <Menu size={24} />}</span>
         </button>
-      </motion.div>
+      </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{ opacity: 0, y: -8, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -8, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="mx-auto mt-8 flex max-w-5xl flex-col gap-4 overflow-hidden rounded-3xl border border-white/40 bg-paper/70 px-16 py-16 shadow-glass backdrop-blur-glass md:hidden"
+      {open && (
+          <nav
+            className="mx-auto mt-8 flex max-w-5xl animate-nav-in flex-col gap-4 overflow-hidden rounded-3xl border border-white/40 bg-paper/70 px-16 py-16 shadow-glass backdrop-blur-glass md:hidden"
           >
             {NAV_GROUPS.map((item) => {
               const mobileActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href);
@@ -135,7 +114,7 @@ export function NavBar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-full px-8 py-8 text-body transition-colors hover:bg-accent-subtle hover:text-ink ${mobileActive ? 'bg-accent-subtle text-ink' : 'text-ink-muted'}`}
+                  className={`flex min-h-44 items-center rounded-full px-16 text-body transition-colors hover:bg-accent-subtle hover:text-ink ${mobileActive ? 'bg-accent-subtle text-ink' : 'text-ink-muted'}`}
                 >
                   {item.label}
                 </Link>
@@ -144,13 +123,12 @@ export function NavBar() {
             <Link
               href="/contact?utm_source=header"
               onClick={() => setOpen(false)}
-              className="mt-8 rounded-full bg-accent px-16 py-8 text-center text-body text-paper"
+              className="mt-8 flex min-h-44 items-center justify-center rounded-full bg-accent px-16 text-center text-body text-paper"
             >
               Get in touch
             </Link>
-          </motion.nav>
+          </nav>
         )}
-      </AnimatePresence>
     </header>
   );
 }

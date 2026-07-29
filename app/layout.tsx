@@ -4,7 +4,7 @@ import './globals.css';
 import Script from 'next/script';
 import { NavBar } from '@/components/ui/NavBar';
 import { Footer } from '@/components/ui/Footer';
-import { ResumeChatWidget } from '@/components/ui/ResumeChatWidget';
+import { ResumeChatWidgetLazy } from '@/components/ui/ResumeChatWidgetLazy';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { GA_MEASUREMENT_ID, isGaEnabled } from '@/lib/analytics/gtag';
 import { buildMetadata } from '@/lib/seo/seo';
@@ -41,11 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={rootJsonLd()} />
         {isGaEnabled && (
           <>
+            {/* afterInteractive, not beforeInteractive: analytics must never
+                block first paint / interactivity on mobile. */}
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="beforeInteractive"
+              strategy="afterInteractive"
             />
-            <Script id="ga4-init" strategy="beforeInteractive">
+            <Script id="ga4-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -59,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <ResumeChatWidget />
+        <ResumeChatWidgetLazy />
       </body>
     </html>
   );

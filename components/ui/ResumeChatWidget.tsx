@@ -57,6 +57,65 @@ function initialMessages(): ChatMessage[] {
   ];
 }
 
+/** Gap kept between the panel and every viewport / chrome edge. */
+const EDGE_GAP = 8;
+/** Smallest height the panel may shrink to before it is allowed to overlap. */
+const MIN_PANEL_H = 180;
+
+/**
+ * Live top/bottom limits for the draggable panel.
+ *
+ * The site header is `position: sticky` and the footer scrolls, so neither has
+ * a fixed viewport position — both are measured on demand. The panel is clamped
+ * below whatever the header currently occupies and above the footer whenever the
+ * footer is on screen, so no part of the chat can ever be hidden behind either.
+ */
+function chromeBounds() {
+  let top = EDGE_GAP;
+  const header = document.querySelector('header');
+  if (header) {
+    const r = header.getBoundingClientRect();
+    // Only counts while the header actually overlaps the viewport top.
+    if (r.bottom > 0 && r.top < window.innerHeight) top = Math.max(top, r.bottom + EDGE_GAP);
+  }
+
+  let bottom = window.innerHeight - EDGE_GAP;
+  const footer = document.querySelector('footer');
+  if (footer) {
+    const r = footer.getBoundingClientRect();
+    // Treat the footer as a floor only when its top edge is actually on screen
+    // and leaves a workable gap below the header. At the very bottom of the page
+    // the footer can start above the viewport (negative top) and cover the whole
+    // screen — there is no gap to sit in then, so it stops acting as a floor and
+    // the panel simply floats over it rather than being squeezed out of view.
+    const floor = r.top - EDGE_GAP;
+    if (r.top < window.innerHeight && r.bottom > 0 && floor - top >= MIN_PANEL_H) {
+      bottom = Math.min(bottom, floor);
+    }
+  }
+
+  // If the header→footer gap is too short for even a minimal panel, keep the
+  // footer as the hard floor and grow the band *upward* instead. The panel may
+  // then tuck under the translucent header on an extremely short viewport, but
+  // it is never swallowed by the footer — which is the case users actually hit,
+  // since the footer is far taller than the header.
+  if (bottom - top < MIN_PANEL_H) {
+    top = Math.max(EDGE_GAP, bottom - MIN_PANEL_H);
+  }
+  return { top, bottom };
+}
+
+/** Clamp a desired top-left so the whole panel stays inside the safe area. */
+function clampToSafeArea(x: number, y: number, w: number, h: number) {
+  const { top, bottom } = chromeBounds();
+  const maxX = Math.max(EDGE_GAP, window.innerWidth - w - EDGE_GAP);
+  const maxY = Math.max(top, bottom - h);
+  return {
+    x: Math.min(Math.max(x, EDGE_GAP), maxX),
+    y: Math.min(Math.max(y, top), maxY),
+  };
+}
+
 export function ResumeChatWidget() {
   const shouldReduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
@@ -65,7 +124,12 @@ export function ResumeChatWidget() {
   const [minimized, setMinimized] = useState(true);
   const [blink, setBlink] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  // Panel position in viewport pixels (top-left corner). `null` = not yet
+  // placed, so it falls back to the default bottom-right anchor.
+  const [panelPos, setPanelPos] = useState<{ x: number; y: number } | null>(null);
+  // Height cap derived from the space left between header and footer. Null =
+  // use the CSS default; a number means the band is too short for the full panel.
+  const [panelMaxH, setPanelMaxH] = useState<number | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -73,7 +137,7 @@ export function ResumeChatWidget() {
   const [statusText, setStatusText] = useState(THINKING_PHRASES[0]);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const dragConstraintsRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // 11s after load, show the popup once per session
   useEffect(() => {
@@ -122,6 +186,107 @@ export function ResumeChatWidget() {
     };
   }, [fullscreen]);
 
+  /**
+   * Pointer-driven drag for the panel.
+   *
+   * Framer's `drag` is not used here: it animates an x/y transform while we also
+   * set left/top, so the two compound and the panel escapes the viewport. Owning
+   * the gesture lets us clamp the position on every pointer move, which is what
+   * guarantees no part of the panel is ever hidden behind the header or footer.
+   */
+  const startDrag = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (fullscreen) return;
+      // Don't hijack the header's own buttons (expand / resume / close).
+      if ((e.target as HTMLElement).closest('button')) return;
+
+      const el = panelRef.current;
+      if (!el) return;
+
+      const r = el.getBoundingClientRect();
+      // Grab offset within the panel, so it doesn't jump under the cursor.
+      const grabX = e.clientX - r.left;
+      const grabY = e.clientY - r.top;
+      const { width, height } = r;
+
+      // Pin the panel to its current spot before the first move, so switching
+      // from flex-anchored to fixed positioning doesn't shift it.
+      setPanelPos(clampToSafeArea(r.left, r.top, width, height));
+
+      const onMove = (ev: PointerEvent) => {
+        ev.preventDefault();
+        // Re-measure the band each move: the header/footer can shift under the
+        // panel while the user drags (momentum scroll, address-bar collapse).
+        const { top, bottom } = chromeBounds();
+        const h = Math.min(height, Math.max(MIN_PANEL_H, bottom - top));
+        setPanelPos(clampToSafeArea(ev.clientX - grabX, ev.clientY - grabY, width, h));
+      };
+      const onUp = () => {
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        window.removeEventListener('pointercancel', onUp);
+      };
+
+      window.addEventListener('pointermove', onMove, { passive: false });
+      window.addEventListener('pointerup', onUp);
+      window.addEventListener('pointercancel', onUp);
+    },
+    [fullscreen],
+  );
+
+  // The safe area moves as the page scrolls (the footer scrolls into view, the
+  // sticky header changes height) and on resize/rotate. Re-clamp the panel so a
+  // position that was legal a moment ago can never end up behind the chrome.
+  useEffect(() => {
+    if (!open || fullscreen) return;
+
+    let frame = 0;
+    const reclamp = () => {
+      frame = 0;
+      const el = panelRef.current;
+      if (!el) return;
+
+      // Shrink to the band between header and footer rather than overlapping
+      // either. The footer is tall, so on short viewports this is what keeps the
+      // whole panel visible once the footer scrolls in.
+      const { top, bottom } = chromeBounds();
+      const band = Math.max(MIN_PANEL_H, bottom - top);
+      setPanelMaxH(band);
+
+      const r = el.getBoundingClientRect();
+      const h = Math.min(r.height, band);
+      const c = clampToSafeArea(r.left, r.top, r.width, h);
+      if (Math.abs(c.x - r.left) > 0.5 || Math.abs(c.y - r.top) > 0.5) setPanelPos(c);
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(reclamp);
+    };
+
+    // Place the panel explicitly on open. The flex container it lives in anchors
+    // to the viewport bottom and knows nothing about the footer, so the default
+    // slot can already overlap it — measure and clamp instead of trusting layout.
+    const el = panelRef.current;
+    if (el && !panelPos) {
+      const { top, bottom } = chromeBounds();
+      const band = Math.max(MIN_PANEL_H, bottom - top);
+      setPanelMaxH(band);
+      const r = el.getBoundingClientRect();
+      setPanelPos(clampToSafeArea(r.left, r.top, r.width, Math.min(r.height, band)));
+    } else {
+      reclamp();
+    }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('orientationchange', schedule);
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      window.removeEventListener('orientationchange', schedule);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [open, fullscreen, panelPos]);
+
   const openChat = useCallback((source: string = 'fab') => {
     setShowPopup(false);
     setMinimized(false);
@@ -140,12 +305,12 @@ export function ResumeChatWidget() {
   const closeChat = useCallback(() => {
     setOpen(false);
     setMinimized(true);
-    setDragOffset({ x: 0, y: 0 });
+    setPanelPos(null);
   }, []);
 
   const toggleFullscreen = useCallback(() => {
     setFullscreen((v) => !v);
-    setDragOffset({ x: 0, y: 0 });
+    setPanelPos(null);
   }, []);
 
   const dismissPopup = useCallback(() => {
@@ -231,9 +396,6 @@ export function ResumeChatWidget() {
 
   return createPortal(
     <>
-      {/* Invisible full-viewport bounds so the panel can be dragged anywhere on screen */}
-      <div ref={dragConstraintsRef} className="pointer-events-none fixed inset-4 z-40" />
-
       <div
         className={
           fullscreen
@@ -284,21 +446,28 @@ export function ResumeChatWidget() {
             <motion.div
               role="dialog"
               aria-label="Resume chat"
-              drag={!fullscreen}
-              dragConstraints={dragConstraintsRef}
-              dragMomentum={false}
-              dragElastic={0.05}
-              onDragEnd={(_, info) => {
-                setDragOffset((prev) => ({ x: prev.x + info.offset.x, y: prev.y + info.offset.y }));
-              }}
+              ref={panelRef}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
-              animate={
-                fullscreen
-                  ? { opacity: 1, x: 0, y: 0, scale: 1 }
-                  : { opacity: 1, x: dragOffset.x, y: dragOffset.y, scale: 1 }
-              }
+              animate={{ opacity: 1, scale: 1, ...(shouldReduceMotion ? {} : { y: 0 }) }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.96 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
+              // Position is driven entirely by `panelPos` (see startDrag). Framer's
+              // own `drag` is deliberately NOT used: it applies an x/y transform on
+              // top of left/top, and the two compound — the panel double-counts every
+              // move and escapes the viewport.
+              style={
+                fullscreen || !panelPos
+                  ? undefined
+                  : {
+                      position: 'fixed',
+                      left: panelPos.x,
+                      top: panelPos.y,
+                      right: 'auto',
+                      bottom: 'auto',
+                      margin: 0,
+                      ...(panelMaxH ? { maxHeight: panelMaxH } : {}),
+                    }
+              }
               className={
                 fullscreen
                   ? 'pointer-events-auto fixed inset-0 z-[100] flex h-dvh w-full flex-col overflow-hidden rounded-none border-0 bg-paper shadow-glass'
@@ -307,8 +476,12 @@ export function ResumeChatWidget() {
             >
               {/* Header — drag handle */}
               <div
+                onPointerDown={startDrag}
+                // Let the handle own the gesture so the browser doesn't scroll
+                // the page while dragging on touch.
+                style={fullscreen ? undefined : { touchAction: 'none' }}
                 className={`flex items-center justify-between border-b border-border bg-surface/70 px-12 py-8 sm:px-16 sm:py-12 ${
-                  fullscreen ? '' : 'cursor-grab active:cursor-grabbing'
+                  fullscreen ? '' : 'cursor-grab active:cursor-grabbing select-none'
                 }`}
               >
                 <div className="flex items-center gap-8">
